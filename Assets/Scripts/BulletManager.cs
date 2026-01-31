@@ -18,13 +18,13 @@ public class BulletManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ballSpawn.action.WasPressedThisFrame())
+        if (ballSpawn.action.WasPressedThisFrame()) //Used for test, can be deleted or put in comm temporary
         {
             StartCoroutine(SpawnerPattern(spawnTimer, spawnCount, type)) ;
         }
     }
 
-    private GameObject SummonBall(string typePattern)
+    private GameObject SummonBall(string typePattern) //Re-use a ball or instantiate is needed
     {
         foreach (GameObject ballSummoned in _ballsPool)
         {
@@ -37,7 +37,7 @@ public class BulletManager : MonoBehaviour
         return newBall;
     }
     
-    private void BallPatternMaker(BallPathScriptable ballPattern, GameObject ballSpawned, bool isDoubleSine)
+    private void BallPatternMaker(BallPathScriptable ballPattern, GameObject ballSpawned, bool isDoubleSine) //Give pattern to ball and their spawn position
     {
         BallPath ballPath = ballSpawned.GetComponent<BallPath>();
         ballPath.endPosX = ballPattern.endPosX;
@@ -48,7 +48,7 @@ public class BulletManager : MonoBehaviour
         else  ballPath.startY = 1;
         ballPath.GiveAPath();
     }
-    IEnumerator SpawnerPattern(float spawnFrequency, int spawnQuantity, string typePattern)
+    IEnumerator SpawnerPattern(float spawnFrequency, int spawnQuantity, string typePattern) //Function to use to do a ball pattern
     {
         for (int i = 0; i < spawnQuantity; i++)
         {
