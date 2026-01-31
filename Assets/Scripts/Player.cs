@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     private float m_MoveInput;
     // Jump
-    private bool m_isJumping;
+    private bool m_IsJumping;
     private bool m_jumpBuffered;
     private bool m_JumpInputReleased;
     private bool m_IsMaxJumpRoutineRunning;
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
     {
         if (m_IsDashing)
             DashPlayer();
-        if (m_isJumping || (m_jumpBuffered && m_isGrounded))
+        if (m_IsJumping || (m_jumpBuffered && m_isGrounded))
             JumpPlayer();
         else
             MovePlayer();
@@ -131,7 +131,7 @@ public class Player : MonoBehaviour
         m_JumpInputReleased = false;
      
         if (m_isGrounded)
-            m_isJumping = true;
+            m_IsJumping = true;
         else
             StartJumpBuffer();
     }
@@ -141,7 +141,7 @@ public class Player : MonoBehaviour
         if (m_IsMaxJumpRoutineRunning)
         {
             StopCoroutine(MaxJumpRoutine());
-            m_isJumping = false;
+            m_IsJumping = false;
         }
         m_JumpInputReleased = true;
     }
@@ -162,7 +162,7 @@ public class Player : MonoBehaviour
 
     void HandleDashInput()
     {
-        if (!m_CanDash || m_MoveInput == 0f) return;
+        if (!m_CanDash || m_MoveInput == 0f || m_IsJumping) return;
         
         m_CanDash = false;
         m_IsDashing = true;
@@ -198,7 +198,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(m_JumpMinDuration);
         if (m_JumpInputReleased)
-            m_isJumping = false;
+            m_IsJumping = false;
         else
             StartCoroutine(MaxJumpRoutine());
     }
@@ -208,7 +208,7 @@ public class Player : MonoBehaviour
         m_IsMaxJumpRoutineRunning = true;
         yield return new WaitForSeconds(m_JumpMaxDuration);
         m_IsMaxJumpRoutineRunning = false;
-        m_isJumping = false;
+        m_IsJumping = false;
     }
 
     void DashPlayer()
