@@ -20,29 +20,36 @@ public class Player : MonoBehaviour
     private bool m_IsDashing;
     private float m_CurrentDashTime;
     private Vector2 m_DashVelocity;
-    private bool m_CanDash;
+    private bool m_CanDash = true;
+    // Attack
+    private bool m_CanAttack = true;
     
     private bool m_isGrounded => Physics2D.Raycast(transform.position, -Vector2.up, 1.05f, m_GroundLayer);
 
     [Header("Movement")]
-    [SerializeField] private float m_MoveSpeed = 50f;
+    [SerializeField] private float m_MoveSpeed = 15f;
     [SerializeField] private LayerMask m_GroundLayer;
     [SerializeField] private float m_Gravity = 9.81f;
     [SerializeField] private float m_AirGravityMultiplier = 3f;
-    [SerializeField] private float m_GroundLerpVelocity = .5f;
-    [SerializeField] private float m_AirLerpVelocity = .05f;
+    [SerializeField] private float m_GroundLerpVelocity = 0.5f;
+    [SerializeField] private float m_AirLerpVelocity = 0.05f;
     
     [Header("Jump")]
-    [SerializeField] private float m_JumpForce = 10f;
-    [SerializeField] private float m_JumpMoveMult = 1.3f;
+    [SerializeField] private float m_JumpForce = 15f;
+    [SerializeField] private float m_JumpMoveMult = 10f;
     [SerializeField] private float m_JumpBuffer = 0.1f;
-    [SerializeField] private float m_JumpMinDuration = 0.1f;
-    [SerializeField] private float m_JumpMaxDuration = 0.5f;
+    [SerializeField] private float m_JumpMinDuration = 0.05f;
+    [SerializeField] private float m_JumpMaxDuration = 0.1f;
     
     [Header("Dash")]
-    [SerializeField] private float m_DashDuration = 0.1f;
-    [SerializeField] private float m_DashSpeed = 20f;
+    [SerializeField] private float m_DashDuration = 0.15f;
+    [SerializeField] private float m_DashSpeed = 25f;
     [SerializeField] private float m_DashEndVelDiviser = 10f;
+
+    [Header("Attack")]
+    [SerializeField] private GameObject m_AttackColliders;
+    [SerializeField] private float m_AttackDuration = 0.2f;
+    [SerializeField] private float m_AttackCooldown = 0.2f;
     
     private void Awake()
     {
@@ -94,6 +101,10 @@ public class Player : MonoBehaviour
     void HandleMovementInput(float value)
     {
         m_MoveInput = value;
+        if (value > 0)
+            m_AttackColliders.transform.localPosition = Vector2.right;
+        else if (value < 0)
+            m_AttackColliders.transform.localPosition = Vector2.left;
     }
 
     void HandleJumpInput()
@@ -132,7 +143,7 @@ public class Player : MonoBehaviour
 
     void HandleDashInput()
     {
-        if (!m_CanDash) return;
+        if (!m_CanDash || m_MoveInput == 0f) return;
         
         m_CanDash = false;
         m_IsDashing = true;
@@ -197,6 +208,23 @@ public class Player : MonoBehaviour
 
     void AttackPlayer()
     {
-        
+        if (!m_CanAttack || m_IsDashing) return;
+
+        m_CanAttack = false;
+        m_AttackColliders.SetActive(true);
+        StartCoroutine(AttackRoutine());
+    }
+
+    IEnumerator AttackRoutine()
+    {
+        yield return new WaitForSeconds(m_AttackDuration);
+        m_AttackColliders.SetActive(false);
+        StartCoroutine(AttackCooldownRoutine());
+    }
+
+    IEnumerator AttackCooldownRoutine()
+    {
+        yield return new WaitForSeconds(m_AttackCooldown);
+        m_CanAttack = true;
     }
 }
