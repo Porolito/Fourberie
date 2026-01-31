@@ -147,7 +147,7 @@ public class Player : MonoBehaviour
         
         m_CanDash = false;
         m_IsDashing = true;
-        m_DashVelocity = new Vector2(m_MoveInput * m_DashSpeed, 0);
+        m_DashVelocity = new Vector2(m_MoveInput, 0).normalized * m_DashSpeed;
     }
 
     void HandleAttackInput()
