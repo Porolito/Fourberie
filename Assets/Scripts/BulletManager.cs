@@ -26,39 +26,26 @@ public class BulletManager : MonoBehaviour
 
     private GameObject SummonBall(string typePattern)
     {
-        if (_ballsPool.Count <= 30)
+        foreach (GameObject ballSummoned in _ballsPool)
         {
-            return Instantiate(ball, Vector3.zero, Quaternion.identity);
+            if (ballSummoned.activeSelf) continue;
+            ballSummoned.SetActive(true);
+            return ballSummoned;
         }
-        else
-        {
-            for (int i = 0; i < _ballsPool.Count; i++)
-            {
-                if (_ballsPool[i].activeSelf) continue;
-                return _ballsPool[i];
-            }
-        }
-        return null;
+        GameObject newBall = Instantiate(ball, Vector3.zero, Quaternion.identity);
+        _ballsPool.Add(newBall);
+        return newBall;
     }
     
-    private void BallPatternMaker(BallPathScriptable ballPattern, GameObject ballSpawned)
+    private void BallPatternMaker(BallPathScriptable ballPattern, GameObject ballSpawned, bool isDoubleSine)
     {
         BallPath ballPath = ballSpawned.GetComponent<BallPath>();
         ballPath.endPosX = ballPattern.endPosX;
         ballPath.waveFrequency = ballPattern.waveFrequency;
         ballPath.waveAmplitude = ballPattern.waveAmplitude;
         ballPath.spawnPosition = ballSpawned.transform.position;
-        ballPath.GiveAPath();
-    }
-
-    private void DoubleSin(BallPathScriptable ballPattern, GameObject ballSpawned)
-    {
-        BallPath ballPath = ballSpawned.GetComponent<BallPath>();
-        ballPath.endPosX = ballPattern.endPosX;
-        ballPath.waveFrequency = ballPattern.waveFrequency;
-        ballPath.waveAmplitude = ballPattern.waveAmplitude;
-        ballPath.spawnPosition = ballSpawned.transform.position;
-        ballPath.startY = -1;
+        if (isDoubleSine) ballPath.startY = -1;
+        else  ballPath.startY = 1;
         ballPath.GiveAPath();
     }
     IEnumerator SpawnerPattern(float spawnFrequency, int spawnQuantity, string typePattern)
@@ -70,15 +57,15 @@ public class BulletManager : MonoBehaviour
             switch (typePattern)
             {
                 case "Straight":
-                    BallPatternMaker(ballPathScriptable[0], _lastBall); 
+                    BallPatternMaker(ballPathScriptable[0], _lastBall, false); 
                     break;
                 case "Sine": 
-                    BallPatternMaker(ballPathScriptable[1], _lastBall); 
+                    BallPatternMaker(ballPathScriptable[1], _lastBall, false); 
                     break;
                 case "SineBis": 
-                    BallPatternMaker(ballPathScriptable[1], _lastBall);
-                    //_lastBall = SummonBall(typePattern);
-                    //DoubleSin(ballPathScriptable[1], _lastBall);
+                    BallPatternMaker(ballPathScriptable[1], _lastBall, false);
+                    var _lastBall1 = SummonBall(typePattern);
+                    BallPatternMaker(ballPathScriptable[1], _lastBall1, true);
                     break;
             }
         }

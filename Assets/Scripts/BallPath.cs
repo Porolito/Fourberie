@@ -16,9 +16,9 @@ public class BallPath : MonoBehaviour
     // Update is called once per frame
     
     
-    void Start()
+    void OnEnable()
     {
-        _startPos = transform.position;
+        transform.position = spawnPosition;
         
     }
     private void TurnOffBall()
