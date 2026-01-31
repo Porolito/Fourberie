@@ -23,8 +23,12 @@ public class Player : MonoBehaviour
     private bool m_CanDash = true;
     // Attack
     private bool m_CanAttack = true;
+    // Invincibility
+    private bool m_IsInvincible;
     
     private bool m_isGrounded => Physics2D.Raycast(transform.position, -Vector2.up, 1.05f, m_GroundLayer);
+
+    [SerializeField] private float m_InvincibilityDuration = 1f;
 
     [Header("Movement")]
     [SerializeField] private float m_MoveSpeed = 15f;
@@ -75,7 +79,22 @@ public class Player : MonoBehaviour
         else
             MovePlayer();
     }
-    
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        //TODO à finir avec les boules d'Axel + screenshake
+        if (m_IsInvincible) return;
+        print("HIT!");
+        StartCoroutine(InvincibilityRoutine());
+    }
+
+    IEnumerator InvincibilityRoutine()
+    {
+        m_IsInvincible = true;
+        yield return new WaitForSeconds(m_InvincibilityDuration);
+        m_IsInvincible = false;
+    }
+
     #region Inputs
 
     void SubInputs()
