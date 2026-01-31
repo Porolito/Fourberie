@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SineWave
   m_EditorClassIdentifier: Assembly-CSharp::BallPathScriptable
   endPosX: 30
-  waveAmplitude: 0
-  waveFrequency: 0
+  waveAmplitude: 2
+  waveFrequency: 2
   spawnPosition: {x: 0, y: 0, z: 0}
