@@ -274,11 +274,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   m_MoveSpeed: 15
-  m_JumpForce: 15
-  m_JumpMoveMult: 10
-  m_JumpBuffer: 0.1
-  m_JumpMinDuration: 0.05
-  m_JumpMaxDuration: 0.1
   m_GroundLayer:
     serializedVersion: 2
     m_Bits: 32768
@@ -286,6 +281,14 @@ MonoBehaviour:
   m_AirGravityMultiplier: 3
   m_GroundLerpVelocity: 0.5
   m_AirLerpVelocity: 0.05
+  m_JumpForce: 15
+  m_JumpMoveMult: 10
+  m_JumpBuffer: 0.1
+  m_JumpMinDuration: 0.05
+  m_JumpMaxDuration: 0.1
+  m_DashDuration: 0.15
+  m_DashSpeed: 25
+  m_DashEndVelDiviser: 10
 --- !u!4 &1047206286
 Transform:
   m_ObjectHideFlags: 0

@@ -11,27 +11,38 @@ public class Player : MonoBehaviour
     Rigidbody2D m_Rb2d;
 
     private float m_MoveInput;
+    // Jump
     private bool m_isJumping;
     private bool m_jumpBuffered;
     private bool m_JumpInputReleased;
     private bool m_IsMaxJumpRoutineRunning;
+    // Dash
+    private bool m_IsDashing;
+    private float m_CurrentDashTime;
+    private Vector2 m_DashVelocity;
+    private bool m_CanDash;
     
     private bool m_isGrounded => Physics2D.Raycast(transform.position, -Vector2.up, 1.05f, m_GroundLayer);
 
-    [Header("Base")]
+    [Header("Movement")]
     [SerializeField] private float m_MoveSpeed = 50f;
+    [SerializeField] private LayerMask m_GroundLayer;
+    [SerializeField] private float m_Gravity = 9.81f;
+    [SerializeField] private float m_AirGravityMultiplier = 3f;
+    [SerializeField] private float m_GroundLerpVelocity = .5f;
+    [SerializeField] private float m_AirLerpVelocity = .05f;
+    
+    [Header("Jump")]
     [SerializeField] private float m_JumpForce = 10f;
     [SerializeField] private float m_JumpMoveMult = 1.3f;
     [SerializeField] private float m_JumpBuffer = 0.1f;
     [SerializeField] private float m_JumpMinDuration = 0.1f;
     [SerializeField] private float m_JumpMaxDuration = 0.5f;
     
-    [Header("Physics")]
-    [SerializeField] private LayerMask m_GroundLayer;
-    [SerializeField] private float m_Gravity = 9.81f;
-    [SerializeField] private float m_AirGravityMultiplier = 3f;
-    [SerializeField] private float m_GroundLerpVelocity = .5f;
-    [SerializeField] private float m_AirLerpVelocity = .05f;
+    [Header("Dash")]
+    [SerializeField] private float m_DashDuration = 0.1f;
+    [SerializeField] private float m_DashSpeed = 20f;
+    [SerializeField] private float m_DashEndVelDiviser = 10f;
     
     private void Awake()
     {
@@ -50,6 +61,8 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (m_IsDashing)
+            DashPlayer();
         if (m_isJumping || (m_jumpBuffered && m_isGrounded))
             JumpPlayer();
         else
@@ -119,7 +132,11 @@ public class Player : MonoBehaviour
 
     void HandleDashInput()
     {
-        DashPlayer();
+        if (!m_CanDash) return;
+        
+        m_CanDash = false;
+        m_IsDashing = true;
+        m_DashVelocity = new Vector2(m_MoveInput * m_DashSpeed, 0);
     }
 
     void HandleAttackInput()
@@ -132,8 +149,11 @@ public class Player : MonoBehaviour
     void MovePlayer()
     {
         Vector2 moveDir = new Vector2(m_MoveInput * m_MoveSpeed, -m_Gravity);
+        
         if (!m_isGrounded)
             moveDir.y *= m_AirGravityMultiplier;
+        else if (!m_CanDash)
+            m_CanDash = true;
         
         m_Rb2d.linearVelocity = Vector2.Lerp(m_Rb2d.linearVelocity, moveDir, m_isGrounded ? m_GroundLerpVelocity : m_AirLerpVelocity);
     }
@@ -163,7 +183,16 @@ public class Player : MonoBehaviour
 
     void DashPlayer()
     {
-        
+        m_CurrentDashTime += Time.fixedDeltaTime;
+            
+        m_Rb2d.linearVelocity = m_DashVelocity;
+
+        if(m_CurrentDashTime >= m_DashDuration)
+        {
+            m_IsDashing = false;
+            m_CurrentDashTime = 0f;
+            m_Rb2d.linearVelocity /= m_DashEndVelDiviser;
+        }
     }
 
     void AttackPlayer()
