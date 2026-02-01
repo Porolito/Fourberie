@@ -4,7 +4,7 @@ using UnityEngine;
 public class DialogPartData : ScriptableObject
 {
     public AudioClip clip;
-    public string subtitle;
+    [TextArea] public string subtitle;
     public Expression expression;
     
     public enum Expression
