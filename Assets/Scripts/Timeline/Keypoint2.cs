@@ -24,7 +24,7 @@ namespace Timeline
         public override void ProcessKeypoint()
         {
             Debug.Log("StartKeypoint");
-            currentPattern = StartCoroutine(bulletManager.SpawnerPattern(0.5f, 30, "Straight"));
+            currentPattern = StartCoroutine(bulletManager.SpawnerPattern(0.5f, 30, "Sine"));
             //KP logic : bullets
         }
 
