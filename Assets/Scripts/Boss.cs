@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Timeline;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -12,6 +13,10 @@ public class Boss : MonoBehaviour
     private int m_CurrentHealth;
     private int m_CurrentHitToPush;
     private bool m_PushCooldownStarted;
+    private int m_PhaseID = -1;
+    
+    [Header("Ref")]
+    [SerializeField] private EV_PhaseSuccessEvent m_SuccessEvent;
 
     [Header("Settings")]
     [SerializeField] private int m_HealthPerPhase = 9;
@@ -22,11 +27,11 @@ public class Boss : MonoBehaviour
     private void Awake()
     {
         m_Animator = GetComponent<Animator>();
-        StartPhase(true);
     }
 
     public void StartPhase(bool canTakeDamages)
     {
+        m_PhaseID++;
         m_CurrentHealth = m_HealthPerPhase;
         m_CurrentHitToPush = m_HitToPush;
         m_CanTakeDamages = canTakeDamages;
@@ -71,9 +76,9 @@ public class Boss : MonoBehaviour
 
     void EndPhase(Player player)
     {
-        //TODO appel du timeline pour next
         m_CanTakeDamages = false;
         PushPlayerAway(player);
         print("END OF PHASE");
+        m_SuccessEvent.CallPhaseSuccess(m_PhaseID);
     }
 }

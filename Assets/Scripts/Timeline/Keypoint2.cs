@@ -18,8 +18,6 @@ namespace Timeline
         [SerializeField] private DialogPartData[] dialogParts;
 
         private Coroutine currentPattern;
-        
-        private
 
         private void Awake()
         {
