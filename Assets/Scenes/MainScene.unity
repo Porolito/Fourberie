@@ -374,6 +374,18 @@ PrefabInstance:
       value: Drapes_Closed
       objectReference: {fileID: 0}
     - target: {fileID: 3665734510289813731, guid: 366b3f23663a8ec419b8b37410c52898, type: 3}
+      propertyPath: _fade
+      value: 
+      objectReference: {fileID: 3978991057124748765}
+    - target: {fileID: 3665734510289813731, guid: 366b3f23663a8ec419b8b37410c52898, type: 3}
+      propertyPath: _fadeGO
+      value: 
+      objectReference: {fileID: 3978991057124748761}
+    - target: {fileID: 3665734510289813731, guid: 366b3f23663a8ec419b8b37410c52898, type: 3}
+      propertyPath: _narratorVisual
+      value: 
+      objectReference: {fileID: 1542355807}
+    - target: {fileID: 3665734510289813731, guid: 366b3f23663a8ec419b8b37410c52898, type: 3}
       propertyPath: dialogParts.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -901,6 +913,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1640510476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1542355807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6646075313800004949, guid: 0e1c3917783789f469f4d26c8fb5420d, type: 3}
+  m_PrefabInstance: {fileID: 3978991057124748759}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1609888227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -993,7 +1010,8 @@ PrefabInstance:
       propertyPath: bulletManager
       value: 
       objectReference: {fileID: 388172499}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2754005545258447338, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1255,6 +1273,16 @@ PrefabInstance:
 --- !u!224 &3978991057124748760 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4958348790864501651, guid: 0e1c3917783789f469f4d26c8fb5420d, type: 3}
+  m_PrefabInstance: {fileID: 3978991057124748759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3978991057124748761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8962402470371495759, guid: 0e1c3917783789f469f4d26c8fb5420d, type: 3}
+  m_PrefabInstance: {fileID: 3978991057124748759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3978991057124748765 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5294600372386915810, guid: 0e1c3917783789f469f4d26c8fb5420d, type: 3}
   m_PrefabInstance: {fileID: 3978991057124748759}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6457476777278200212
