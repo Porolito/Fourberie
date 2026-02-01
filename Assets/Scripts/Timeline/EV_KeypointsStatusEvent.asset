@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 443093be411a03f45873e3982576bf09, type: 3}
-  m_Name: StraightWave
-  m_EditorClassIdentifier: Assembly-CSharp::BallPathScriptable
-  endPosX: -11.53
-  waveAmplitude: 0
-  waveFrequency: 0
-  spawnPosition: {x: 6.74, y: -0.94, z: 0}
+  m_Script: {fileID: 11500000, guid: a72345e081392d84dac0ac300b2e6a79, type: 3}
+  m_Name: EV_KeypointsStatusEvent
+  m_EditorClassIdentifier: Assembly-CSharp::Timeline.EV_KeypointsStatusEvent

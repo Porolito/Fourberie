@@ -8,18 +8,16 @@ public class BallPath : MonoBehaviour
     public float endPosX; //X pos to reach
     public float waveAmplitude;
     public float waveFrequency;
-    public Vector3 spawnPosition = Vector3.zero;
+    public Vector3 spawnPosition = new Vector3(6.73999977f,-0.939999998f,0f);
     
     float moveDuration = 15;
 
     public float startY = 1;
     // Update is called once per frame
     
-    
     void OnEnable()
     {
-        transform.position = spawnPosition;
-        
+        transform.position = new Vector3(6.73999977f,-0.939999998f,0f);
     }
     private void TurnOffBall()
     {
