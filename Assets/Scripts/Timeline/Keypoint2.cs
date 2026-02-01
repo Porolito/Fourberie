@@ -4,10 +4,10 @@ using UnityEngine.InputSystem;
 
 namespace Timeline
 {
-    public class Keypoint1 : AbstractKeypoints, IEV_PhaseSuccessEvent
+    public class Keypoint2 : AbstractKeypoints, IEV_PhaseSuccessEvent
     {
         //Pattern SO
-        private int kpID = 0;
+        private int kpID = 1;
 
         [SerializeField] private EV_PhaseSuccessEvent evPhaseSuccessEvent;
         [SerializeField] private EV_KPEndEvent evKPEndEvent;

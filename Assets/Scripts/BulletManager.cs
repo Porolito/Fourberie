@@ -16,13 +16,13 @@ public class BulletManager : MonoBehaviour
     public string type;
 
     // Update is called once per frame
-    void Update()
-    {
-        if (ballSpawn.action.WasPressedThisFrame()) //Used for test, can be deleted or put in comm temporary
-        {
-            StartCoroutine(SpawnerPattern(spawnTimer, spawnCount, type)) ;
-        }
-    }
+    // void Update()
+    // {
+    //     if (ballSpawn.action.WasPressedThisFrame()) //Used for test, can be deleted or put in comm temporary
+    //     {
+    //         StartCoroutine(SpawnerPattern(spawnTimer, spawnCount, type)) ;
+    //     }
+    // }
 
     private GameObject SummonBall(string typePattern) //Re-use a ball or instantiate is needed
     {
@@ -48,7 +48,7 @@ public class BulletManager : MonoBehaviour
         else  ballPath.startY = 1;
         ballPath.GiveAPath();
     }
-    IEnumerator SpawnerPattern(float spawnFrequency, int spawnQuantity, string typePattern) //Function to use to do a ball pattern
+    public IEnumerator SpawnerPattern(float spawnFrequency, int spawnQuantity, string typePattern) //Function to use to do a ball pattern
     {
         for (int i = 0; i < spawnQuantity; i++)
         {
