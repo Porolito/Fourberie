@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Phase3_3
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
   clip: {fileID: 8300000, guid: 91725e4e3eb0f04449784229c59b61c3, type: 3}
-  subtitle: 
+  subtitle: "So the story goes\u2026"
   expression: 0

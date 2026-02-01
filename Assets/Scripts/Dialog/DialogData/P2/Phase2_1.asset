@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Phase2_1
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
   clip: {fileID: 8300000, guid: 5616f026154269246a2a02ebb6f87e3b, type: 3}
-  subtitle: 
-  expression: 0
+  subtitle: "Pheew\u2026 Well done Hero!"
+  expression: 2
