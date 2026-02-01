@@ -8,7 +8,7 @@ public class BulletManager : MonoBehaviour
     private List<GameObject> _ballsPool =  new List<GameObject>();
     [SerializeField] private GameObject ball;
     [SerializeField] private BallPathScriptable[] ballPathScriptable;
-    [SerializeField] private SpriteRenderer[] ballSkin;
+    [SerializeField] private Sprite[] ballSkin;
     private bool skinPeople = false;
     [SerializeField] private InputActionReference ballSpawn;
     [SerializeField] private InputActionReference ballMove;
@@ -44,7 +44,7 @@ public class BulletManager : MonoBehaviour
             skinPeople = true;
         }
         else rand = Random.Range(0, ballSkin.Length - 1);
-        newBall.GetComponent<SpriteRenderer>().sprite = ballSkin[rand].sprite;
+        newBall.GetComponent<SpriteRenderer>().sprite = ballSkin[rand];
         _ballsPool.Add(newBall);
         return newBall;
     }
