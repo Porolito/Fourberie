@@ -27,11 +27,11 @@ public class SpotLight_Script : MonoBehaviour
     {
         if (isOnSpotLight)
         {
-            Debug.Log("Success");
+            SpotLight_Gameplay.Instance.CallSuccess();
         }
         else
         {
-            Debug.Log("Failed");
+            SpotLight_Gameplay.Instance.CallFail();
         }
     }
 }
