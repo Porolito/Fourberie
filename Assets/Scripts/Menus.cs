@@ -1,4 +1,5 @@
 using System.Collections;
+using Timeline;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,8 @@ public class Menus : MonoBehaviour
     [SerializeField] private InputActionReference _inputPause;
     
     [SerializeField] private Animator _animatorCurtains;
+    
+    [SerializeField] private DialogPartData[] dialogParts;
 
     private bool _canStart;
     private bool _canPause;
@@ -46,9 +49,7 @@ public class Menus : MonoBehaviour
     {
         if (_canStart == true && _inputAction.action.WasPressedThisFrame())
         {
-            _animatorCurtains.SetTrigger("Opening");
-            _canPause = true;
-            _colliderToDestroy.enabled = false;
+            StartCoroutine(IntroSequence());
         }
             
     }
@@ -98,5 +99,26 @@ public class Menus : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
         _isPaused = false;
         _isTransitioning = false;
+    }
+
+    private IEnumerator IntroSequence()
+    {
+        DialogManager.instance.PlayDialog(dialogParts[0]);
+        yield return new WaitForSeconds(3.5f);
+        DialogManager.instance.PlayDialog(dialogParts[1]);
+        yield return new WaitForSeconds(3.5f);
+        DialogManager.instance.PlayDialog(dialogParts[2]);
+        yield return new WaitForSeconds(3.5f);
+        DialogManager.instance.PlayDialog(dialogParts[3]);
+        yield return new WaitForSeconds(3.5f);
+        DialogManager.instance.PlayDialog(dialogParts[4]);
+        yield return new WaitForSeconds(3.5f);
+        DialogManager.instance.PlayDialog(dialogParts[5]);
+        yield return new WaitForSeconds(3.5f);
+        _animatorCurtains.SetTrigger("Opening");
+        _canPause = true;
+        _colliderToDestroy.enabled = false;
+        yield return new WaitForSeconds(10f);
+        TimelineHandler.instance.StartTimeline();
     }
 }
