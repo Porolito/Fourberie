@@ -263,11 +263,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73903992b757f09478beb6266476942a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  isInDamagePhase: 1
   m_HealthPerPhase: 9
   m_HitToPush: 3
   m_TimeToResetPush: 3
-  m_PushForce: 0
+  m_PushForce: 30
 --- !u!61 &8034729178807057202
 BoxCollider2D:
   m_ObjectHideFlags: 0

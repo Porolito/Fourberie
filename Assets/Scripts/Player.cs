@@ -292,5 +292,7 @@ public class Player : MonoBehaviour
     public void PushAway(Vector2 dir)
     {
         m_Rb2d.linearVelocity = dir;
+        m_IsInvincible = true;
+        StartCoroutine(InvincibilityRoutine());
     }
 }

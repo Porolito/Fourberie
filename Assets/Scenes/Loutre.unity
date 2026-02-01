@@ -473,6 +473,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Projectile1
       objectReference: {fileID: 0}
+    - target: {fileID: 3382155590980841643, guid: e93bd653e467c584a8a583b7a76f9241, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3430921726045838682, guid: e93bd653e467c584a8a583b7a76f9241, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.2238648
@@ -781,14 +785,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1917938026}
     m_Modifications:
-    - target: {fileID: 609560077495305615, guid: 0e8f89071bf6e7b4fb718df46e78b54d, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3521505514601726915, guid: 0e8f89071bf6e7b4fb718df46e78b54d, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7067262278770899068, guid: 0e8f89071bf6e7b4fb718df46e78b54d, type: 3}
       propertyPath: m_Name
       value: Player
