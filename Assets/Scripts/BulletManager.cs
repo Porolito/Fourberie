@@ -17,16 +17,16 @@ public class BulletManager : MonoBehaviour
     public int spawnCount;
     public string type;
 
-    public Coroutine ActualCoroutine;
+    private Coroutine ActualCoroutine;
     // Update is called once per frame
-    void Update()
-    {
-        if (ballSpawn.action.WasPressedThisFrame()) //Used for test, can be deleted or put in comm temporary
-        {
-            LaunchCoroutine(spawnTimer, spawnCount, type, 3) ;
-        }
-        if  (ballMove.action.WasPressedThisFrame()) StopCoroutine(ActualCoroutine);
-    }
+    // void Update()
+    // {
+    //     if (ballSpawn.action.WasPressedThisFrame()) //Used for test, can be deleted or put in comm temporary
+    //     {
+    //         LaunchCoroutine(spawnTimer, spawnCount, type, 3) ;
+    //     }
+    //     if  (ballMove.action.WasPressedThisFrame()) StopCoroutine(ActualCoroutine);
+    // }
 
     private GameObject SummonBall() //Re-use a ball or instantiate is needed
     {
@@ -85,12 +85,12 @@ public class BulletManager : MonoBehaviour
         LaunchCoroutine(spawnFrequency, spawnQuantity, typePattern, timeBeforeNewWave);
     }
 
-    private void LaunchCoroutine(float spawnFrequency, int spawnQuantity, string typePattern, float timeBeforeNewWave)
+    public void LaunchCoroutine(float spawnFrequency, int spawnQuantity, string typePattern, float timeBeforeNewWave)
     {
         ActualCoroutine = StartCoroutine(SpawnerPattern(spawnFrequency,  spawnQuantity, typePattern, timeBeforeNewWave));
     }
 
-    private void StopCoroutine()
+    public void CancelCoroutine()
     {
         if (ActualCoroutine != null) StopCoroutine(ActualCoroutine);
     }

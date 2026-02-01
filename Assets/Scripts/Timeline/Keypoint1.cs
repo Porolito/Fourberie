@@ -24,14 +24,14 @@ namespace Timeline
         public override void ProcessKeypoint()
         {
             Debug.Log("StartKeypoint");
-            currentPattern = StartCoroutine(bulletManager.SpawnerPattern(0.5f, 30, "SineBis"));
+            bulletManager.LaunchCoroutine(0.5f, 30, "SineBis",3);
             //KP logic : bullets
         }
 
         public void OnPhaseSuccess(int id)
         {
             if (kpID != id) return;
-            StopCoroutine(currentPattern);
+            bulletManager.CancelCoroutine();
             Debug.Log("EndKeypoint");
             //KP logic : dialog
             evKPEndEvent.CallFinishedKeypoint();

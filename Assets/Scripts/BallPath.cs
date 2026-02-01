@@ -15,7 +15,6 @@ public class BallPath : MonoBehaviour
     public float startY = 1;
     // Update is called once per frame
     
-    
     void OnEnable()
     {
         transform.position = new Vector3(6.73999977f,-0.939999998f,0f);
