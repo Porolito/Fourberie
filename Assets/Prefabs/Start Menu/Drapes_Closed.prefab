@@ -139,7 +139,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 13b02c71ae57bb540a8030612d37e73a, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 5700518547321022830}
   - component: {fileID: 1163889349592985266}
   - component: {fileID: 2093395647080774162}
+  - component: {fileID: 3665734510289813731}
   m_Layer: 0
   m_Name: SPR_cord
   m_TagString: Untagged
@@ -466,6 +467,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.75, y: 16.7}
   m_EdgeRadius: 0
+--- !u!114 &3665734510289813731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118590783842000088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79487c274fa3a3a4fa8e2628c14b9511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Menus
+  _startIcon: {fileID: 2062155822060185183}
+  _colliderToDestroy: {fileID: 2093395647080774162}
+  _inputAction: {fileID: -2157032461304432097, guid: 6521c72fc7126ac4e9f5b855cf13b9f5, type: 3}
+  _inputPause: {fileID: 7266497283625765636, guid: 6521c72fc7126ac4e9f5b855cf13b9f5, type: 3}
+  _animatorCurtains: {fileID: 8983246312699646499}
 --- !u!1 &8728687777026740106
 GameObject:
   m_ObjectHideFlags: 0

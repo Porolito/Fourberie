@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,8 @@ public class Menus : MonoBehaviour
 
     private bool _canStart;
     private bool _canPause;
+    private bool _isPaused;
+    private bool _isTransitioning;
     
     void OnEnable()
     {
@@ -30,12 +33,12 @@ public class Menus : MonoBehaviour
     {
         StartGame();
 
-        if (_canPause)
-            PauseGame();
-
-        if (!_canStart && _canPause)
+        if (_inputPause.action.WasPressedThisFrame() && !_isTransitioning)
         {
-            ResumeGame();
+            if (_isPaused)
+                ResumeGame();
+            else
+                PauseGame();
         }
     }
 
@@ -56,7 +59,6 @@ public class Menus : MonoBehaviour
         {
             _startIcon.SetActive(true);
             _canStart = true;
-            Debug.Log("dedans");
         }
     }
     
@@ -66,25 +68,35 @@ public class Menus : MonoBehaviour
         {
             _startIcon.SetActive(false);
             _canStart = false;
-            Debug.Log("pas dedans");
         }
     }
 
-    public void PauseGame()
+    void PauseGame()
     {
-        if (_inputPause.action.WasPressedThisFrame())
-        {
-            _animatorCurtains.SetTrigger("Closing");
-            _canPause = false;
-        }
+        _isTransitioning = true;
+        _animatorCurtains.SetTrigger("Closing");
+        StartCoroutine(PauseAfterCurtains());
     }
 
-    public void ResumeGame()
+    void ResumeGame()
     {
-        if (_inputPause.action.WasPressedThisFrame())
-        {
-            _animatorCurtains.SetTrigger("Opening");
-            _canPause = true;
-        }
+        _isTransitioning = true;
+        Time.timeScale = 1f;
+        _animatorCurtains.SetTrigger("Opening");
+        StartCoroutine(ResumeAfterCurtains());
+    }
+    IEnumerator PauseAfterCurtains()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        Time.timeScale = 0f;
+        _isPaused = true;
+        _isTransitioning = false;
+    }
+
+    IEnumerator ResumeAfterCurtains()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        _isPaused = false;
+        _isTransitioning = false;
     }
 }
