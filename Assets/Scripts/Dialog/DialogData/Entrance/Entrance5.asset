@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Entrance5
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
   clip: {fileID: 8300000, guid: 22d3e54e530bff94fab735dd22b78268, type: 3}
-  subtitle: "The audience is excited, I hope you\u2019re ready"
+  subtitle: "The audience is excited, I hope you\u2019re ready."
   expression: 0

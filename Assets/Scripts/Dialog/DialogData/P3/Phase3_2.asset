@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b56595c59c137a4ea2fcf6d637c3875, type: 3}
-  m_Name: Phase1_2
+  m_Name: Phase3_2
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
-  clip: {fileID: 8300000, guid: 77651f0feaeca1847a661a1ae30f6f65, type: 3}
-  subtitle: There was a fearless hero and a not-that-scared princess.
+  clip: {fileID: 0}
+  subtitle: 
   expression: 0

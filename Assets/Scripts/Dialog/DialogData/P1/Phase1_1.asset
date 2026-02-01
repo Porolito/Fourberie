@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b56595c59c137a4ea2fcf6d637c3875, type: 3}
   m_Name: Phase1_1
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: c1bc9bc5d890d3f4bab2a1e5e7781492, type: 3}
   subtitle: "Once upon a time\u2026"
   expression: 0
