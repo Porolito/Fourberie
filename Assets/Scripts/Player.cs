@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -95,18 +96,20 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        //TODO à finir avec les boules d'Axel + screenshake
         if (!other.CompareTag("Projectile")) return;
         if (m_IsInvincible) return;
+        
+        m_IsInvincible = true;
         print("HIT!");
         //EVENT HIT
         m_MalusEvent.CallMalus();
+        m_Rb2d.linearVelocity /= 5f;
+        Camera.main.transform.DOShakePosition(0.1f, 1f, 2);
         StartCoroutine(InvincibilityRoutine());
     }
 
     IEnumerator InvincibilityRoutine()
     {
-        m_IsInvincible = true;
         yield return new WaitForSeconds(m_InvincibilityDuration);
         m_IsInvincible = false;
     }

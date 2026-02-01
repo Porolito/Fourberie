@@ -5,8 +5,8 @@ public class Boss : MonoBehaviour
 {
     private static readonly int HitAnimString = Animator.StringToHash("hit");
     Animator m_Animator;
-
-    [HideInInspector] public bool isInDamagePhase;
+    
+    public bool isInDamagePhase;
 
     [Header("Settings")]
     [SerializeField] private int m_HealthPerPhase = 9;
@@ -21,7 +21,7 @@ public class Boss : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("PlayerAttack") && isInDamagePhase) return;
+        if (!other.CompareTag("PlayerAttack") || !isInDamagePhase) return;
         
         m_Animator.SetTrigger(HitAnimString);
         Vector2 pushDir = other.transform.position - transform.position;
