@@ -13,10 +13,5 @@ public class SpotLight_Gameplay : MonoBehaviour
         GameObject actualSpotLight = spotLight[rand];
         actualSpotLight.SetActive(true);
     }
-
-    private void CheckTrigger()
-    {
-        Debug.Log(GetComponent<SpotLight_Script>().isOnSpotLight ? "SpotLight Success" : "SpotLight Failed");
-    }
     
 }
