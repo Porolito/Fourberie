@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Phase4_2
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
   clip: {fileID: 8300000, guid: f2a7d95d4675cc24087436bcaa0dc77d, type: 3}
-  subtitle: 
-  expression: 0
+  subtitle: "Take the light Hero! And don\u2019t forget your sunscreen !"
+  expression: 2
