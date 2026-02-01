@@ -25,8 +25,13 @@ namespace Timeline
 
         public override IEnumerator ProcessKeypoint()
         {
-            Debug.Log("StartKeypoint");
-            bulletManager.LaunchCoroutine(0.5f, 30, "SineBis", 3);
+            Debug.Log("Start Phase4");
+            Boss.Instance.StartPhase(false);
+            DialogManager.instance.PlayDialog(dialogParts[0]);
+            yield return new WaitForSeconds(dialogParts[0].clip.length);
+            DialogManager.instance.PlayDialog(dialogParts[1]);
+            yield return new WaitForSeconds(dialogParts[1].clip.length + 0.5f);
+            SpotLight_Gameplay.Instance.StartPhase(kpID);
             //KP logic : bullets
             yield return null;
         }
