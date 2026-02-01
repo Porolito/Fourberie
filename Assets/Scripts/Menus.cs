@@ -127,7 +127,7 @@ public class Menus : MonoBehaviour
         _animatorCurtains.SetTrigger("Opening");
         _canPause = true;
         _colliderToDestroy.enabled = false;
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         TimelineHandler.instance.StartTimeline();
     }
     
