@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6427455622551295874}
   - component: {fileID: 1696240716486345902}
   - component: {fileID: 108976772813915065}
+  - component: {fileID: 4505624974063594784}
   m_Layer: 0
   m_Name: Projectile3
   m_TagString: Untagged
@@ -59,7 +60,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 293140c68bcd7934f96e1a05aeb1f4b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -145,3 +146,25 @@ MonoBehaviour:
   waveFrequency: 1
   spawnPosition: {x: 0, y: 0, z: 0}
   startY: 0
+--- !u!95 &4505624974063594784
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2355269730786568664}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f23b2bd748371bb4e9ea9993dfc5f89b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
