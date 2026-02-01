@@ -6,6 +6,8 @@ namespace Timeline
 {
     public class TimelineHandler : MonoBehaviour, IEV_KPEndEvent
     {
+        public static TimelineHandler instance;
+        
         [SerializeField] private List<AbstractKeypoints> keypoints;
         
         [SerializeField] private EV_KPEndEvent evKPEndEvent;
@@ -13,11 +15,14 @@ namespace Timeline
 
         private void Awake()
         {
+            if (instance == null)
+                instance = this;
+            
             evKPEndEvent.Register(this);
         }
 
         //Start first keypoint in list
-        private void Start()
+        public void StartTimeline()
         {
             StartCoroutine(keypoints[0].ProcessKeypoint());
         }
@@ -26,7 +31,7 @@ namespace Timeline
         {
             Debug.Log("Switch Keypoint");
             currentKeypointIndex++;
-            keypoints[currentKeypointIndex].ProcessKeypoint();
+            StartCoroutine(keypoints[currentKeypointIndex].ProcessKeypoint());
         }
     }
 }
