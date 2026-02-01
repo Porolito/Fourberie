@@ -42,6 +42,6 @@ public class SpotLight_Gameplay : MonoBehaviour
     public void CallFail()
     {
         m_MalusEvent.CallMalus();
-        spotLightGame();
+        CallSuccess();
     }
 }
