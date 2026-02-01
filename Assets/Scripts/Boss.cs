@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
+    public static Boss Instance;
+    
     private static readonly int HitAnimString = Animator.StringToHash("hit");
     Animator m_Animator;
     
@@ -26,6 +28,9 @@ public class Boss : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        
         m_Animator = GetComponent<Animator>();
     }
 
