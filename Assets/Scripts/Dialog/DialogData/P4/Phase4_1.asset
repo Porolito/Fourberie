@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Phase4_1
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
   clip: {fileID: 8300000, guid: fb59dfb91af94ab46b76f543b827ff66, type: 3}
-  subtitle: 
-  expression: 0
+  subtitle: TIME TO SHIIIIIIINE !
+  expression: 2
