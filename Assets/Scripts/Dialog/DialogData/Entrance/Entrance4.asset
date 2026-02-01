@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b56595c59c137a4ea2fcf6d637c3875, type: 3}
   m_Name: Entrance4
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: ab4ade78796e80e4db40384e45604ea5, type: 3}
   subtitle: "What\u2019s your name again? Oh, Claudia, right\u2026"
   expression: 0
