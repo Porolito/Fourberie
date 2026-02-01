@@ -14,6 +14,8 @@ namespace Timeline
         [SerializeField] private EV_KPEndEvent evKPEndEvent;
         
         [SerializeField] private BulletManager bulletManager;
+        
+        [SerializeField] private DialogPartData[] dialogParts;
 
         private Coroutine currentPattern;
 
@@ -24,7 +26,7 @@ namespace Timeline
 
         public override IEnumerator ProcessKeypoint()
         {
-            Debug.Log("StartKeypoint");
+            Debug.Log("Start Phase3");
             bulletManager.LaunchCoroutine(3f, 10, "Sine", 3);
             //KP logic : bullets
             yield return null;
