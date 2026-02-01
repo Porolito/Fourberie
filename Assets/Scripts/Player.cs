@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     // Invincibility
     private bool m_IsInvincible;
     
-    private bool m_isGrounded => Physics2D.Raycast(transform.position, -Vector2.up, 1.05f, m_GroundLayer);
+    private bool m_isGrounded => Physics2D.Raycast(transform.position, -Vector2.up, transform.localScale.y + 0.01f, m_GroundLayer);
 
     [SerializeField] private float m_InvincibilityDuration = 1f;
 
