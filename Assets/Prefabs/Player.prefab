@@ -65,7 +65,7 @@ MonoBehaviour:
   m_JumpMinDuration: 0.05
   m_JumpMaxDuration: 0.1
   m_DashDuration: 0.15
-  m_DashSpeed: 25
+  m_DashSpeed: 20
   m_DashEndVelDiviser: 10
   m_AttackColliders: {fileID: 8612157131232015165}
   m_AttackDuration: 0.2
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 609560077495305615}
   m_Layer: 12
   m_Name: Attack Collider
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
