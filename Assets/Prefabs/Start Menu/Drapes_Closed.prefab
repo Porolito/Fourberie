@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3026002269290128271
 Transform:
   m_ObjectHideFlags: 0
@@ -481,9 +481,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Menus
   _startIcon: {fileID: 2062155822060185183}
   _colliderToDestroy: {fileID: 2093395647080774162}
+  _narratorVisual: {fileID: 0}
   _inputAction: {fileID: -2157032461304432097, guid: 6521c72fc7126ac4e9f5b855cf13b9f5, type: 3}
   _inputPause: {fileID: 7266497283625765636, guid: 6521c72fc7126ac4e9f5b855cf13b9f5, type: 3}
   _animatorCurtains: {fileID: 8983246312699646499}
+  _fade: {fileID: 0}
+  _fadeDuration: 1.5
+  _fadeGO: {fileID: 0}
+  dialogParts:
+  - {fileID: 11400000, guid: 50550fbd9ca9b684490ba43d0b9b2cb3, type: 2}
+  - {fileID: 11400000, guid: ac46e02f02c615749b6211ab3557e13d, type: 2}
+  - {fileID: 11400000, guid: 499b571d8331fef4ab1ec8d2cf9126f8, type: 2}
+  - {fileID: 11400000, guid: 01fa748fc3753d64db6c988f080e455c, type: 2}
+  - {fileID: 11400000, guid: ceaea2e9b6de9884980d5fb14058d5d7, type: 2}
+  - {fileID: 11400000, guid: c1f9b90efab41df428a5d8caf72b3e3b, type: 2}
 --- !u!1 &8728687777026740106
 GameObject:
   m_ObjectHideFlags: 0

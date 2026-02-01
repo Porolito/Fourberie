@@ -7,11 +7,15 @@ public class Menus : MonoBehaviour
 {
     [SerializeField] private GameObject _startIcon;
     [SerializeField] private Collider2D _colliderToDestroy;
+    [SerializeField] private GameObject _narratorVisual;
     
     [SerializeField] private InputActionReference _inputAction;
     [SerializeField] private InputActionReference _inputPause;
     
     [SerializeField] private Animator _animatorCurtains;
+    [SerializeField] private Animator _fade;
+    [SerializeField] private float _fadeDuration = 1.5f;
+    [SerializeField] private GameObject _fadeGO;
     
     [SerializeField] private DialogPartData[] dialogParts;
 
@@ -30,13 +34,17 @@ public class Menus : MonoBehaviour
     {
         _canStart = true;
         _canPause = false;
+        _narratorVisual.SetActive(false);
+        
+        _fadeGO.SetActive(true);
+        StartCoroutine(StartFadeOut());
     }
     
     void Update()
     {
         StartGame();
 
-        if (_inputPause.action.WasPressedThisFrame() && !_isTransitioning)
+        if (_inputPause.action.WasPressedThisFrame() && !_isTransitioning && _canPause)
         {
             if (_isPaused)
                 ResumeGame();
@@ -49,6 +57,7 @@ public class Menus : MonoBehaviour
     {
         if (_canStart == true && _inputAction.action.WasPressedThisFrame())
         {
+            _narratorVisual.SetActive(true);
             StartCoroutine(IntroSequence());
         }
             
@@ -118,7 +127,19 @@ public class Menus : MonoBehaviour
         _animatorCurtains.SetTrigger("Opening");
         _canPause = true;
         _colliderToDestroy.enabled = false;
-        yield return new WaitForSeconds(5f);
+        AudioManager.PlayOneShot(SoundType.Corde);
+        yield return new WaitForSeconds(10f);
         TimelineHandler.instance.StartTimeline();
+    }
+    
+    private IEnumerator StartFadeOut()
+    {
+        yield return new WaitForSeconds(1f);
+
+        _fade.SetTrigger("FadeOut");
+
+        yield return new WaitForSecondsRealtime(_fadeDuration);
+
+        _fadeGO.SetActive(false);
     }
 }
