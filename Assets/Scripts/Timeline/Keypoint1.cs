@@ -34,7 +34,7 @@ namespace Timeline
             yield return new WaitForSeconds(3f);
             DialogManager.instance.PlayDialog(dialogParts[2]);
             yield return new WaitForSeconds(0.5f);
-            bulletManager.LaunchCoroutine(1f, 5, "Straight",3f);
+            bulletManager.LaunchCoroutine(3f, 5, "Straight",3f);
             yield return new WaitForSeconds(10f);
             DialogManager.instance.PlayDialog(dialogParts[3]);
             //KP logic : bullets
