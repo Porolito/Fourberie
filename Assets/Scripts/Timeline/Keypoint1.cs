@@ -28,6 +28,7 @@ namespace Timeline
         public override IEnumerator ProcessKeypoint()
         {
             Debug.Log("Start Phase1");
+            Boss.Instance.StartPhase(true);
             DialogManager.instance.PlayDialog(dialogParts[0]);
             yield return new WaitForSeconds(3f);
             DialogManager.instance.PlayDialog(dialogParts[1]);

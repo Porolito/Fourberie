@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Phase3_1
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
   clip: {fileID: 8300000, guid: 7f9dbb9f62fd3f54495920e7759545f6, type: 3}
-  subtitle: 
-  expression: 0
+  subtitle: WOW ! A new pattern ! So fun !
+  expression: 2

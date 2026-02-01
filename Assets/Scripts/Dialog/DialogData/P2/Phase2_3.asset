@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Phase2_3
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
   clip: {fileID: 8300000, guid: da6df79145b9d9a4eb4349fa337750cc, type: 3}
-  subtitle: 
-  expression: 0
+  subtitle: "Hey you\u2019re supposed to get HIT I said\u2026"
+  expression: 1

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Phase3_4
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
   clip: {fileID: 8300000, guid: f668e39a5518aa441a3967e3519725bc, type: 3}
-  subtitle: 
-  expression: 0
+  subtitle: Our hero should DEFINITELY dodge those projectiles!
+  expression: 1
