@@ -25,7 +25,7 @@ namespace Timeline
         public override IEnumerator ProcessKeypoint()
         {
             Debug.Log("StartKeypoint");
-            bulletManager.LaunchCoroutine(0.5f, 30, "SineBis", 3);
+            bulletManager.LaunchCoroutine(1f, 1, "Straight", 10);
             //KP logic : bullets
             yield return null;
 
