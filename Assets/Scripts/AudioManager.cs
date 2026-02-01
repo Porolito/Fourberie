@@ -10,7 +10,8 @@ public enum SoundType
     Lose,
     Corde,
     LoopPeople,
-    MusicMenu
+    LoopMusic,
+    BossMusic
 }
 public class AudioManager : MonoBehaviour
 {

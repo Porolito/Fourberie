@@ -127,6 +127,7 @@ public class Menus : MonoBehaviour
         _animatorCurtains.SetTrigger("Opening");
         _canPause = true;
         _colliderToDestroy.enabled = false;
+        AudioManager.PlayOneShot(SoundType.Corde);
         yield return new WaitForSeconds(10f);
         TimelineHandler.instance.StartTimeline();
     }
