@@ -17,8 +17,8 @@ namespace Timeline
         [SerializeField] private BulletManager bulletManager;
         
         [SerializeField] private DialogPartData[] dialogParts;
-
-        private Image ending;
+        
+        [SerializeField] private GameObject ending;
 
         private Coroutine currentPattern;
 
@@ -32,6 +32,7 @@ namespace Timeline
             Debug.Log("Start Phase5");
             DialogManager.instance.PlayDialog(dialogParts[0]);
             yield return new WaitForSeconds(dialogParts[0].clip.length + 1f);
+            ending.SetActive(true);
         }
 
         public void OnPhaseSuccess(int id)
