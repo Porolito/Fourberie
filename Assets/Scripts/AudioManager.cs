@@ -6,9 +6,9 @@ public class AudioManager : MonoBehaviour
 {
     private static AudioManager m_Instance;
     private AudioSource audioSource;
-
     private AudioSource playOnLoop;
-
+    
+    public AudioClip[] sounds;
     private void Awake()
     {
         m_Instance = this;

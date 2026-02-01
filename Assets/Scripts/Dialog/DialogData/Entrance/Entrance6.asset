@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b56595c59c137a4ea2fcf6d637c3875, type: 3}
   m_Name: Entrance6
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
-  clip: {fileID: 0}
-  subtitle: 'And remember the golden rule: stick to the SCRIPT'
+  clip: {fileID: 8300000, guid: 5d69271ce12ad9f4f9bb8e4ba8a33c43, type: 3}
+  subtitle: 'And remember the golden rule: stick to the SCRIPT.'
   expression: 2
