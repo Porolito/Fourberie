@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b56595c59c137a4ea2fcf6d637c3875, type: 3}
   m_Name: Entrance2
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: b70bf71f5d3c3a3468c3d0f8afe7494b, type: 3}
   subtitle: Our lead actor called in sick at the last minute
   expression: 1
