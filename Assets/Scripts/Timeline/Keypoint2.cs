@@ -38,7 +38,7 @@ namespace Timeline
             yield return new WaitForSeconds(dialogParts[1].clip.length - 0.5f);
             bulletManager.LaunchCoroutine(0.5f, 1, "Straight", 15f);
             isHitChallengeActive = true;
-            yield return new WaitForSeconds(15f);
+            yield return new WaitForSeconds(7.5f);
             if (!isHitChallengeActive)
             {
                 OnPhaseSuccess(kpID);
