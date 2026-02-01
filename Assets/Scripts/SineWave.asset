@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 443093be411a03f45873e3982576bf09, type: 3}
   m_Name: SineWave
   m_EditorClassIdentifier: Assembly-CSharp::BallPathScriptable
-  endPosX: 30
+  endPosX: -11.53
   waveAmplitude: 2
   waveFrequency: 2
-  spawnPosition: {x: 0, y: 0, z: 0}
+  spawnPosition: {x: 6.74, y: -0.94, z: 0}
