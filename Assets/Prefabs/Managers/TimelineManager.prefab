@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1593007679803032458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6063190065190579627}
+  - component: {fileID: 3678703481156733419}
+  - component: {fileID: 2754005545258447338}
+  m_Layer: 0
+  m_Name: TimelineManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6063190065190579627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593007679803032458}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7595979297360572554}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3678703481156733419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593007679803032458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab39e7b04a11fb744baa38d24854354f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimelineHandler
+  keypoints:
+  - {fileID: 5682818824587505779}
+  - {fileID: 654726085277404655}
+  - {fileID: 9164942590053121607}
+  - {fileID: 8302029443850165111}
+  - {fileID: 8582740517667068261}
+  evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
+--- !u!114 &2754005545258447338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593007679803032458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d5d3d1202c2fd41bbe6e51c6e609ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimelineExeTest
+  evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
+--- !u!1 &7118528626839932401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7595979297360572554}
+  - component: {fileID: 5682818824587505779}
+  - component: {fileID: 654726085277404655}
+  - component: {fileID: 9164942590053121607}
+  - component: {fileID: 8302029443850165111}
+  - component: {fileID: 8582740517667068261}
+  m_Layer: 0
+  m_Name: KeypointsScripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7595979297360572554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7118528626839932401}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6063190065190579627}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5682818824587505779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7118528626839932401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807709ae8d884ad79c26c2220aafb9db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Timeline.Keypoint1
+  evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
+  evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
+  bulletManager: {fileID: 0}
+--- !u!114 &654726085277404655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7118528626839932401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 684158d9565c406f936b5d11548cdce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Timeline.Keypoint2
+  evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
+  evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
+  bulletManager: {fileID: 0}
+--- !u!114 &9164942590053121607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7118528626839932401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3692f0b93684413a6c6a54013a59010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Timeline.Keypoint3
+  evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
+  evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
+  bulletManager: {fileID: 0}
+--- !u!114 &8302029443850165111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7118528626839932401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7f6faf57a6422cab6153be68642935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Timeline.Keypoint4
+  evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
+  evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
+  bulletManager: {fileID: 0}
+--- !u!114 &8582740517667068261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7118528626839932401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a65e396fa74f7982a4dd610aa6c367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Timeline.Keypoint5
+  evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
+  evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
+  bulletManager: {fileID: 0}
