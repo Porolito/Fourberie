@@ -38,6 +38,7 @@ public class Menus : MonoBehaviour
         
         _fadeGO.SetActive(true);
         StartCoroutine(StartFadeOut());
+        AudioManager.PlayLooping(SoundType.LoopMusic);
     }
     
     void Update()
@@ -59,6 +60,7 @@ public class Menus : MonoBehaviour
         {
             _narratorVisual.SetActive(true);
             StartCoroutine(IntroSequence());
+            AudioManager.PlayLooping(SoundType.LoopPeople);
         }
             
     }
