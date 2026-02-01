@@ -1,12 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    private static readonly int IsRunningAnimString = Animator.StringToHash("isRunning");
+    private static readonly int IsJumpingAnimString = Animator.StringToHash("isJumping");
+    private static readonly int DashAnimString = Animator.StringToHash("dash");
+    private static readonly int AttackAnimString = Animator.StringToHash("attack");
+    
     GlobalInputs m_Inputs;
     GlobalInputs.PlayerActions m_PlayerActions;
     Rigidbody2D m_Rb2d;
@@ -30,6 +36,10 @@ public class Player : MonoBehaviour
     private bool m_isGrounded => Physics2D.Raycast(transform.position, -Vector2.up, transform.localScale.y + 0.01f, m_GroundLayer);
 
     [SerializeField] private float m_InvincibilityDuration = 1f;
+    
+    [Header("Refs")]
+    [SerializeField] private Animator m_Animator;
+    [SerializeField] private GameObject m_Visuals;
 
     [Header("Movement")]
     [SerializeField] private float m_MoveSpeed = 15f;
@@ -86,17 +96,20 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        //TODO à finir avec les boules d'Axel + screenshake
+        if (!other.CompareTag("Projectile")) return;
         if (m_IsInvincible) return;
+        
+        m_IsInvincible = true;
         print("HIT!");
         //EVENT HIT
         m_MalusEvent.CallMalus();
+        m_Rb2d.linearVelocity /= 5f;
+        Camera.main.transform.DOShakePosition(0.1f, 1f, 2);
         StartCoroutine(InvincibilityRoutine());
     }
 
     IEnumerator InvincibilityRoutine()
     {
-        m_IsInvincible = true;
         yield return new WaitForSeconds(m_InvincibilityDuration);
         m_IsInvincible = false;
     }
@@ -126,10 +139,20 @@ public class Player : MonoBehaviour
     void HandleMovementInput(float value)
     {
         m_MoveInput = value;
-        if (value > 0)
-            m_AttackColliders.transform.localPosition = Vector2.right;
-        else if (value < 0)
-            m_AttackColliders.transform.localPosition = Vector2.left;
+        Vector3 scale = m_Visuals.transform.localScale;
+        switch (value)
+        {
+            case > 0:
+                m_AttackColliders.transform.localPosition = Vector2.right;
+                m_Visuals.transform.localScale = new Vector3(-Mathf.Abs(scale.x), scale.y, scale.z);
+                break;
+            case < 0:
+                m_AttackColliders.transform.localPosition = Vector2.left;
+                m_Visuals.transform.localScale = new Vector3(Mathf.Abs(scale.x), scale.y, scale.z);
+                break;
+            default:
+                break;
+        }
     }
 
     void HandleJumpInput()
@@ -137,7 +160,11 @@ public class Player : MonoBehaviour
         m_JumpInputReleased = false;
      
         if (m_isGrounded)
+        {
             m_IsJumping = true;
+            m_Animator.SetBool(IsJumpingAnimString, true);
+            m_Animator.SetBool(IsRunningAnimString, false);
+        }
         else
             StartJumpBuffer();
     }
@@ -173,6 +200,7 @@ public class Player : MonoBehaviour
         m_CanDash = false;
         m_IsDashing = true;
         m_DashVelocity = new Vector2(m_MoveInput, 0).normalized * m_DashSpeed;
+        m_Animator.SetTrigger(DashAnimString);
     }
 
     void HandleAttackInput()
@@ -185,6 +213,13 @@ public class Player : MonoBehaviour
     void MovePlayer()
     {
         Vector2 moveDir = new Vector2(m_MoveInput * m_MoveSpeed, -m_Gravity);
+        
+        if (m_isGrounded)
+        {
+            if (m_Animator.GetBool(IsJumpingAnimString))
+                m_Animator.SetBool(IsJumpingAnimString, false);
+            m_Animator.SetBool(IsRunningAnimString, m_MoveInput != 0f);
+        }
         
         if (!m_isGrounded)
             moveDir.y *= m_AirGravityMultiplier;
@@ -237,6 +272,7 @@ public class Player : MonoBehaviour
 
         m_CanAttack = false;
         m_AttackColliders.SetActive(true);
+        m_Animator.SetTrigger(AttackAnimString);
         StartCoroutine(AttackRoutine());
     }
 
@@ -251,5 +287,10 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(m_AttackCooldown);
         m_CanAttack = true;
+    }
+
+    public void PushAway(Vector2 dir)
+    {
+        m_Rb2d.linearVelocity = dir;
     }
 }
