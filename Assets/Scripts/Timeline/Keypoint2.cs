@@ -12,6 +12,7 @@ namespace Timeline
 
         [SerializeField] private EV_PhaseSuccessEvent evPhaseSuccessEvent;
         [SerializeField] private EV_KPEndEvent evKPEndEvent;
+        [SerializeField] private EV_MalusEvent evMalusEvent;
         
         [SerializeField] private BulletManager bulletManager;
         
@@ -24,6 +25,7 @@ namespace Timeline
         private void Awake()
         {
             evPhaseSuccessEvent.Register(this);
+            evMalusEvent.Register(this);
         }
 
         public override IEnumerator ProcessKeypoint()
