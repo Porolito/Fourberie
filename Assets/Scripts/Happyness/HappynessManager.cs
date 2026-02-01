@@ -23,6 +23,7 @@ public class HappynessManager : MonoBehaviour, IEV_MalusEvent
     public void OnMalusReceived()
     {
         malusCount++;
+        Debug.Log("Malus count: " + malusCount);
         StartCoroutine(Timer());
     }
 
