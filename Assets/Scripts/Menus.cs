@@ -7,11 +7,15 @@ public class Menus : MonoBehaviour
 {
     [SerializeField] private GameObject _startIcon;
     [SerializeField] private Collider2D _colliderToDestroy;
+    [SerializeField] private GameObject _narratorVisual;
     
     [SerializeField] private InputActionReference _inputAction;
     [SerializeField] private InputActionReference _inputPause;
     
     [SerializeField] private Animator _animatorCurtains;
+    [SerializeField] private Animator _fade;
+    [SerializeField] private float _fadeDuration = 1.5f;
+    [SerializeField] private GameObject _fadeGO;
     
     [SerializeField] private DialogPartData[] dialogParts;
 
@@ -19,6 +23,8 @@ public class Menus : MonoBehaviour
     private bool _canPause;
     private bool _isPaused;
     private bool _isTransitioning;
+    private bool _introStarted;
+    private bool _playerInStartZone;
     
     void OnEnable()
     {
@@ -28,15 +34,25 @@ public class Menus : MonoBehaviour
     
     void Start()
     {
-        _canStart = true;
+        _canStart = false;
         _canPause = false;
+        _introStarted = false;
+        _playerInStartZone = false;
+
+        _narratorVisual.SetActive(false);
+
+        _fadeGO.SetActive(true);
+        StartCoroutine(StartFadeOut());
     }
     
     void Update()
     {
+        if (_introStarted && !_canPause)
+            return;
+        
         StartGame();
 
-        if (_inputPause.action.WasPressedThisFrame() && !_isTransitioning)
+        if (_inputPause.action.WasPressedThisFrame() && !_isTransitioning && _canPause)
         {
             if (_isPaused)
                 ResumeGame();
@@ -47,19 +63,29 @@ public class Menus : MonoBehaviour
 
     public void StartGame()
     {
-        if (_canStart == true && _inputAction.action.WasPressedThisFrame())
+        if (_introStarted)
+            return;
+
+        if (_playerInStartZone && _canStart && _inputAction.action.WasPressedThisFrame())
         {
+            _introStarted = true;
+            _canStart = false;
+
+            _startIcon.SetActive(false);
+            _narratorVisual.SetActive(true);
+
             StartCoroutine(IntroSequence());
         }
-            
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !_introStarted)
         {
             _startIcon.SetActive(true);
             _canStart = true;
+            _playerInStartZone = true;
         }
     }
     
@@ -69,6 +95,7 @@ public class Menus : MonoBehaviour
         {
             _startIcon.SetActive(false);
             _canStart = false;
+            _playerInStartZone = false;
         }
     }
 
@@ -118,7 +145,19 @@ public class Menus : MonoBehaviour
         _animatorCurtains.SetTrigger("Opening");
         _canPause = true;
         _colliderToDestroy.enabled = false;
+        AudioManager.PlayOneShot(SoundType.Corde);
         yield return new WaitForSeconds(5f);
         TimelineHandler.instance.StartTimeline();
+    }
+    
+    private IEnumerator StartFadeOut()
+    {
+        yield return new WaitForSeconds(1f);
+
+        _fade.SetTrigger("FadeOut");
+
+        yield return new WaitForSecondsRealtime(_fadeDuration);
+
+        _fadeGO.SetActive(false);
     }
 }

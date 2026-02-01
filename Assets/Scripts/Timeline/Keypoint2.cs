@@ -19,6 +19,8 @@ namespace Timeline
 
         private Coroutine currentPattern;
 
+        private bool isHitChallengeActive = false;
+
         private void Awake()
         {
             evPhaseSuccessEvent.Register(this);
@@ -32,6 +34,7 @@ namespace Timeline
             DialogManager.instance.PlayDialog(dialogParts[1]);
             yield return new WaitForSeconds(dialogParts[1].clip.length - 0.5f);
             bulletManager.LaunchCoroutine(0.5f, 1, "Straight", 15f);
+            isHitChallengeActive = true;
             //KP logic : bullets
             yield return null;
 
