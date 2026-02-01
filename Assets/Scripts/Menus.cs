@@ -23,6 +23,8 @@ public class Menus : MonoBehaviour
     private bool _canPause;
     private bool _isPaused;
     private bool _isTransitioning;
+    private bool _introStarted;
+    private bool _playerInStartZone;
     
     void OnEnable()
     {
@@ -32,16 +34,22 @@ public class Menus : MonoBehaviour
     
     void Start()
     {
-        _canStart = true;
+        _canStart = false;
         _canPause = false;
+        _introStarted = false;
+        _playerInStartZone = false;
+
         _narratorVisual.SetActive(false);
-        
+
         _fadeGO.SetActive(true);
         StartCoroutine(StartFadeOut());
     }
     
     void Update()
     {
+        if (_introStarted && !_canPause)
+            return;
+        
         StartGame();
 
         if (_inputPause.action.WasPressedThisFrame() && !_isTransitioning && _canPause)
@@ -55,20 +63,29 @@ public class Menus : MonoBehaviour
 
     public void StartGame()
     {
-        if (_canStart == true && _inputAction.action.WasPressedThisFrame())
+        if (_introStarted)
+            return;
+
+        if (_playerInStartZone && _canStart && _inputAction.action.WasPressedThisFrame())
         {
+            _introStarted = true;
+            _canStart = false;
+
+            _startIcon.SetActive(false);
             _narratorVisual.SetActive(true);
+
             StartCoroutine(IntroSequence());
         }
-            
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !_introStarted)
         {
             _startIcon.SetActive(true);
             _canStart = true;
+            _playerInStartZone = true;
         }
     }
     
@@ -78,6 +95,7 @@ public class Menus : MonoBehaviour
         {
             _startIcon.SetActive(false);
             _canStart = false;
+            _playerInStartZone = false;
         }
     }
 
