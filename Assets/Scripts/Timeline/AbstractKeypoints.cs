@@ -1,9 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Timeline
 {
     public abstract class AbstractKeypoints : MonoBehaviour
     {
-        public abstract void ProcessKeypoint();
+        public abstract IEnumerator ProcessKeypoint();
     }
 }

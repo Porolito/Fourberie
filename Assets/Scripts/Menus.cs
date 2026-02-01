@@ -1,0 +1,102 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class Menus : MonoBehaviour
+{
+    [SerializeField] private GameObject _startIcon;
+    [SerializeField] private Collider2D _colliderToDestroy;
+    
+    [SerializeField] private InputActionReference _inputAction;
+    [SerializeField] private InputActionReference _inputPause;
+    
+    [SerializeField] private Animator _animatorCurtains;
+
+    private bool _canStart;
+    private bool _canPause;
+    private bool _isPaused;
+    private bool _isTransitioning;
+    
+    void OnEnable()
+    {
+        _inputAction.action.Enable();
+        _inputPause.action.Enable();
+    }
+    
+    void Start()
+    {
+        _canStart = true;
+        _canPause = false;
+    }
+    
+    void Update()
+    {
+        StartGame();
+
+        if (_inputPause.action.WasPressedThisFrame() && !_isTransitioning)
+        {
+            if (_isPaused)
+                ResumeGame();
+            else
+                PauseGame();
+        }
+    }
+
+    public void StartGame()
+    {
+        if (_canStart == true && _inputAction.action.WasPressedThisFrame())
+        {
+            _animatorCurtains.SetTrigger("Opening");
+            _canPause = true;
+            _colliderToDestroy.enabled = false;
+        }
+            
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _startIcon.SetActive(true);
+            _canStart = true;
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _startIcon.SetActive(false);
+            _canStart = false;
+        }
+    }
+
+    void PauseGame()
+    {
+        _isTransitioning = true;
+        _animatorCurtains.SetTrigger("Closing");
+        StartCoroutine(PauseAfterCurtains());
+    }
+
+    void ResumeGame()
+    {
+        _isTransitioning = true;
+        Time.timeScale = 1f;
+        _animatorCurtains.SetTrigger("Opening");
+        StartCoroutine(ResumeAfterCurtains());
+    }
+    IEnumerator PauseAfterCurtains()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        Time.timeScale = 0f;
+        _isPaused = true;
+        _isTransitioning = false;
+    }
+
+    IEnumerator ResumeAfterCurtains()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        _isPaused = false;
+        _isTransitioning = false;
+    }
+}

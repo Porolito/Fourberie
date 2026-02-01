@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8970539089328010421}
   - component: {fileID: 6558079322885687810}
   m_Layer: 0
-  m_Name: mc_sheet_0
+  m_Name: serpill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1966635220311667883}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15999998, y: -1.1600001, z: -0.53}
+  m_LocalPosition: {x: -0.16, y: -1.1800001, z: -0.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 5286430332447249487}
   - component: {fileID: 873512267191375629}
   m_Layer: 0
-  m_Name: mc_sheet_2
+  m_Name: corps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,7 @@ Transform:
   m_GameObject: {fileID: 2686622982211240001}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.13, y: -0.28, z: -0.24}
+  m_LocalPosition: {x: 0.13, y: -0.3000001, z: -0.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 6582377217845499573}
   - component: {fileID: 8793868392110938168}
   m_Layer: 0
-  m_Name: mc_sheet_5
+  m_Name: jambe arriere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 4252747916743631052}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08, y: -0.38000003, z: 0.23}
+  m_LocalPosition: {x: 0.08, y: -0.4000001, z: 0.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 2540975958033837169}
   - component: {fileID: 8320305348813728759}
   m_Layer: 0
-  m_Name: mc_sheet_3
+  m_Name: bras arriere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,7 +296,7 @@ Transform:
   m_GameObject: {fileID: 5223410710672605489}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.14999999, y: 1.08, z: 0.45}
+  m_LocalPosition: {x: -0.15, y: 1.06, z: 0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 6730105430979030967}
   - component: {fileID: 4775872143520952797}
   m_Layer: 0
-  m_Name: mc_sheet_6
+  m_Name: jambe devant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -386,7 +386,7 @@ Transform:
   m_GameObject: {fileID: 6948803300015948494}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.0200001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 2283549665818470972}
   - component: {fileID: 89932022717568208}
   m_Layer: 0
-  m_Name: mc_sheet_1
+  m_Name: tete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -476,7 +476,7 @@ Transform:
   m_GameObject: {fileID: 8326614855761905024}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11999999, y: 1.41, z: 0}
+  m_LocalPosition: {x: -0.12, y: 1.3899999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -549,6 +549,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 678643510406527734}
+  - component: {fileID: 673413029036747693}
   m_Layer: 0
   m_Name: mc
   m_TagString: Untagged
@@ -578,6 +579,28 @@ Transform:
   - {fileID: 6730105430979030967}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &673413029036747693
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8919032501719164303}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b1b4389f7e16e3447a9f749c4d648df8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8919543451800909614
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +612,7 @@ GameObject:
   - component: {fileID: 3834167775012764292}
   - component: {fileID: 5888815362198463233}
   m_Layer: 0
-  m_Name: mc_sheet_4
+  m_Name: bras devant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -604,7 +627,7 @@ Transform:
   m_GameObject: {fileID: 8919543451800909614}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07000001, y: 0.89, z: -0.67}
+  m_LocalPosition: {x: 0.07000001, y: 0.8699999, z: -0.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -19,7 +19,7 @@ namespace Timeline
         //Start first keypoint in list
         private void Start()
         {
-            keypoints[0].ProcessKeypoint();
+            StartCoroutine(keypoints[0].ProcessKeypoint());
         }
 
         public void OnKeypointFinished()

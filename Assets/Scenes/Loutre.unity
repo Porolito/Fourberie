@@ -724,21 +724,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1917938026}
     m_Modifications:
+    - target: {fileID: 5179988047549544695, guid: 0e8f89071bf6e7b4fb718df46e78b54d, type: 3}
+      propertyPath: m_DashSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7067262278770899068, guid: 0e8f89071bf6e7b4fb718df46e78b54d, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8615680765841213007, guid: 0e8f89071bf6e7b4fb718df46e78b54d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8615680765841213007, guid: 0e8f89071bf6e7b4fb718df46e78b54d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8615680765841213007, guid: 0e8f89071bf6e7b4fb718df46e78b54d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.15
       objectReference: {fileID: 0}
     - target: {fileID: 8615680765841213007, guid: 0e8f89071bf6e7b4fb718df46e78b54d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -779,10 +771,6 @@ PrefabInstance:
     - target: {fileID: 8615680765841213007, guid: 0e8f89071bf6e7b4fb718df46e78b54d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8615680765841213007, guid: 0e8f89071bf6e7b4fb718df46e78b54d, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1422,6 +1410,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3051147305257295109, guid: fa76d78400d5e7a42ab481c130ede7c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301232326319093706, guid: fa76d78400d5e7a42ab481c130ede7c2, type: 3}
+      propertyPath: m_TestAtAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8301232326319093706, guid: fa76d78400d5e7a42ab481c130ede7c2, type: 3}

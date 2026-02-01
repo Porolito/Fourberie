@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,11 +22,12 @@ namespace Timeline
             evPhaseSuccessEvent.Register(this);
         }
 
-        public override void ProcessKeypoint()
+        public override IEnumerator ProcessKeypoint()
         {
             Debug.Log("StartKeypoint");
             bulletManager.LaunchCoroutine(0.5f, 30, "SineBis", 3);
             //KP logic : bullets
+            yield return null;
         }
 
         public void OnPhaseSuccess(int id)

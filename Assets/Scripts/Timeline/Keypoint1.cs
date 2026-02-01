@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,7 +14,10 @@ namespace Timeline
         [SerializeField] private EV_KPEndEvent evKPEndEvent;
         
         [SerializeField] private BulletManager bulletManager;
+        
+        [SerializeField] private DialogPartData[] dialogParts;
 
+        private Coroutine keypointCoroutine;
         private Coroutine currentPattern;
 
         private void Awake()
@@ -21,10 +25,18 @@ namespace Timeline
             evPhaseSuccessEvent.Register(this);
         }
 
-        public override void ProcessKeypoint()
+        public override IEnumerator ProcessKeypoint()
         {
-            Debug.Log("StartKeypoint");
-            bulletManager.LaunchCoroutine(0.5f, 30, "SineBis",3);
+            Debug.Log("Start Phase1");
+            DialogManager.instance.PlayDialog(dialogParts[0]);
+            yield return new WaitForSeconds(3f);
+            DialogManager.instance.PlayDialog(dialogParts[1]);
+            yield return new WaitForSeconds(3f);
+            DialogManager.instance.PlayDialog(dialogParts[2]);
+            yield return new WaitForSeconds(0.5f);
+            bulletManager.LaunchCoroutine(1f, 5, "Straight",3f);
+            yield return new WaitForSeconds(10f);
+            DialogManager.instance.PlayDialog(dialogParts[3]);
             //KP logic : bullets
         }
 
