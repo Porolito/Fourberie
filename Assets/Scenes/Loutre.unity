@@ -1425,6 +1425,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8301232326319093706, guid: fa76d78400d5e7a42ab481c130ede7c2, type: 3}
+      propertyPath: m_TestAtAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301232326319093706, guid: fa76d78400d5e7a42ab481c130ede7c2, type: 3}
       propertyPath: m_NarratorSubtitle
       value: 
       objectReference: {fileID: 104753678}

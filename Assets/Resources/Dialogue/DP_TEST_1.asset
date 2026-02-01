@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DP_TEST_1
   m_EditorClassIdentifier: Assembly-CSharp::DialoguePartData
   clip: {fileID: 8300000, guid: 56698ed36428fab41950c4e93581e0d0, type: 3}
-  subtitle: BAILANDOO
+  subtitle: "Yo janitor ! J'ai plein de trucs \xE0 te demander stp BAILANDOOOOOO"
   expression: 0

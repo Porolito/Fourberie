@@ -1,14 +1,20 @@
 using System;
+using System.Collections;
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class DialogManager : MonoBehaviour
 {
     public static DialogManager instance;
     
     private AudioSource m_AudioSource;
+
+    [Header("Test")]
+    [SerializeField] private bool m_TestAtAwake;
+    [SerializeField] private DialogPartData m_DialogTest;
     
     [Header("Refs")]
     [SerializeField] private TextMeshProUGUI m_NarratorSubtitle;
@@ -19,21 +25,30 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private Sprite m_SadFace;
     [SerializeField] private Sprite m_HappyFace;
 
+    [Header("Subtitle letter apparition")]
+    [SerializeField] private float m_MinLetterTime = 0.05f;
+    [SerializeField] private float m_MaxLetterTime = 0.1f;
+
     private void Awake()
     {
         if (instance == null)
             instance = this;
         
         m_AudioSource = GetComponent<AudioSource>();
+        
+        if (m_TestAtAwake)
+            PlayDialog(m_DialogTest);
     }
 
     public void PlayDialog(DialogPartData dialog)
     {
         m_AudioSource.Stop();
-        m_AudioSource.clip = dialog.clip;
-        m_NarratorSubtitle.text = dialog.subtitle;
+        m_NarratorSubtitle.text = "";
+        
         m_NarratorExpression.sprite = GetExpressionSprite(dialog.expression);
+        m_AudioSource.clip = dialog.clip;
         m_AudioSource.Play();
+        StartCoroutine(DisplaySubtitleRoutine(dialog.subtitle));
     }
     
     Sprite GetExpressionSprite(DialogPartData.Expression expression)
@@ -46,8 +61,13 @@ public class DialogManager : MonoBehaviour
             _ => m_NeutralFace
         };
     }
-    void DisplaySubtitle()
+    IEnumerator DisplaySubtitleRoutine(string subtitle)
     {
-        
+        foreach (char letter in subtitle)
+        {
+            float randPause = Random.Range(m_MinLetterTime, m_MaxLetterTime);
+            yield return new WaitForSeconds(randPause);
+            m_NarratorSubtitle.text += letter;
+        }
     }
 }
