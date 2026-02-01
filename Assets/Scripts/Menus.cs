@@ -14,10 +14,29 @@ public class Menus : MonoBehaviour
     private bool _canStart;
     private bool _canPause;
     
+    void OnEnable()
+    {
+        _inputAction.action.Enable();
+        _inputPause.action.Enable();
+    }
+    
     void Start()
     {
-        _canStart = false;
+        _canStart = true;
         _canPause = false;
+    }
+    
+    void Update()
+    {
+        StartGame();
+
+        if (_canPause)
+            PauseGame();
+
+        if (!_canStart && _canPause)
+        {
+            ResumeGame();
+        }
     }
 
     public void StartGame()
@@ -31,17 +50,23 @@ public class Menus : MonoBehaviour
             
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             _startIcon.SetActive(true);
             _canStart = true;
+            Debug.Log("dedans");
         }
-        else
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
         {
             _startIcon.SetActive(false);
             _canStart = false;
+            Debug.Log("pas dedans");
         }
     }
 
