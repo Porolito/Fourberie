@@ -775,6 +775,26 @@ PrefabInstance:
       propertyPath: bulletManager
       value: 
       objectReference: {fileID: 217881809}
+    - target: {fileID: 5682818824587505779, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: dialogParts.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682818824587505779, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: 'dialogParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d69feca724a3150428c3fac9c0f30990, type: 2}
+    - target: {fileID: 5682818824587505779, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: 'dialogParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2932d3c4324442e438573671417e14e4, type: 2}
+    - target: {fileID: 5682818824587505779, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: 'dialogParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 14fcf044cbd282841aee566c0e0b8bc3, type: 2}
+    - target: {fileID: 5682818824587505779, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: 'dialogParts.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c2df2201493f5fe41931830a3d08bf7b, type: 2}
     - target: {fileID: 6063190065190579627, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.84458

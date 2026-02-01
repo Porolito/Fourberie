@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
@@ -55,6 +56,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float m_AttackDuration = 0.2f;
     [SerializeField] private float m_AttackCooldown = 0.2f;
     
+    [Header("Event")]
+    [SerializeField] private EV_MalusEvent m_MalusEvent;
+    
     private void Awake()
     {
         m_Inputs = new GlobalInputs();
@@ -85,6 +89,8 @@ public class Player : MonoBehaviour
         //TODO à finir avec les boules d'Axel + screenshake
         if (m_IsInvincible) return;
         print("HIT!");
+        //EVENT HIT
+        m_MalusEvent.CallMalus();
         StartCoroutine(InvincibilityRoutine());
     }
 
