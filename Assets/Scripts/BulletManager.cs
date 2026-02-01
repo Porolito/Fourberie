@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 public class BulletManager : MonoBehaviour
 {
     private List<GameObject> _ballsPool =  new List<GameObject>();
-    [SerializeField] private GameObject ball;
+    //[SerializeField] private GameObject ball;
     [SerializeField] private BallPathScriptable[] ballPathScriptable;
-    [SerializeField] private Sprite[] ballSkin;
+    [SerializeField] private GameObject[] ballPrefabs;
     private bool skinPeople = false;
     [SerializeField] private InputActionReference ballSpawn;
     [SerializeField] private InputActionReference ballMove;
@@ -36,15 +36,14 @@ public class BulletManager : MonoBehaviour
             ballSummoned.SetActive(true);
             return ballSummoned;
         }
-        GameObject newBall = Instantiate(ball, Vector3.zero, Quaternion.identity);
         int rand;
         if (!skinPeople)
         {
-            rand = Random.Range(0, ballSkin.Length);
+            rand = Random.Range(0, ballPrefabs.Length);
             skinPeople = true;
         }
-        else rand = Random.Range(0, ballSkin.Length - 1);
-        newBall.GetComponent<SpriteRenderer>().sprite = ballSkin[rand];
+        else rand = Random.Range(0, ballPrefabs.Length - 1);
+        GameObject newBall = Instantiate(ballPrefabs[rand], Vector3.zero, Quaternion.identity);
         _ballsPool.Add(newBall);
         return newBall;
     }
