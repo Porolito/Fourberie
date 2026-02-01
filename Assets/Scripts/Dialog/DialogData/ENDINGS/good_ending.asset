@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b56595c59c137a4ea2fcf6d637c3875, type: 3}
-  m_Name: Phase2_2
+  m_Name: good_ending
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
-  clip: {fileID: 8300000, guid: 006f9da72dc287e4d960349ad43a0754, type: 3}
-  subtitle: "Even with her incredible dodging skills, she still managed to\u2026
-    get HIT"
-  expression: 1
+  clip: {fileID: 8300000, guid: b4a6450016de53949b2fe41197b97112, type: 3}
+  subtitle: CONGRATS FOR THE WEDDING, GO GIRLS!!
+  expression: 2
