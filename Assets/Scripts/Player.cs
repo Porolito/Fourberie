@@ -163,6 +163,7 @@ public class Player : MonoBehaviour
         {
             m_IsJumping = true;
             m_Animator.SetBool(IsJumpingAnimString, true);
+            AudioManager.PlayOneShot(SoundType.Jump);
             m_Animator.SetBool(IsRunningAnimString, false);
         }
         else
@@ -201,6 +202,7 @@ public class Player : MonoBehaviour
         m_IsDashing = true;
         m_DashVelocity = new Vector2(m_MoveInput, 0).normalized * m_DashSpeed;
         m_Animator.SetTrigger(DashAnimString);
+        AudioManager.PlayOneShot(SoundType.Dash);
     }
 
     void HandleAttackInput()
@@ -254,6 +256,7 @@ public class Player : MonoBehaviour
 
     void DashPlayer()
     {
+        
         m_CurrentDashTime += Time.fixedDeltaTime;
             
         m_Rb2d.linearVelocity = m_DashVelocity;
@@ -264,15 +267,18 @@ public class Player : MonoBehaviour
             m_CurrentDashTime = 0f;
             m_Rb2d.linearVelocity /= m_DashEndVelDiviser;
         }
+        
     }
 
     void AttackPlayer()
     {
         if (!m_CanAttack || m_IsDashing) return;
 
+        
         m_CanAttack = false;
         m_AttackColliders.SetActive(true);
         m_Animator.SetTrigger(AttackAnimString);
+        AudioManager.PlayOneShot(SoundType.Attack);
         StartCoroutine(AttackRoutine());
     }
 
