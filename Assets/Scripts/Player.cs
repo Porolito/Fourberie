@@ -5,6 +5,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 public class Player : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour
     private bool m_CanDash = true;
     // Attack
     private bool m_CanAttack = true;
+    [SerializeField] private VisualEffect _attackVfx;
     // Invincibility
     private bool m_IsInvincible;
     
@@ -279,6 +281,7 @@ public class Player : MonoBehaviour
         m_AttackColliders.SetActive(true);
         m_Animator.SetTrigger(AttackAnimString);
         AudioManager.PlayOneShot(SoundType.Attack);
+        _attackVfx.Play();
         StartCoroutine(AttackRoutine());
     }
 
