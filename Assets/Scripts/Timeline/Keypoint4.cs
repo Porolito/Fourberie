@@ -14,6 +14,7 @@ namespace Timeline
         [SerializeField] private EV_KPEndEvent evKPEndEvent;
         
         [SerializeField] private BulletManager bulletManager;
+        [SerializeField] private DialogPartData[] dialogParts;
 
         private Coroutine currentPattern;
 

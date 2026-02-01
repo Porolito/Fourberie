@@ -128,7 +128,7 @@ public class Menus : MonoBehaviour
         _canPause = true;
         _colliderToDestroy.enabled = false;
         AudioManager.PlayOneShot(SoundType.Corde);
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         TimelineHandler.instance.StartTimeline();
     }
     
