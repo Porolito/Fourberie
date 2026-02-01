@@ -6,9 +6,9 @@ public class AudioManager : MonoBehaviour
 {
     private static AudioManager m_Instance;
     private AudioSource audioSource;
-
     private AudioSource playOnLoop;
-
+    
+    public SoundScriptable[] sounds;
     private void Awake()
     {
         m_Instance = this;
@@ -18,14 +18,14 @@ public class AudioManager : MonoBehaviour
         audioSource =  GetComponent<AudioSource>();
     }
 
-    public static void PlayOneShot(AudioClip soundToPlay, float volume = 1)
+    public static void PlayOneShot(SoundScriptable soundToPlay, float volume = 1)
     {
-        m_Instance.audioSource.PlayOneShot(soundToPlay, volume);
+        m_Instance.audioSource.PlayOneShot(soundToPlay.clip, volume);
     }
 
-    public static void PlayLooping(AudioClip soundToLoop, float volume = 1)
+    public static void PlayLooping(SoundScriptable soundToLoop, float volume = 1)
     {
-        m_Instance.playOnLoop.clip = soundToLoop;
+        m_Instance.playOnLoop.clip = soundToLoop.clip;
         m_Instance.playOnLoop.volume = volume;
         m_Instance.playOnLoop.loop = true;
         m_Instance.playOnLoop.Play();
