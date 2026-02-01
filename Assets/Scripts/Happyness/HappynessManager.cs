@@ -23,7 +23,7 @@ public class HappynessManager : MonoBehaviour, IEV_MalusEvent
     public void OnMalusReceived()
     {
         malusCount++;
-        ChangePublicMask(badState);
+        StartCoroutine(Timer());
     }
 
     private void ChangePublicMask(PublicState state)
@@ -32,10 +32,12 @@ public class HappynessManager : MonoBehaviour, IEV_MalusEvent
         {
             go.sprite = state.sprite;
         }
+        Debug.Log("Malus received");
     }
 
     IEnumerator Timer()
     {
+        Debug.Log("Timer");
         ChangePublicMask(badState);
         yield return new WaitForSeconds(3f);
         ChangePublicMask(neutralState);
