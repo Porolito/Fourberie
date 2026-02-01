@@ -9,7 +9,7 @@ public class BulletManager : MonoBehaviour
     [SerializeField] private GameObject ball;
     [SerializeField] private BallPathScriptable[] ballPathScriptable;
     
-    [SerializeField] private InputActionReference ballSpawn;
+    //[SerializeField] private InputActionReference ballSpawn;
 
     public float spawnTimer;
     public int spawnCount;
@@ -43,7 +43,7 @@ public class BulletManager : MonoBehaviour
         ballPath.endPosX = ballPattern.endPosX;
         ballPath.waveFrequency = ballPattern.waveFrequency;
         ballPath.waveAmplitude = ballPattern.waveAmplitude;
-        ballPath.spawnPosition = ballSpawned.transform.position;
+        ballPath.spawnPosition = ballPattern.spawnPosition;
         if (isDoubleSine) ballPath.startY = -1;
         else  ballPath.startY = 1;
         ballPath.GiveAPath();
