@@ -40,6 +40,7 @@ namespace Timeline
         {
             if (kpID != id) return;
             bulletManager.CancelCoroutine();
+            StopCoroutine(ProcessKeypoint());
             Debug.Log("EndKeypoint");
             //KP logic : dialog
             evKPEndEvent.CallFinishedKeypoint();

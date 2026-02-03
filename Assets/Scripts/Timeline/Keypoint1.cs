@@ -28,7 +28,6 @@ namespace Timeline
         public override IEnumerator ProcessKeypoint()
         {
             Debug.Log("Start Phase1");
-            Boss.Instance.StartPhase(true);
             DialogManager.instance.PlayDialog(dialogParts[0]);
             yield return new WaitForSeconds(3f);
             DialogManager.instance.PlayDialog(dialogParts[1]);
@@ -36,6 +35,7 @@ namespace Timeline
             DialogManager.instance.PlayDialog(dialogParts[2]);
             yield return new WaitForSeconds(0.5f);
             bulletManager.LaunchCoroutine(3f, 5, "Straight",3f);
+            Boss.Instance.StartPhase(true);
             yield return new WaitForSeconds(10f);
             DialogManager.instance.PlayDialog(dialogParts[3]);
             //KP logic : bullets
@@ -45,6 +45,7 @@ namespace Timeline
         {
             if (kpID != id) return;
             bulletManager.CancelCoroutine();
+            StopCoroutine(ProcessKeypoint());
             Debug.Log("EndKeypoint");
             //KP logic : dialog
             evKPEndEvent.CallFinishedKeypoint();
