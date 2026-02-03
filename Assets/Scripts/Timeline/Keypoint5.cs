@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Timeline
 {
@@ -16,6 +17,8 @@ namespace Timeline
         [SerializeField] private BulletManager bulletManager;
         
         [SerializeField] private DialogPartData[] dialogParts;
+        
+        [SerializeField] private GameObject ending;
 
         private Coroutine currentPattern;
 
@@ -26,10 +29,10 @@ namespace Timeline
 
         public override IEnumerator ProcessKeypoint()
         {
-            Debug.Log("StartKeypoint");
-            bulletManager.LaunchCoroutine(0.5f, 30, "SineBis", 3);
-            //KP logic : bullets
-            yield return null;
+            Debug.Log("Start Phase5");
+            DialogManager.instance.PlayDialog(dialogParts[0]);
+            yield return new WaitForSeconds(dialogParts[0].clip.length + 1f);
+            ending.SetActive(true);
         }
 
         public void OnPhaseSuccess(int id)

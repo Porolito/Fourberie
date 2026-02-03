@@ -43,7 +43,6 @@ public class Menus : MonoBehaviour
 
         _fadeGO.SetActive(true);
         StartCoroutine(StartFadeOut());
-        AudioManager.PlayMusic(SoundType.LoopMusic);
     }
     
     void Update()
