@@ -31,13 +31,15 @@ public class Player : MonoBehaviour
     private bool m_CanDash = true;
     // Attack
     private bool m_CanAttack = true;
-    [SerializeField] private VisualEffect _attackVfx;
     // Invincibility
     private bool m_IsInvincible;
+    // Event
+    public bool m_IsPlayerHitChallenge;
     
     private bool m_isGrounded => Physics2D.Raycast(transform.position, -Vector2.up, transform.localScale.y + 0.01f, m_GroundLayer);
 
     [SerializeField] private float m_InvincibilityDuration = 1f;
+    [SerializeField] private VisualEffect _attackVfx;
     
     [Header("Refs")]
     [SerializeField] private Animator m_Animator;
@@ -70,6 +72,8 @@ public class Player : MonoBehaviour
     
     [Header("Event")]
     [SerializeField] private EV_MalusEvent m_MalusEvent;
+
+    [SerializeField] private SO_GameEvent m_ChallengeSuccessGE;
     
     private void Awake()
     {
@@ -101,12 +105,20 @@ public class Player : MonoBehaviour
         if (!other.CompareTag("Projectile")) return;
         if (m_IsInvincible) return;
         
+        if (m_IsPlayerHitChallenge) EndPhase();
+        
         m_IsInvincible = true;
         //EVENT HIT
         m_MalusEvent.CallMalus();
         m_Rb2d.linearVelocity /= 5f;
         Camera.main.transform.DOShakePosition(0.1f, 1f, 2);
         StartCoroutine(InvincibilityRoutine());
+    }
+
+    private void EndPhase()
+    {
+        m_ChallengeSuccessGE.Trigger();
+        m_IsPlayerHitChallenge = false;
     }
 
     IEnumerator InvincibilityRoutine()
