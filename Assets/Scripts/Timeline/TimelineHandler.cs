@@ -18,6 +18,9 @@ namespace Timeline
         [SerializeField] private DialogManager m_DialogManager;
         [SerializeField] private Menus m_Menus;
         [SerializeField] private Boss m_Boss;
+        [SerializeField] private BulletManager m_BulletManager;
+        
+        [Header("Game Events")]
         [SerializeField] private SO_GameEvent m_ChallengeSuccessGE;
         
         [Space]
@@ -36,14 +39,14 @@ namespace Timeline
 
         public void StartSequence()
         {
-            Debug.Log($"Start sequence {m_Sequences[m_CurrentSequenceIndex].name}");
+            Debug.Log($"[{m_Sequences[m_CurrentSequenceIndex].name}] Starting...");
             m_TimelineDirector.playableAsset = m_Sequences[m_CurrentSequenceIndex].timeline;
             m_TimelineDirector.Play();
         }
 
         private void EndSequence()
         {
-            print($"End sequence {m_Sequences[m_CurrentSequenceIndex].name}");
+            Debug.Log($"[{m_Sequences[m_CurrentSequenceIndex].name}] End!");
             m_DialogManager.EndSequence();
             m_CurrentSequenceIndex++;
 
@@ -106,7 +109,20 @@ namespace Timeline
 
         public void SC_OnThrowBullets()
         {
-            print("Throw bullets");
+            SO_Sequence.BulletInfo[] bulletPatterns = m_Sequences[m_CurrentSequenceIndex].bulletPatterns;
+
+            if (bulletPatterns.Length == 0)
+            {
+                Debug.LogWarning($"[{m_Sequences[m_CurrentSequenceIndex].name}] No bullet patterns found");
+                return;
+            }
+            
+            //TODO: Prendre en compte plusieurs patterns ?
+            m_BulletManager.LaunchCoroutine(
+                bulletPatterns[0].spawnFrequency, 
+                bulletPatterns[0].spawnQuantity, 
+                bulletPatterns[0].pattern, 
+                bulletPatterns[0].timeBeforeNewWave);
         }
 
         #endregion

@@ -751,22 +751,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1917938026}
     m_Modifications:
-    - target: {fileID: 672289387137026939, guid: 03ce16ffe39c0534795db1caf81192c4, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 293140c68bcd7934f96e1a05aeb1f4b5, type: 2}
     - target: {fileID: 1467122151130524061, guid: 03ce16ffe39c0534795db1caf81192c4, type: 3}
       propertyPath: m_Name
       value: boss
       objectReference: {fileID: 0}
-    - target: {fileID: 4298154948084959852, guid: 03ce16ffe39c0534795db1caf81192c4, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 293140c68bcd7934f96e1a05aeb1f4b5, type: 2}
-    - target: {fileID: 5555723713798974760, guid: 03ce16ffe39c0534795db1caf81192c4, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 293140c68bcd7934f96e1a05aeb1f4b5, type: 2}
     - target: {fileID: 7257122265037837293, guid: 03ce16ffe39c0534795db1caf81192c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.63
@@ -807,14 +795,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7622483152657488600, guid: 03ce16ffe39c0534795db1caf81192c4, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 293140c68bcd7934f96e1a05aeb1f4b5, type: 2}
-    - target: {fileID: 9086131433424652627, guid: 03ce16ffe39c0534795db1caf81192c4, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 293140c68bcd7934f96e1a05aeb1f4b5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1093,6 +1073,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimelineManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_PlayableAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 92cb3d1b6fb7385498f484f10f240d6e, type: 2}
     - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: m_Boss
       value: 
@@ -1101,6 +1085,10 @@ PrefabInstance:
       propertyPath: m_Menus
       value: 
       objectReference: {fileID: 1572125658}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_BulletManager
+      value: 
+      objectReference: {fileID: 388172499}
     - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: m_DialogManager
       value: 

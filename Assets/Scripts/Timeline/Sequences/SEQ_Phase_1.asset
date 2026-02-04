@@ -19,4 +19,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 14fcf044cbd282841aee566c0e0b8bc3, type: 2}
   - {fileID: 11400000, guid: c2df2201493f5fe41931830a3d08bf7b, type: 2}
   challenge: 1
-  bulletPatterns: []
+  bulletPatterns:
+  - spawnFrequency: 3
+    spawnQuantity: 5
+    pattern: 0
+    timeBeforeNewWave: 3
