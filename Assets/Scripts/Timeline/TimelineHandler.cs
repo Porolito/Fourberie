@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
@@ -38,6 +39,23 @@ namespace Timeline
             m_ChallengeSuccessGE.Bind(OnChallengeSuccess);
         }
 
+#if UNITY_EDITOR
+        private void Update()
+        {
+            if (Keyboard.current.qKey.wasPressedThisFrame)
+            {
+                m_CurrentSequenceIndex -= 2;
+                if (m_CurrentSequenceIndex <= -1) m_CurrentSequenceIndex = -1;
+                EndSequence(false);
+            }
+
+            if (Keyboard.current.eKey.wasPressedThisFrame)
+            {
+                EndSequence(false);
+            }
+        }
+#endif
+        
         public void StartSequence()
         {
             Debug.Log($"[{m_Sequences[m_CurrentSequenceIndex].name}] Starting...");
@@ -45,9 +63,9 @@ namespace Timeline
             m_TimelineDirector.Play();
         }
 
-        private void EndSequence()
+        private void EndSequence(bool log = true)
         {
-            Debug.Log($"[{m_Sequences[m_CurrentSequenceIndex].name}] End!");
+            if (log) Debug.Log($"[{m_Sequences[m_CurrentSequenceIndex].name}] End!");
             m_BulletManager.CancelCoroutine();
             m_DialogManager.EndSequence();
             m_CurrentSequenceIndex++;
@@ -95,6 +113,12 @@ namespace Timeline
         
         public void SC_OnDisplayNextSubtitle()
         {
+            if (m_CurrentSequenceIndex >= m_Sequences.Length)
+            {
+                Debug.LogError($"[{m_Sequences[m_CurrentSequenceIndex].name}] No subtitle patterns found");
+                return;
+            }
+            
             m_DialogManager.DisplayNextSubtitle(m_Sequences[m_CurrentSequenceIndex].dialogs);
         }
 
