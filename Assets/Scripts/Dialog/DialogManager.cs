@@ -11,15 +11,11 @@ public class DialogManager : MonoBehaviour
 {
     public static DialogManager instance;
     
-    private AudioSource m_AudioSource;
+    private int m_DialogIndex;
     
     [Header("Refs")]
     [SerializeField] private TextMeshProUGUI m_NarratorSubtitle;
     [SerializeField] private Image m_NarratorExpression;
-    
-    [Header("Dialogs")]
-    [SerializeField] [Tooltip("Order is important!")] private SO_DialogSequence[] m_DialogSequences;
-    private int m_DialogIndex;
     
     [Header("Expressions Face")]
     [SerializeField] private Sprite m_NeutralFace;
@@ -34,8 +30,6 @@ public class DialogManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
-        
-        m_AudioSource = GetComponent<AudioSource>();
     }
     
     Sprite GetExpressionSprite(SO_DialogPart.Expression expression)
@@ -59,9 +53,9 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public void DisplayNextSubtitle(int sequenceIndex)
+    public void DisplayNextSubtitle(SO_DialogPart[] dialogs)
     {
-        SO_DialogPart dialogPart = m_DialogSequences[sequenceIndex].dialogs[m_DialogIndex];
+        SO_DialogPart dialogPart = dialogs[m_DialogIndex];
         
         m_NarratorSubtitle.text = "";
         m_NarratorExpression.sprite = GetExpressionSprite(dialogPart.expression);

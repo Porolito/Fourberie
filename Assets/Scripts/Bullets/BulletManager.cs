@@ -18,6 +18,13 @@ public class BulletManager : MonoBehaviour
     public string type;
 
     private Coroutine ActualCoroutine;
+    
+    public enum Pattern
+    {
+        Straight,
+        Sine,
+        SineBis
+    }
     // Update is called once per frame
     // void Update()
     // {
@@ -59,21 +66,21 @@ public class BulletManager : MonoBehaviour
         else  ballPath.startY = 1;
         ballPath.GiveAPath();
     }
-    IEnumerator SpawnerPattern(float spawnFrequency, int spawnQuantity, string typePattern, float timeBeforeNewWave) //Function to use to do a ball pattern
+    IEnumerator SpawnerPattern(float spawnFrequency, int spawnQuantity, Pattern pattern, float timeBeforeNewWave) //Function to use to do a ball pattern
     {
         for (int i = 0; i < spawnQuantity; i++)
         {
             yield return new WaitForSeconds(spawnFrequency);
             var _lastBall = SummonBall();
-            switch (typePattern)
+            switch (pattern)
             {
-                case "Straight":
+                case Pattern.Straight:
                     BallPatternMaker(ballPathScriptable[0], _lastBall, false); 
                     break;
-                case "Sine": 
+                case Pattern.Sine: 
                     BallPatternMaker(ballPathScriptable[1], _lastBall, false); 
                     break;
-                case "SineBis": 
+                case Pattern.SineBis: 
                     BallPatternMaker(ballPathScriptable[1], _lastBall, false);
                     var _lastBall1 = SummonBall();
                     BallPatternMaker(ballPathScriptable[1], _lastBall1, true);
@@ -81,12 +88,12 @@ public class BulletManager : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(timeBeforeNewWave);
-        LaunchCoroutine(spawnFrequency, spawnQuantity, typePattern, timeBeforeNewWave);
+        LaunchCoroutine(spawnFrequency, spawnQuantity, pattern, timeBeforeNewWave);
     }
 
-    public void LaunchCoroutine(float spawnFrequency, int spawnQuantity, string typePattern, float timeBeforeNewWave)
+    public void LaunchCoroutine(float spawnFrequency, int spawnQuantity, Pattern pattern, float timeBeforeNewWave)
     {
-        ActualCoroutine = StartCoroutine(SpawnerPattern(spawnFrequency,  spawnQuantity, typePattern, timeBeforeNewWave));
+        ActualCoroutine = StartCoroutine(SpawnerPattern(spawnFrequency, spawnQuantity, pattern, timeBeforeNewWave));
     }
 
     public void CancelCoroutine()

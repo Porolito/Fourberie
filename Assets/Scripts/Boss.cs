@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public static Boss Instance;
-    
     private static readonly int HitAnimString = Animator.StringToHash("hit");
     Animator m_Animator;
     
@@ -15,10 +13,9 @@ public class Boss : MonoBehaviour
     private int m_CurrentHealth;
     private int m_CurrentHitToPush;
     private bool m_PushCooldownStarted;
-    private int m_PhaseID = -1;
     
     [Header("Ref")]
-    [SerializeField] private EV_PhaseSuccessEvent m_SuccessEvent;
+    [SerializeField] private SO_GameEvent m_ChallengeSuccessGE;
 
     [Header("Settings")]
     [SerializeField] private int m_HealthPerPhase = 9;
@@ -28,18 +25,14 @@ public class Boss : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        
         m_Animator = GetComponent<Animator>();
     }
 
-    public void StartPhase(bool canTakeDamages)
+    public void StartPhase()
     {
-        m_PhaseID++;
         m_CurrentHealth = m_HealthPerPhase;
         m_CurrentHitToPush = m_HitToPush;
-        m_CanTakeDamages = canTakeDamages;
+        m_CanTakeDamages = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -63,10 +56,8 @@ public class Boss : MonoBehaviour
 
     IEnumerator PushCooldown()
     {
-        print("start cd");
         m_PushCooldownStarted = true;
         yield return new WaitForSeconds(m_TimeToResetPush);
-        print("cd end: " + m_CurrentHitToPush);
         m_PushCooldownStarted = false;
         m_CurrentHitToPush = m_HitToPush;
     } 
@@ -83,7 +74,6 @@ public class Boss : MonoBehaviour
     {
         m_CanTakeDamages = false;
         PushPlayerAway(player);
-        print("END OF PHASE");
-        m_SuccessEvent.CallPhaseSuccess(m_PhaseID);
+        m_ChallengeSuccessGE.Trigger();
     }
 }
