@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9036f1e958bafd4fa2c0d793980ac3a, type: 3}
-  m_Name: SEQ_Phase_2
+  m_Name: SEQ_Phase_3
   m_EditorClassIdentifier: Assembly-CSharp::SO_Sequence
-  timeline: {fileID: 11400000, guid: 97786d1f71430bc44b4e8a4cc8232338, type: 2}
+  timeline: {fileID: 11400000, guid: 3db51940202bd7145adb1ccb3cb71221, type: 2}
   dialogs:
-  - {fileID: 11400000, guid: c784c296b75eefc41807ab5b7e322d66, type: 2}
-  - {fileID: 11400000, guid: a9e0ef48e5637254f9afaf7f1214cf53, type: 2}
-  - {fileID: 11400000, guid: 94907d2a784a974448f58e7cf657fc00, type: 2}
-  challenge: 2
+  - {fileID: 11400000, guid: 3387e7aa4d878894fb99f84faf094c84, type: 2}
+  - {fileID: 11400000, guid: 0a21f769835f68f49881622d1d06d96c, type: 2}
+  - {fileID: 11400000, guid: 9f9bf814bac566042b1cb2856ac1107c, type: 2}
+  challenge: 1
   bulletPatterns:
-  - spawnFrequency: 0.5
-    spawnQuantity: 1
+  - spawnFrequency: 3
+    spawnQuantity: 10
     pattern: 1
-    timeBeforeNewWave: 15
+    timeBeforeNewWave: 3
