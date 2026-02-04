@@ -8,13 +8,11 @@ public class SpotLight_Script : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("aaa");
         isOnSpotLight = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("bbb");
         isOnSpotLight = false;
     }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using JetBrains.Annotations;
+using Timeline;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,14 +12,14 @@ public class DialogManager : MonoBehaviour
     public static DialogManager instance;
     
     private AudioSource m_AudioSource;
-
-    [Header("Test")]
-    [SerializeField] private bool m_TestAtAwake;
-    [SerializeField] private DialogPartData m_DialogTest;
     
     [Header("Refs")]
     [SerializeField] private TextMeshProUGUI m_NarratorSubtitle;
     [SerializeField] private Image m_NarratorExpression;
+    
+    [Header("Dialogs")]
+    [SerializeField] [Tooltip("Order is important!")] private SO_DialogSequence[] m_DialogSequences;
+    private int m_DialogIndex;
     
     [Header("Expressions Face")]
     [SerializeField] private Sprite m_NeutralFace;
@@ -35,32 +36,19 @@ public class DialogManager : MonoBehaviour
             instance = this;
         
         m_AudioSource = GetComponent<AudioSource>();
-        
-        if (m_TestAtAwake)
-            PlayDialog(m_DialogTest);
-    }
-
-    public void PlayDialog(DialogPartData dialog)
-    {
-        m_AudioSource.Stop();
-        m_NarratorSubtitle.text = "";
-        
-        m_NarratorExpression.sprite = GetExpressionSprite(dialog.expression);
-        m_AudioSource.clip = dialog.clip;
-        m_AudioSource.Play();
-        StartCoroutine(DisplaySubtitleRoutine(dialog.subtitle));
     }
     
-    Sprite GetExpressionSprite(DialogPartData.Expression expression)
+    Sprite GetExpressionSprite(SO_DialogPart.Expression expression)
     {
         return expression switch
         {
-            DialogPartData.Expression.Neutral => m_NeutralFace,
-            DialogPartData.Expression.Sad => m_SadFace,
-            DialogPartData.Expression.Happy => m_HappyFace,
+            SO_DialogPart.Expression.Neutral => m_NeutralFace,
+            SO_DialogPart.Expression.Sad => m_SadFace,
+            SO_DialogPart.Expression.Happy => m_HappyFace,
             _ => m_NeutralFace
         };
     }
+    
     IEnumerator DisplaySubtitleRoutine(string subtitle)
     {
         foreach (char letter in subtitle)
@@ -69,5 +57,22 @@ public class DialogManager : MonoBehaviour
             yield return new WaitForSeconds(randPause);
             m_NarratorSubtitle.text += letter;
         }
+    }
+
+    public void DisplayNextSubtitle(int sequenceIndex)
+    {
+        SO_DialogPart dialogPart = m_DialogSequences[sequenceIndex].dialogs[m_DialogIndex];
+        
+        m_NarratorSubtitle.text = "";
+        m_NarratorExpression.sprite = GetExpressionSprite(dialogPart.expression);
+        
+        StopCoroutine(nameof(DisplaySubtitleRoutine));
+        StartCoroutine(DisplaySubtitleRoutine(dialogPart.subtitle));
+        m_DialogIndex++;
+    }
+
+    public void EndSequence()
+    {
+        m_DialogIndex = 0;
     }
 }

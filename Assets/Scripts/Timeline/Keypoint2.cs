@@ -16,7 +16,7 @@ namespace Timeline
         
         [SerializeField] private BulletManager bulletManager;
         
-        [SerializeField] private DialogPartData[] dialogParts;
+        [SerializeField] private SO_DialogPart[] dialogParts;
 
         private Coroutine currentPattern;
 
@@ -32,10 +32,6 @@ namespace Timeline
         {
             Debug.Log("Start Phase2");
             Boss.Instance.StartPhase(false);
-            DialogManager.instance.PlayDialog(dialogParts[0]);
-            yield return new WaitForSeconds(dialogParts[0].clip.length + 1f);
-            DialogManager.instance.PlayDialog(dialogParts[1]);
-            yield return new WaitForSeconds(dialogParts[1].clip.length - 0.5f);
             bulletManager.LaunchCoroutine(0.5f, 1, "Straight", 15f);
             isHitChallengeActive = true;
             yield return new WaitForSeconds(7.5f);

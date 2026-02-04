@@ -447,6 +447,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1542355807}
     - target: {fileID: 3665734510289813731, guid: 366b3f23663a8ec419b8b37410c52898, type: 3}
+      propertyPath: m_TimelineDirector
+      value: 
+      objectReference: {fileID: 1831016186}
+    - target: {fileID: 3665734510289813731, guid: 366b3f23663a8ec419b8b37410c52898, type: 3}
       propertyPath: dialogParts.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -826,7 +830,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2730345133932720759, guid: fa76d78400d5e7a42ab481c130ede7c2, type: 3}
       propertyPath: m_Name
-      value: Dialogue Manager
+      value: Dialog Manager
       objectReference: {fileID: 0}
     - target: {fileID: 3051147305257295109, guid: fa76d78400d5e7a42ab481c130ede7c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1062,6 +1066,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6646075313800004949, guid: 0e1c3917783789f469f4d26c8fb5420d, type: 3}
   m_PrefabInstance: {fileID: 3978991057124748759}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1572125658 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3665734510289813731, guid: 366b3f23663a8ec419b8b37410c52898, type: 3}
+  m_PrefabInstance: {fileID: 149254134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79487c274fa3a3a4fa8e2628c14b9511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Menus
 --- !u!1001 &1609888227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1071,57 +1086,65 @@ PrefabInstance:
     m_TransformParent: {fileID: 1379831992}
     m_Modifications:
     - target: {fileID: 654726085277404655, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: evMalusEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 24e7fdfefecd660449b455a06edb2fc4, type: 2}
-    - target: {fileID: 654726085277404655, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: bulletManager
       value: 
       objectReference: {fileID: 388172499}
-    - target: {fileID: 654726085277404655, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: dialogParts.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 654726085277404655, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: c784c296b75eefc41807ab5b7e322d66, type: 2}
-    - target: {fileID: 654726085277404655, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: a9e0ef48e5637254f9afaf7f1214cf53, type: 2}
-    - target: {fileID: 654726085277404655, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 94907d2a784a974448f58e7cf657fc00, type: 2}
     - target: {fileID: 1593007679803032458, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: m_Name
       value: TimelineManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_PlayableAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 92cb3d1b6fb7385498f484f10f240d6e, type: 2}
+    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_SceneBindings.Array.data[2].key
+      value: 
+      objectReference: {fileID: -3425482865180673036, guid: 92cb3d1b6fb7385498f484f10f240d6e, type: 2}
+    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_SceneBindings.Array.data[3].key
+      value: 
+      objectReference: {fileID: -1979421612728900924, guid: 92cb3d1b6fb7385498f484f10f240d6e, type: 2}
+    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_SceneBindings.Array.data[0].value
+      value: 
+      objectReference: {fileID: 1618210306}
+    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_SceneBindings.Array.data[2].value
+      value: 
+      objectReference: {fileID: 2052484249}
+    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_SceneBindings.Array.data[3].value
+      value: 
+      objectReference: {fileID: 2052484251}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_Menus
+      value: 
+      objectReference: {fileID: 1572125658}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_DialogManager
+      value: 
+      objectReference: {fileID: 1618210307}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_Timelines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: 'm_Timelines.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 99be6e14548dd314aa6e01f4eb3ad0f9, type: 2}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: 'm_Timelines.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 92cb3d1b6fb7385498f484f10f240d6e, type: 2}
     - target: {fileID: 5682818824587505779, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: bulletManager
       value: 
       objectReference: {fileID: 388172499}
-    - target: {fileID: 5682818824587505779, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: dialogParts.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5682818824587505779, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: d69feca724a3150428c3fac9c0f30990, type: 2}
-    - target: {fileID: 5682818824587505779, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 2932d3c4324442e438573671417e14e4, type: 2}
-    - target: {fileID: 5682818824587505779, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 14fcf044cbd282841aee566c0e0b8bc3, type: 2}
-    - target: {fileID: 5682818824587505779, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[3]'
-      value: 
-      objectReference: {fileID: 11400000, guid: c2df2201493f5fe41931830a3d08bf7b, type: 2}
     - target: {fileID: 6063190065190579627, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1166,18 +1189,6 @@ PrefabInstance:
       propertyPath: bulletManager
       value: 
       objectReference: {fileID: 388172499}
-    - target: {fileID: 8302029443850165111, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: dialogParts.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8302029443850165111, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 34c073231624d7b4c9fe7fa7bcd53576, type: 2}
-    - target: {fileID: 8302029443850165111, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: c319c014fbafcba4bb98e74d8b4f94b8, type: 2}
     - target: {fileID: 8582740517667068261, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: ending
       value: 
@@ -1186,52 +1197,31 @@ PrefabInstance:
       propertyPath: bulletManager
       value: 
       objectReference: {fileID: 388172499}
-    - target: {fileID: 8582740517667068261, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: dialogParts.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8582740517667068261, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 071bda72b2f4d6c48ae15bbb561049fc, type: 2}
-    - target: {fileID: 8582740517667068261, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 8696c1deec35a6441a9b13f06e640687, type: 2}
-    - target: {fileID: 8582740517667068261, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 4d5bd60fc95aef64a96a99ae384b82dd, type: 2}
-    - target: {fileID: 8582740517667068261, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[3]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 173c69ddc24365448a46c93d45d0f9e4, type: 2}
     - target: {fileID: 9164942590053121607, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: bulletManager
       value: 
       objectReference: {fileID: 388172499}
-    - target: {fileID: 9164942590053121607, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: dialogParts.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9164942590053121607, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 3387e7aa4d878894fb99f84faf094c84, type: 2}
-    - target: {fileID: 9164942590053121607, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 0a21f769835f68f49881622d1d06d96c, type: 2}
-    - target: {fileID: 9164942590053121607, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'dialogParts.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 9f9bf814bac566042b1cb2856ac1107c, type: 2}
-    m_RemovedComponents:
-    - {fileID: 2754005545258447338, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+--- !u!82 &1618210306 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4335855014375446492, guid: fa76d78400d5e7a42ab481c130ede7c2, type: 3}
+  m_PrefabInstance: {fileID: 654363471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1618210307 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8301232326319093706, guid: fa76d78400d5e7a42ab481c130ede7c2, type: 3}
+  m_PrefabInstance: {fileID: 654363471}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cdf95302171d94ab88fe01643a6934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
 --- !u!1 &1640510475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,6 +1269,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!320 &1831016186 stripped
+PlayableDirector:
+  m_CorrespondingSourceObject: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+  m_PrefabInstance: {fileID: 1609888227}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1907337887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,6 +1390,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5184653996661582532, guid: d231355db88d46e4083592787cef6201, type: 3}
   m_PrefabInstance: {fileID: 6457476777278200212}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &2052484249 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8829361818105622409, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+  m_PrefabInstance: {fileID: 1609888227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2052484251 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 370346644058492420, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+  m_PrefabInstance: {fileID: 1609888227}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
 --- !u!4 &2063838684 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7257122265037837293, guid: 03ce16ffe39c0534795db1caf81192c4, type: 3}

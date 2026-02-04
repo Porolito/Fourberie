@@ -102,7 +102,6 @@ public class Player : MonoBehaviour
         if (m_IsInvincible) return;
         
         m_IsInvincible = true;
-        print("HIT!");
         //EVENT HIT
         m_MalusEvent.CallMalus();
         m_Rb2d.linearVelocity /= 5f;

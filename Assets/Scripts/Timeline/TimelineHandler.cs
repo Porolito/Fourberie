@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 namespace Timeline
 {
@@ -8,10 +10,19 @@ namespace Timeline
     {
         public static TimelineHandler instance;
         
-        [SerializeField] private List<AbstractKeypoints> keypoints;
+        private PlayableDirector m_TimelineDirector;
         
+        //[SerializeField] private List<AbstractKeypoints> keypoints;
         [SerializeField] private EV_KPEndEvent evKPEndEvent;
-        private int currentKeypointIndex = 0;
+        
+        [Header("References")]
+        [SerializeField] private DialogManager m_DialogManager;
+        [SerializeField] private Menus m_Menus;
+        
+        [Space]
+        [SerializeField] [Tooltip("Order is important!")] private TimelineAsset[] m_Timelines;
+        
+        public int currentSequenceIndex { get; private set; }
 
         private void Awake()
         {
@@ -19,19 +30,59 @@ namespace Timeline
                 instance = this;
             
             evKPEndEvent.Register(this);
+            currentSequenceIndex = 0;
+
+            m_TimelineDirector = GetComponent<PlayableDirector>();
         }
 
-        //Start first keypoint in list
-        public void StartTimeline()
+        public void StartSequence()
         {
-            StartCoroutine(keypoints[0].ProcessKeypoint());
+            Debug.Log($"Start sequence {m_Timelines[currentSequenceIndex].name}");
+            m_TimelineDirector.playableAsset = m_Timelines[currentSequenceIndex];
+            m_TimelineDirector.Play();
         }
 
         public void OnKeypointFinished()
         {
-            Debug.Log("Switch Keypoint");
-            currentKeypointIndex++;
-            StartCoroutine(keypoints[currentKeypointIndex].ProcessKeypoint());
+            EndSequence();
         }
+
+        private void EndSequence()
+        {
+            print($"End sequence {currentSequenceIndex}");
+            m_DialogManager.EndSequence();
+            currentSequenceIndex++;
+
+            if (currentSequenceIndex >= m_Timelines.Length)
+                DisplayEndScreen();
+            else
+                StartSequence();
+        }
+
+        private void DisplayEndScreen()
+        {
+            //TODO: faire la fin
+            Debug.Log($"End game gg");
+        }
+
+        
+        #region Signals Callbacks // Called by signals in timelines
+
+        public void SC_OnEndSequence()
+        {
+            EndSequence();
+        }
+        
+        public void SC_OnDisplayNextSubtitle()
+        {
+            m_DialogManager.DisplayNextSubtitle(currentSequenceIndex);
+        }
+
+        public void SC_OnOpenEntranceCurtains()
+        {
+            m_Menus.OpenCurtains();
+        }
+
+        #endregion
     }
 }

@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6063190065190579627}
   - component: {fileID: 3678703481156733419}
-  - component: {fileID: 2754005545258447338}
+  - component: {fileID: 3381861115849894672}
+  - component: {fileID: 8829361818105622409}
+  - component: {fileID: 370346644058492420}
   m_Layer: 0
   m_Name: TimelineManager
   m_TagString: Untagged
@@ -46,14 +48,128 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab39e7b04a11fb744baa38d24854354f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimelineHandler
-  keypoints:
-  - {fileID: 5682818824587505779}
-  - {fileID: 654726085277404655}
-  - {fileID: 9164942590053121607}
-  - {fileID: 8302029443850165111}
-  - {fileID: 8582740517667068261}
   evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
---- !u!114 &2754005545258447338
+  m_DialogManager: {fileID: 0}
+  m_Menus: {fileID: 0}
+--- !u!320 &3381861115849894672
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593007679803032458}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 99be6e14548dd314aa6e01f4eb3ad0f9, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -3425482865180673036, guid: 99be6e14548dd314aa6e01f4eb3ad0f9, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -1979421612728900924, guid: 99be6e14548dd314aa6e01f4eb3ad0f9, type: 2}
+    value: {fileID: 370346644058492420}
+  m_ExposedReferences:
+    m_References: []
+--- !u!82 &8829361818105622409
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593007679803032458}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &370346644058492420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,10 +178,57 @@ MonoBehaviour:
   m_GameObject: {fileID: 1593007679803032458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8d5d3d1202c2fd41bbe6e51c6e609ee, type: 3}
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TimelineExeTest
-  evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 0e9b781d38563e644ac7781ea52c47cf, type: 2}
+    - {fileID: 11400000, guid: 371a32e94d51cde4aa7acd169b9a768f, type: 2}
+    - {fileID: 11400000, guid: 0ec8f4ceeb944e143adecf4155019e01, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3678703481156733419}
+          m_TargetAssemblyTypeName: Timeline.TimelineHandler, Assembly-CSharp
+          m_MethodName: SC_OnEndSequence
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3678703481156733419}
+          m_TargetAssemblyTypeName: Timeline.TimelineHandler, Assembly-CSharp
+          m_MethodName: SC_OnDisplayNextSubtitle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3678703481156733419}
+          m_TargetAssemblyTypeName: Timeline.TimelineHandler, Assembly-CSharp
+          m_MethodName: SC_OnOpenEntranceCurtains
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7118528626839932401
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +280,11 @@ MonoBehaviour:
   evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
   evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
   bulletManager: {fileID: 0}
+  dialogParts:
+  - {fileID: 11400000, guid: d69feca724a3150428c3fac9c0f30990, type: 2}
+  - {fileID: 11400000, guid: 2932d3c4324442e438573671417e14e4, type: 2}
+  - {fileID: 11400000, guid: 14fcf044cbd282841aee566c0e0b8bc3, type: 2}
+  - {fileID: 11400000, guid: c2df2201493f5fe41931830a3d08bf7b, type: 2}
 --- !u!114 &654726085277404655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +299,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Timeline.Keypoint2
   evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
   evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
+  evMalusEvent: {fileID: 11400000, guid: 24e7fdfefecd660449b455a06edb2fc4, type: 2}
   bulletManager: {fileID: 0}
+  dialogParts:
+  - {fileID: 11400000, guid: c784c296b75eefc41807ab5b7e322d66, type: 2}
+  - {fileID: 11400000, guid: a9e0ef48e5637254f9afaf7f1214cf53, type: 2}
+  - {fileID: 11400000, guid: 94907d2a784a974448f58e7cf657fc00, type: 2}
 --- !u!114 &9164942590053121607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +320,10 @@ MonoBehaviour:
   evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
   evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
   bulletManager: {fileID: 0}
+  dialogParts:
+  - {fileID: 11400000, guid: 3387e7aa4d878894fb99f84faf094c84, type: 2}
+  - {fileID: 11400000, guid: 0a21f769835f68f49881622d1d06d96c, type: 2}
+  - {fileID: 11400000, guid: 9f9bf814bac566042b1cb2856ac1107c, type: 2}
 --- !u!114 &8302029443850165111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +339,9 @@ MonoBehaviour:
   evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
   evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
   bulletManager: {fileID: 0}
+  dialogParts:
+  - {fileID: 11400000, guid: 34c073231624d7b4c9fe7fa7bcd53576, type: 2}
+  - {fileID: 11400000, guid: c319c014fbafcba4bb98e74d8b4f94b8, type: 2}
 --- !u!114 &8582740517667068261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,3 +357,9 @@ MonoBehaviour:
   evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
   evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
   bulletManager: {fileID: 0}
+  dialogParts:
+  - {fileID: 11400000, guid: 071bda72b2f4d6c48ae15bbb561049fc, type: 2}
+  - {fileID: 11400000, guid: 8696c1deec35a6441a9b13f06e640687, type: 2}
+  - {fileID: 11400000, guid: 4d5bd60fc95aef64a96a99ae384b82dd, type: 2}
+  - {fileID: 11400000, guid: 173c69ddc24365448a46c93d45d0f9e4, type: 2}
+  ending: {fileID: 0}
