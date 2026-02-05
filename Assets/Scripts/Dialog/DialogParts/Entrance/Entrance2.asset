@@ -13,5 +13,16 @@ MonoBehaviour:
   m_Name: Entrance2
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
   clip: {fileID: 8300000, guid: b70bf71f5d3c3a3468c3d0f8afe7494b, type: 3}
-  subtitle: Our lead actor called in sick at the last minute.
+  subtitle:
+    m_TableReference:
+      m_TableCollectionName: GUID:5f70e9d759659694ba8570714c68ea49
+    m_TableEntryReference:
+      m_KeyId: 985697468416
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   expression: 1
+  references:
+    version: 2
+    RefIds: []

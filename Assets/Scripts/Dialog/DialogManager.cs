@@ -1,9 +1,10 @@
-using System;
 using System.Collections;
-using JetBrains.Annotations;
-using Timeline;
 using TMPro;
+using UnityEditor.Localization;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -12,10 +13,12 @@ public class DialogManager : MonoBehaviour
     public static DialogManager instance;
     
     private int m_DialogIndex;
+    private int m_LocaleIndex;
     
     [Header("Refs")]
     [SerializeField] private TextMeshProUGUI m_NarratorSubtitle;
     [SerializeField] private Image m_NarratorExpression;
+    [SerializeField] private TextMeshProUGUI m_LocaleIndicator;
     
     [Header("Expressions Face")]
     [SerializeField] private Sprite m_NeutralFace;
@@ -30,8 +33,25 @@ public class DialogManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+        
+        SetLocale(LocalizationSettings.AvailableLocales.Locales[0]);
     }
-    
+
+    private void Update()
+    {
+        if (Keyboard.current.lKey.wasPressedThisFrame)
+        {
+            m_LocaleIndex = m_LocaleIndex + 1 >= LocalizationSettings.AvailableLocales.Locales.Count ? 0 : m_LocaleIndex + 1;
+            SetLocale(LocalizationSettings.AvailableLocales.Locales[m_LocaleIndex]);
+        }
+    }
+
+    private void SetLocale(Locale newLocale)
+    {
+        LocalizationSettings.SelectedLocale = newLocale;
+        m_LocaleIndicator.text = $"[{LocalizationSettings.SelectedLocale.Identifier.Code}]";
+    }
+
     Sprite GetExpressionSprite(SO_DialogPart.Expression expression)
     {
         return expression switch
@@ -61,7 +81,7 @@ public class DialogManager : MonoBehaviour
         m_NarratorExpression.sprite = GetExpressionSprite(dialogPart.expression);
         
         StopCoroutine(nameof(DisplaySubtitleRoutine));
-        StartCoroutine(DisplaySubtitleRoutine(dialogPart.subtitle));
+        StartCoroutine(DisplaySubtitleRoutine(dialogPart.GetLocalizedSubtitle()));
         m_DialogIndex++;
     }
 

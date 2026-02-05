@@ -13,5 +13,16 @@ MonoBehaviour:
   m_Name: Phase1_2
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
   clip: {fileID: 8300000, guid: 77651f0feaeca1847a661a1ae30f6f65, type: 3}
-  subtitle: There was a fearless hero and a not-that-scared princess.
+  subtitle:
+    m_TableReference:
+      m_TableCollectionName: GUID:5f70e9d759659694ba8570714c68ea49
+    m_TableEntryReference:
+      m_KeyId: 4850316591104
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   expression: 0
+  references:
+    version: 2
+    RefIds: []

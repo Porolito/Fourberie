@@ -13,5 +13,16 @@ MonoBehaviour:
   m_Name: Phase3_4
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
   clip: {fileID: 8300000, guid: f668e39a5518aa441a3967e3519725bc, type: 3}
-  subtitle: Our hero should DEFINITELY dodge those projectiles!
+  subtitle:
+    m_TableReference:
+      m_TableCollectionName: GUID:5f70e9d759659694ba8570714c68ea49
+    m_TableEntryReference:
+      m_KeyId: 6765469351936
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   expression: 1
+  references:
+    version: 2
+    RefIds: []

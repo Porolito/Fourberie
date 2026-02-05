@@ -13,5 +13,16 @@ MonoBehaviour:
   m_Name: Entrance5
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
   clip: {fileID: 8300000, guid: 22d3e54e530bff94fab735dd22b78268, type: 3}
-  subtitle: "The audience is excited, I hope you\u2019re ready."
+  subtitle:
+    m_TableReference:
+      m_TableCollectionName: GUID:5f70e9d759659694ba8570714c68ea49
+    m_TableEntryReference:
+      m_KeyId: 1101846134784
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   expression: 0
+  references:
+    version: 2
+    RefIds: []

@@ -17,8 +17,6 @@ public class Menus : MonoBehaviour
     [SerializeField] private float _fadeDuration = 1.5f;
     [SerializeField] private GameObject _fadeGO;
     
-    [SerializeField] private SO_DialogPart[] dialogParts;
-
     private bool _canStart;
     private bool _canPause;
     private bool _isPaused;

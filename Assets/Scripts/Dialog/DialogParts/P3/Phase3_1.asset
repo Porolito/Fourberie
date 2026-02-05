@@ -13,5 +13,16 @@ MonoBehaviour:
   m_Name: Phase3_1
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
   clip: {fileID: 8300000, guid: 7f9dbb9f62fd3f54495920e7759545f6, type: 3}
-  subtitle: WOW ! A new pattern ! So fun !
+  subtitle:
+    m_TableReference:
+      m_TableCollectionName: GUID:5f70e9d759659694ba8570714c68ea49
+    m_TableEntryReference:
+      m_KeyId: 6627124428800
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   expression: 2
+  references:
+    version: 2
+    RefIds: []

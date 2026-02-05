@@ -13,5 +13,16 @@ MonoBehaviour:
   m_Name: good_ending
   m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
   clip: {fileID: 8300000, guid: b4a6450016de53949b2fe41197b97112, type: 3}
-  subtitle: CONGRATS FOR THE WEDDING, GO GIRLS!!
+  subtitle:
+    m_TableReference:
+      m_TableCollectionName: GUID:5f70e9d759659694ba8570714c68ea49
+    m_TableEntryReference:
+      m_KeyId: 8732430155776
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   expression: 2
+  references:
+    version: 2
+    RefIds: []
