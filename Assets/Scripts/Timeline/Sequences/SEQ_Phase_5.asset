@@ -20,10 +20,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 173c69ddc24365448a46c93d45d0f9e4, type: 2}
   challenge: 1
   bulletPatterns:
-  - spawnFrequency: 3
+  - spawnFrequency: 5
     spawnQuantity: 10
     pattern: 2
     timeBeforeNewWave: 3
-    sinFrequency: 0
-    sinMagnitude: 0
-    ballSpeed: 0
+    sinFrequency: 0.6
+    sinMagnitude: 2
+    ballSpeed: 20
