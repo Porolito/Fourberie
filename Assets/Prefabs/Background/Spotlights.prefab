@@ -173,7 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f5552f204989647b0ec89eda818120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpotLight_Script
-  isOnSpotLight: 0
 --- !u!1 &7195359021588114954
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +346,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f5552f204989647b0ec89eda818120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpotLight_Script
-  isOnSpotLight: 0
 --- !u!1 &7310556958937463909
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f5552f204989647b0ec89eda818120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpotLight_Script
-  isOnSpotLight: 0
 --- !u!61 &8049817217574341541
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -569,9 +566,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b92904c840205a45bc998e7a3ab6c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpotLight_Gameplay
-  m_MalusEvent: {fileID: 11400000, guid: 24e7fdfefecd660449b455a06edb2fc4, type: 2}
-  m_PhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
   spotLight:
   - {fileID: 844980137894717486}
   - {fileID: 7310556958937463909}
   - {fileID: 7195359021588114954}
+  m_MalusEvent: {fileID: 11400000, guid: 24e7fdfefecd660449b455a06edb2fc4, type: 2}
+  m_BonusEvent: {fileID: 11400000, guid: 811162a315bbe5d4f92db4b9918d9d5d, type: 2}

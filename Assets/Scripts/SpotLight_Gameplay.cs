@@ -1,7 +1,4 @@
-using System;
-using Timeline;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using Random = UnityEngine.Random;
 
 public class SpotLight_Gameplay : MonoBehaviour
@@ -13,7 +10,7 @@ public class SpotLight_Gameplay : MonoBehaviour
     
     [Header("Events")]
     [SerializeField] private EV_MalusEvent m_MalusEvent;
-    [SerializeField] private EV_PhaseSuccessEvent m_PhaseSuccessEvent;
+    [SerializeField] private EV_BonusEvent m_BonusEvent;
 
     public void TurnOnRandomSpotlight()
     {
@@ -24,8 +21,8 @@ public class SpotLight_Gameplay : MonoBehaviour
 
     public void CallSuccess()
     {
-        //m_PhaseSuccessEvent.CallPhaseSuccess(m_CurrentPhaseID);
-        Debug.Log("Spotlight success");
+        Debug.Log("Spotlight successful");
+        m_BonusEvent.CallBonus();
     }
 
     public void CallFail()

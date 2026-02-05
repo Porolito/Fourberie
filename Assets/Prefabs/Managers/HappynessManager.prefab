@@ -46,7 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HappynessManager
   m_AngryClip: {fileID: 8300000, guid: b035a442747cdd5498e511cfef023498, type: 3}
+  m_HappyClip: {fileID: 8300000, guid: 3cc69a9c04f580f48861b39ceff89689, type: 3}
   m_MalusEvent: {fileID: 11400000, guid: 24e7fdfefecd660449b455a06edb2fc4, type: 2}
+  m_bonusEvent: {fileID: 11400000, guid: 811162a315bbe5d4f92db4b9918d9d5d, type: 2}
   m_HappyMask: {fileID: -764067749, guid: 6e1d2dcac7bc71e4cb60aeae6d39c7a4, type: 3}
   m_AngryMask: {fileID: 862942463, guid: 6e1d2dcac7bc71e4cb60aeae6d39c7a4, type: 3}
 --- !u!82 &5373205481552885085
@@ -62,7 +64,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.417
+  m_Volume: 0.354
   m_Pitch: 1
   Loop: 0
   Mute: 0

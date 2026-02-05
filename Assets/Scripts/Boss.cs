@@ -14,8 +14,9 @@ public class Boss : MonoBehaviour
     private int m_CurrentHitToPush;
     private bool m_PushCooldownStarted;
     
-    [Header("Ref")]
+    [Header("Events")]
     [SerializeField] private SO_GameEvent m_ChallengeSuccessGE;
+    [SerializeField] private EV_BonusEvent m_BonusEvent;
 
     [Header("Settings")]
     [SerializeField] private int m_HealthPerPhase = 9;
@@ -74,6 +75,7 @@ public class Boss : MonoBehaviour
     {
         m_CanTakeDamages = false;
         PushPlayerAway(player);
+        m_BonusEvent.CallBonus();
         m_ChallengeSuccessGE.Trigger();
     }
 }

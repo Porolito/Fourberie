@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
     
     [Header("Event")]
     [SerializeField] private EV_MalusEvent m_MalusEvent;
-
+    [SerializeField] private EV_BonusEvent m_BonusEvent;
     [SerializeField] private SO_GameEvent m_ChallengeSuccessGE;
     
     private void Awake()
@@ -104,8 +104,12 @@ public class Player : MonoBehaviour
     {
         if (!other.CompareTag("Projectile")) return;
         if (m_IsInvincible) return;
-        
-        if (m_IsPlayerHitChallenge) EndPhase();
+
+        if (m_IsPlayerHitChallenge)
+        {
+            m_BonusEvent.CallBonus();
+            EndPhase();
+        }
         
         m_IsInvincible = true;
         //EVENT HIT

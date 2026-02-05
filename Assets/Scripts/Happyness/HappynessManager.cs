@@ -4,7 +4,7 @@ using System.Linq;
 using Timeline;
 using UnityEngine;
 
-public class HappynessManager : MonoBehaviour, IEV_MalusEvent
+public class HappynessManager : MonoBehaviour, IEV_MalusEvent, IEV_BonusEvent
 {
     private int malusCount;
 
@@ -13,9 +13,11 @@ public class HappynessManager : MonoBehaviour, IEV_MalusEvent
     
     [Header("Audio")]
     [SerializeField] private AudioClip m_AngryClip;
+    [SerializeField] private AudioClip m_HappyClip;
     
     [Header("Events")]
     [SerializeField] private EV_MalusEvent m_MalusEvent;
+    [SerializeField] private EV_BonusEvent m_bonusEvent;
     
     [Header("Sprites")]
     [SerializeField] private Sprite m_HappyMask;
@@ -29,6 +31,7 @@ public class HappynessManager : MonoBehaviour, IEV_MalusEvent
             _publicMasks.Add(go.GetComponent<SpriteRenderer>());
         }
         m_MalusEvent.Register(this);
+        m_bonusEvent.Register(this);
         
         m_AudioSource = GetComponent<AudioSource>();
     }
@@ -41,7 +44,20 @@ public class HappynessManager : MonoBehaviour, IEV_MalusEvent
             m_AudioSource.clip = m_AngryClip;
             m_AudioSource.Play();
         }
+        StopCoroutine(nameof(ChangeMaskRoutine));
         ChangePublicMask(m_AngryMask);
+    }
+   
+    public void OnBonusReceived()
+    {
+        malusCount--;
+        if (!m_AudioSource.isPlaying)
+        {
+            m_AudioSource.clip = m_HappyClip;
+            m_AudioSource.Play();
+        }
+        StopCoroutine(nameof(ChangeMaskRoutine));
+        ChangePublicMask(m_HappyMask, false);
     }
 
     private void ChangePublicMask(Sprite mask, bool withRoutine = true)
@@ -60,4 +76,5 @@ public class HappynessManager : MonoBehaviour, IEV_MalusEvent
         yield return new WaitForSeconds(3f);
         ChangePublicMask(m_HappyMask, false);
     }
+
 }

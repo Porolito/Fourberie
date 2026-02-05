@@ -74,6 +74,7 @@ MonoBehaviour:
   m_AttackDuration: 0.2
   m_AttackCooldown: 0.1
   m_MalusEvent: {fileID: 11400000, guid: 24e7fdfefecd660449b455a06edb2fc4, type: 2}
+  m_BonusEvent: {fileID: 11400000, guid: 811162a315bbe5d4f92db4b9918d9d5d, type: 2}
   m_ChallengeSuccessGE: {fileID: 11400000, guid: 1cde283197c513a498b634cc1850c350, type: 2}
 --- !u!50 &5006686358620518313
 Rigidbody2D:
