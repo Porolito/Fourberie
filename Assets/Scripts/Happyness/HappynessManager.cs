@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class HappynessManager : MonoBehaviour, IEV_MalusEvent, IEV_BonusEvent
 {
-    private int malusCount;
+    public int malusCount { get; private set; }
 
     private List<SpriteRenderer> _publicMasks = new ();
     private AudioSource m_AudioSource;

@@ -54,7 +54,17 @@ MonoBehaviour:
   m_BulletManager: {fileID: 0}
   m_Player: {fileID: 0}
   m_SpotLights: {fileID: 0}
+  m_HappinessManager: {fileID: 0}
+  m_EndingImage: {fileID: 0}
   m_ChallengeSuccessGE: {fileID: 11400000, guid: 1cde283197c513a498b634cc1850c350, type: 2}
+  m_NeutralEndingSequenceMinimumHappiness: 3
+  m_NeutralEndingSequenceMaximumHappiness: 6
+  m_BadEndingSequence: {fileID: 11400000, guid: 5e6da80f0c99bb64f8c58b43485262ff, type: 2}
+  m_NeutralEndingSequence: {fileID: 11400000, guid: 9ee5f6464d7345148bffaad76664cc3b, type: 2}
+  m_GoodEndingSequence: {fileID: 11400000, guid: ff08f211c1b1b1d4c893857033281fdd, type: 2}
+  m_BadEndingSprite: {fileID: 21300000, guid: dff9663a470654a4c99f7b2b102aa747, type: 3}
+  m_NeutralEndingSprite: {fileID: 21300000, guid: bfaa29607447ed44aaed735581152658, type: 3}
+  m_GoodEndingSprite: {fileID: 21300000, guid: 9f581b70503783541aef5f30a4549c65, type: 3}
   m_Sequences:
   - {fileID: 11400000, guid: 8c5de1fa5ecbc2e4bb3fd8741de54b8d, type: 2}
   - {fileID: 11400000, guid: 3857d8b213c267249ad1941a363366a1, type: 2}
@@ -71,7 +81,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1593007679803032458}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 59963396a4d6f69408140ce5eab599c5, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: c95892925d1b6634e87bd0438a98ddd6, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -96,6 +106,22 @@ PlayableDirector:
   - key: {fileID: -3425482865180673036, guid: 59963396a4d6f69408140ce5eab599c5, type: 2}
     value: {fileID: 8829361818105622409}
   - key: {fileID: -1979421612728900924, guid: 59963396a4d6f69408140ce5eab599c5, type: 2}
+    value: {fileID: 370346644058492420}
+  - key: {fileID: -3425482865180673036, guid: bb69dffe0711a054da865e2f459e9bf8, type: 2}
+    value: {fileID: 8829361818105622409}
+  - key: {fileID: -1979421612728900924, guid: bb69dffe0711a054da865e2f459e9bf8, type: 2}
+    value: {fileID: 370346644058492420}
+  - key: {fileID: -3425482865180673036, guid: e2004b299bf092c41b2af50f53ecf3c7, type: 2}
+    value: {fileID: 8829361818105622409}
+  - key: {fileID: -1979421612728900924, guid: e2004b299bf092c41b2af50f53ecf3c7, type: 2}
+    value: {fileID: 370346644058492420}
+  - key: {fileID: -3425482865180673036, guid: b6b56b87e3a0db049a0c466467dae2ca, type: 2}
+    value: {fileID: 8829361818105622409}
+  - key: {fileID: -1979421612728900924, guid: b6b56b87e3a0db049a0c466467dae2ca, type: 2}
+    value: {fileID: 370346644058492420}
+  - key: {fileID: -3425482865180673036, guid: c95892925d1b6634e87bd0438a98ddd6, type: 2}
+    value: {fileID: 8829361818105622409}
+  - key: {fileID: -1979421612728900924, guid: c95892925d1b6634e87bd0438a98ddd6, type: 2}
     value: {fileID: 370346644058492420}
   m_ExposedReferences:
     m_References: []

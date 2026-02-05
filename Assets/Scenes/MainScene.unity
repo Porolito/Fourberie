@@ -1014,6 +1014,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2671494821800248027, guid: 979932df7d6d5234ca0bc8497cb53fac, type: 3}
   m_PrefabInstance: {fileID: 893079157}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &893079159 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7629271674471278298, guid: 979932df7d6d5234ca0bc8497cb53fac, type: 3}
+  m_PrefabInstance: {fileID: 893079157}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ebbe88061e702a44b7dc2f51420f5cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappynessManager
 --- !u!4 &920183243 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6063190065190579627, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
@@ -1147,30 +1158,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimelineManager
       objectReference: {fileID: 0}
-    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: m_PlayableAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: bb69dffe0711a054da865e2f459e9bf8, type: 2}
-    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: m_SceneBindings.Array.size
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: m_SceneBindings.Array.data[10].key
-      value: 
-      objectReference: {fileID: -3425482865180673036, guid: bb69dffe0711a054da865e2f459e9bf8, type: 2}
-    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: m_SceneBindings.Array.data[11].key
-      value: 
-      objectReference: {fileID: -1979421612728900924, guid: bb69dffe0711a054da865e2f459e9bf8, type: 2}
-    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: m_SceneBindings.Array.data[10].value
-      value: 
-      objectReference: {fileID: 1831016188}
-    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: m_SceneBindings.Array.data[11].value
-      value: 
-      objectReference: {fileID: 1831016187}
     - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: m_Boss
       value: 
@@ -1188,6 +1175,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1138179494982661543}
     - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_EndingImage
+      value: 
+      objectReference: {fileID: 1907337888}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: m_BulletManager
       value: 
       objectReference: {fileID: 388172499}
@@ -1195,6 +1186,10 @@ PrefabInstance:
       propertyPath: m_DialogManager
       value: 
       objectReference: {fileID: 1618210307}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_HappinessManager
+      value: 
+      objectReference: {fileID: 893079159}
     - target: {fileID: 5682818824587505779, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: bulletManager
       value: 
@@ -1323,27 +1318,22 @@ PlayableDirector:
   m_CorrespondingSourceObject: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
   m_PrefabInstance: {fileID: 1609888227}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1831016187 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 370346644058492420, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-  m_PrefabInstance: {fileID: 1609888227}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
---- !u!82 &1831016188 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8829361818105622409, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-  m_PrefabInstance: {fileID: 1609888227}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1907337887 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6801187417926821355, guid: 0e1c3917783789f469f4d26c8fb5420d, type: 3}
   m_PrefabInstance: {fileID: 3978991057124748759}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1907337888 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1664145140601647650, guid: 0e1c3917783789f469f4d26c8fb5420d, type: 3}
+  m_PrefabInstance: {fileID: 3978991057124748759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907337887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1917938025
 GameObject:
   m_ObjectHideFlags: 0

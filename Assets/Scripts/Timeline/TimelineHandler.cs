@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
+using UnityEngine.UI;
 
 namespace Timeline
 {
@@ -22,9 +23,21 @@ namespace Timeline
         [SerializeField] private BulletManager m_BulletManager;
         [SerializeField] private Player m_Player;
         [SerializeField] private SpotLight_Gameplay m_SpotLights;
+        [SerializeField] private HappynessManager m_HappinessManager;
+        [SerializeField] private Image m_EndingImage;
         
         [Header("Game Events")]
         [SerializeField] private SO_GameEvent m_ChallengeSuccessGE;
+
+        [Header("Endings")]
+        [SerializeField] private int m_NeutralEndingSequenceMinimumHappiness;
+        [SerializeField] private int m_NeutralEndingSequenceMaximumHappiness;
+        [SerializeField] private SO_Sequence m_BadEndingSequence;
+        [SerializeField] private SO_Sequence m_NeutralEndingSequence;
+        [SerializeField] private SO_Sequence m_GoodEndingSequence;
+        [SerializeField] private Sprite m_BadEndingSprite;
+        [SerializeField] private Sprite m_NeutralEndingSprite;
+        [SerializeField] private Sprite m_GoodEndingSprite;
         
         [Space]
         [SerializeField] [Tooltip("Order is important!")] private SO_Sequence[] m_Sequences;
@@ -80,8 +93,25 @@ namespace Timeline
 
         private void DisplayEndScreen()
         {
-            //TODO: faire la fin
             Debug.Log($"End game gg");
+            if (m_HappinessManager.malusCount < m_NeutralEndingSequenceMinimumHappiness)
+            {
+                m_EndingImage.sprite = m_GoodEndingSprite;
+                m_TimelineDirector.playableAsset = m_GoodEndingSequence.timeline;
+            }
+            else if (m_HappinessManager.malusCount > m_NeutralEndingSequenceMaximumHappiness)
+            {
+                m_EndingImage.sprite = m_BadEndingSprite;
+                m_TimelineDirector.playableAsset = m_BadEndingSequence.timeline;
+            }
+            else
+            {
+                m_EndingImage.sprite = m_NeutralEndingSprite;
+                m_TimelineDirector.playableAsset = m_NeutralEndingSequence.timeline;
+            }
+            
+            m_EndingImage.gameObject.SetActive(true);
+            m_TimelineDirector.Play();
         }
 
         private void StartChallenge(SO_Sequence.ChallengeType challenge)
