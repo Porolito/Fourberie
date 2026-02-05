@@ -19,7 +19,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9f9bf814bac566042b1cb2856ac1107c, type: 2}
   challenge: 1
   bulletPatterns:
-  - spawnFrequency: 3
+  - spawnFrequency: 5
     spawnQuantity: 10
-    pattern: 1
+    pattern: 2
     timeBeforeNewWave: 3
+    sinFrequency: 0.8
+    sinMagnitude: 2
+    ballSpeed: 15
