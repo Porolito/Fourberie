@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         if (!other.CompareTag("Projectile")) return;
-        if (m_IsInvincible) return;
+        if (m_IsInvincible || m_IsDashing) return;
 
         if (m_IsPlayerHitChallenge)
         {

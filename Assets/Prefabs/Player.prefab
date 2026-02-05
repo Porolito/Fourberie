@@ -67,8 +67,8 @@ MonoBehaviour:
   m_JumpBuffer: 0.1
   m_JumpMinDuration: 0.05
   m_JumpMaxDuration: 0.1
-  m_DashDuration: 0.15
-  m_DashSpeed: 20
+  m_DashDuration: 0.3
+  m_DashSpeed: 15
   m_DashEndVelDiviser: 10
   m_AttackColliders: {fileID: 8612157131232015165}
   m_AttackDuration: 0.2

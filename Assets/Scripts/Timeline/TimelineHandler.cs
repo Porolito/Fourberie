@@ -145,7 +145,7 @@ namespace Timeline
         {
             if (m_CurrentSequenceIndex >= m_Sequences.Length)
             {
-                Debug.LogError($"[{m_Sequences[m_CurrentSequenceIndex].name}] No subtitle found");
+                //Debug.LogError($"[{m_Sequences[m_CurrentSequenceIndex].name}] No subtitle found");
                 return;
             }
             
