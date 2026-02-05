@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 public class SpotLight_Script : MonoBehaviour
@@ -39,6 +40,7 @@ public class SpotLight_Script : MonoBehaviour
         else
         {
             m_Parent.CallFail();
+            Camera.main.transform.DOShakePosition(0.1f, 1f, 2);
         }
     }
 }
