@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9036f1e958bafd4fa2c0d793980ac3a, type: 3}
+  m_Name: SEQ_Phase_5
+  m_EditorClassIdentifier: Assembly-CSharp::SO_Sequence
+  timeline: {fileID: 11400000, guid: bb69dffe0711a054da865e2f459e9bf8, type: 2}
+  dialogs:
+  - {fileID: 11400000, guid: 071bda72b2f4d6c48ae15bbb561049fc, type: 2}
+  - {fileID: 11400000, guid: 8696c1deec35a6441a9b13f06e640687, type: 2}
+  - {fileID: 11400000, guid: 4d5bd60fc95aef64a96a99ae384b82dd, type: 2}
+  - {fileID: 11400000, guid: 173c69ddc24365448a46c93d45d0f9e4, type: 2}
+  challenge: 1
+  bulletPatterns:
+  - spawnFrequency: 3
+    spawnQuantity: 10
+    pattern: 2
+    timeBeforeNewWave: 3
+    sinFrequency: 0
+    sinMagnitude: 0
+    ballSpeed: 0

@@ -70,6 +70,7 @@ namespace Timeline
             m_BulletManager.CancelCoroutine();
             m_DialogManager.EndSequence();
             m_CurrentSequenceIndex++;
+            m_TimelineDirector.Stop();
 
             if (m_CurrentSequenceIndex >= m_Sequences.Length)
                 DisplayEndScreen();
