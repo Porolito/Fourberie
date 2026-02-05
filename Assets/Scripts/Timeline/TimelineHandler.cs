@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
 
@@ -53,9 +54,12 @@ namespace Timeline
             m_ChallengeSuccessGE.Bind(OnChallengeSuccess);
         }
 
-#if UNITY_EDITOR
         private void Update()
         {
+            if (Keyboard.current.rKey.wasPressedThisFrame)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            
+#if UNITY_EDITOR
             if (Keyboard.current.qKey.wasPressedThisFrame)
             {
                 m_CurrentSequenceIndex -= 2;
@@ -67,8 +71,8 @@ namespace Timeline
             {
                 EndSequence(false);
             }
-        }
 #endif
+        }
         
         public void StartSequence()
         {
