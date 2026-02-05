@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class SpotLight_Script : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public bool isOnSpotLight = false;
+    private SpotLight_Gameplay m_Parent;
+    private bool isOnSpotLight = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,20 +16,29 @@ public class SpotLight_Script : MonoBehaviour
         isOnSpotLight = false;
     }
 
+    public void TurnOn(SpotLight_Gameplay parent)
+    {
+        m_Parent = parent;
+        gameObject.SetActive(true);
+    }
+
+    // Called by animation (?)
     private void TurnOffSpotLight()
     {
         gameObject.SetActive(false);
         isOnSpotLight = false;
     }
+    
+    // Called by animation (?)
     private void CheckTrigger()
     {
         if (isOnSpotLight)
         {
-            SpotLight_Gameplay.Instance.CallSuccess();
+            m_Parent.CallSuccess();
         }
         else
         {
-            SpotLight_Gameplay.Instance.CallFail();
+            m_Parent.CallFail();
         }
     }
 }

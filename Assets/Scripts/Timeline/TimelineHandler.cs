@@ -21,6 +21,7 @@ namespace Timeline
         [SerializeField] private Boss m_Boss;
         [SerializeField] private BulletManager m_BulletManager;
         [SerializeField] private Player m_Player;
+        [SerializeField] private SpotLight_Gameplay m_SpotLights;
         
         [Header("Game Events")]
         [SerializeField] private SO_GameEvent m_ChallengeSuccessGE;
@@ -98,39 +99,27 @@ namespace Timeline
             }
         }
 
-        private void OnChallengeSuccess(object args)
-        {
-            EndSequence();
-        }
+        private void OnChallengeSuccess(object args) => EndSequence();
 
         
         #region Signals Callbacks // Called by signals in timelines
 
-        public void SC_OnEndSequence()
-        {
-            EndSequence();
-        }
+        public void SC_OnEndSequence() => EndSequence();
         
         public void SC_OnDisplayNextSubtitle()
         {
             if (m_CurrentSequenceIndex >= m_Sequences.Length)
             {
-                Debug.LogError($"[{m_Sequences[m_CurrentSequenceIndex].name}] No subtitle patterns found");
+                Debug.LogError($"[{m_Sequences[m_CurrentSequenceIndex].name}] No subtitle found");
                 return;
             }
             
             m_DialogManager.DisplayNextSubtitle(m_Sequences[m_CurrentSequenceIndex].dialogs);
         }
 
-        public void SC_OnOpenEntranceCurtains()
-        {
-            m_Menus.OpenCurtains();
-        }
+        public void SC_OnOpenEntranceCurtains() => m_Menus.OpenCurtains();
 
-        public void SC_OnEnableChallenge()
-        {
-            StartChallenge(m_Sequences[m_CurrentSequenceIndex].challenge);
-        }
+        public void SC_OnEnableChallenge() => StartChallenge(m_Sequences[m_CurrentSequenceIndex].challenge);
 
         public void SC_OnThrowBullets()
         {
@@ -149,6 +138,8 @@ namespace Timeline
                 bulletPatterns[0].pattern, 
                 bulletPatterns[0].timeBeforeNewWave);
         }
+
+        public void SC_OnActivateSpotlight() => m_SpotLights.TurnOnRandomSpotlight();
 
         #endregion
     }

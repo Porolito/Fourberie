@@ -27,7 +27,7 @@ namespace Timeline
         {
             Debug.Log("Start Phase4");
             //Boss.Instance.StartPhase(false);
-            SpotLight_Gameplay.Instance.StartPhase(kpID);
+            //SpotLight_Gameplay.Instance.StartPhase(kpID);
             //KP logic : bullets
             yield return null;
         }

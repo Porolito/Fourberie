@@ -1080,30 +1080,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimelineManager
       objectReference: {fileID: 0}
-    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: m_PlayableAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 3db51940202bd7145adb1ccb3cb71221, type: 2}
-    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: m_SceneBindings.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: m_SceneBindings.Array.data[6].key
-      value: 
-      objectReference: {fileID: -3425482865180673036, guid: 3db51940202bd7145adb1ccb3cb71221, type: 2}
-    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: m_SceneBindings.Array.data[7].key
-      value: 
-      objectReference: {fileID: -1979421612728900924, guid: 3db51940202bd7145adb1ccb3cb71221, type: 2}
-    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: m_SceneBindings.Array.data[6].value
-      value: 
-      objectReference: {fileID: 2052484249}
-    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: m_SceneBindings.Array.data[7].value
-      value: 
-      objectReference: {fileID: 2052484251}
     - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: m_Boss
       value: 
@@ -1117,6 +1093,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1577015459}
     - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_SpotLights
+      value: 
+      objectReference: {fileID: 1138179494982661543}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: m_BulletManager
       value: 
       objectReference: {fileID: 388172499}
@@ -1124,14 +1104,6 @@ PrefabInstance:
       propertyPath: m_DialogManager
       value: 
       objectReference: {fileID: 1618210307}
-    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: m_Sequences.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-      propertyPath: 'm_Sequences.Array.data[3]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 0e2aceecf0f00ec46aaf261b1001876e, type: 2}
     - target: {fileID: 5682818824587505779, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: bulletManager
       value: 
@@ -1376,22 +1348,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5184653996661582532, guid: d231355db88d46e4083592787cef6201, type: 3}
   m_PrefabInstance: {fileID: 6457476777278200212}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &2052484249 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8829361818105622409, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-  m_PrefabInstance: {fileID: 1609888227}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2052484251 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 370346644058492420, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
-  m_PrefabInstance: {fileID: 1609888227}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
 --- !u!4 &2063838684 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7257122265037837293, guid: 03ce16ffe39c0534795db1caf81192c4, type: 3}
@@ -1470,6 +1426,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4190867842727821540, guid: 932c6e3baba4b0e479053982ba1c275e, type: 3}
   m_PrefabInstance: {fileID: 1138179494982661541}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1138179494982661543 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 307356939917761208, guid: 932c6e3baba4b0e479053982ba1c275e, type: 3}
+  m_PrefabInstance: {fileID: 1138179494982661541}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b92904c840205a45bc998e7a3ab6c8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpotLight_Gameplay
 --- !u!1001 &3978991057124748759
 PrefabInstance:
   m_ObjectHideFlags: 0

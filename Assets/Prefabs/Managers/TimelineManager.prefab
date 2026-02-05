@@ -51,11 +51,15 @@ MonoBehaviour:
   m_DialogManager: {fileID: 0}
   m_Menus: {fileID: 0}
   m_Boss: {fileID: 0}
+  m_BulletManager: {fileID: 0}
+  m_Player: {fileID: 0}
+  m_SpotLights: {fileID: 0}
   m_ChallengeSuccessGE: {fileID: 11400000, guid: 1cde283197c513a498b634cc1850c350, type: 2}
   m_Sequences:
   - {fileID: 11400000, guid: 8c5de1fa5ecbc2e4bb3fd8741de54b8d, type: 2}
   - {fileID: 11400000, guid: 3857d8b213c267249ad1941a363366a1, type: 2}
   - {fileID: 11400000, guid: 411975d43e3424941a69b0bec4d450eb, type: 2}
+  - {fileID: 11400000, guid: 0e2aceecf0f00ec46aaf261b1001876e, type: 2}
 --- !u!320 &3381861115849894672
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -65,7 +69,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1593007679803032458}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 97786d1f71430bc44b4e8a4cc8232338, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 3db51940202bd7145adb1ccb3cb71221, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -82,6 +86,10 @@ PlayableDirector:
   - key: {fileID: -3425482865180673036, guid: 97786d1f71430bc44b4e8a4cc8232338, type: 2}
     value: {fileID: 8829361818105622409}
   - key: {fileID: -1979421612728900924, guid: 97786d1f71430bc44b4e8a4cc8232338, type: 2}
+    value: {fileID: 370346644058492420}
+  - key: {fileID: -3425482865180673036, guid: 3db51940202bd7145adb1ccb3cb71221, type: 2}
+    value: {fileID: 8829361818105622409}
+  - key: {fileID: -1979421612728900924, guid: 3db51940202bd7145adb1ccb3cb71221, type: 2}
     value: {fileID: 370346644058492420}
   m_ExposedReferences:
     m_References: []
@@ -201,6 +209,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0ec8f4ceeb944e143adecf4155019e01, type: 2}
     - {fileID: 11400000, guid: a077b8325973553439d20cd2bd4ebd65, type: 2}
     - {fileID: 11400000, guid: 8f78406c1ab291e48b0314c150358d42, type: 2}
+    - {fileID: 11400000, guid: ecd456bda21ec0346b529e4e2f12ff89, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -263,6 +272,20 @@ MonoBehaviour:
         - m_Target: {fileID: 3678703481156733419}
           m_TargetAssemblyTypeName: Timeline.TimelineHandler, Assembly-CSharp
           m_MethodName: SC_OnThrowBullets
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3678703481156733419}
+          m_TargetAssemblyTypeName: Timeline.TimelineHandler, Assembly-CSharp
+          m_MethodName: SC_OnActivateSpotlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
