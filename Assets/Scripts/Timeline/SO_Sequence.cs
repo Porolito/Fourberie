@@ -24,5 +24,8 @@ public class SO_Sequence : ScriptableObject
         public int spawnQuantity;
         public BulletManager.Pattern pattern;
         public float timeBeforeNewWave;
+        public float sinFrequency;
+        public float sinMagnitude;
+        public float ballSpeed;
     }
 }

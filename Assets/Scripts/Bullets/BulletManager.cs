@@ -55,18 +55,19 @@ public class BulletManager : MonoBehaviour
         return newBall;
     }
     
-    private void BallPatternMaker(BallPathScriptable ballPattern, GameObject ballSpawned, bool isDoubleSine) //Give pattern to ball and their spawn position
+    private void BallPatternMaker(BallPathScriptable ballPattern, GameObject ballSpawned, bool isDoubleSine, float sinFrequency, float sinMagnitude, float ballSpeed) //Give pattern to ball and their spawn position
     {
         BallPath ballPath = ballSpawned.GetComponent<BallPath>();
         ballPath.endPosX = ballPattern.endPosX;
-        ballPath.waveFrequency = ballPattern.waveFrequency;
-        ballPath.waveAmplitude = ballPattern.waveAmplitude;
+        ballPath.waveFrequency = sinFrequency;
+        ballPath.waveAmplitude = sinMagnitude;
         ballPath.spawnPosition = ballSpawned.transform.position;
+        ballPath.moveDuration = ballSpeed;
         if (isDoubleSine) ballPath.startY = -1;
         else  ballPath.startY = 1;
         ballPath.GiveAPath();
     }
-    IEnumerator SpawnerPattern(float spawnFrequency, int spawnQuantity, Pattern pattern, float timeBeforeNewWave) //Function to use to do a ball pattern
+    IEnumerator SpawnerPattern(float spawnFrequency, int spawnQuantity, Pattern pattern, float timeBeforeNewWave, float sinFrequency, float sinMagnitude, float ballSpeed) //Function to use to do a ball pattern
     {
         for (int i = 0; i < spawnQuantity; i++)
         {
@@ -75,25 +76,25 @@ public class BulletManager : MonoBehaviour
             switch (pattern)
             {
                 case Pattern.Straight:
-                    BallPatternMaker(ballPathScriptable[0], _lastBall, false); 
+                    BallPatternMaker(ballPathScriptable[0], _lastBall, false, sinFrequency, sinMagnitude, ballSpeed); 
                     break;
                 case Pattern.Sine: 
-                    BallPatternMaker(ballPathScriptable[1], _lastBall, false); 
+                    BallPatternMaker(ballPathScriptable[1], _lastBall, false,  sinFrequency, sinMagnitude,ballSpeed); 
                     break;
                 case Pattern.SineBis: 
-                    BallPatternMaker(ballPathScriptable[1], _lastBall, false);
+                    BallPatternMaker(ballPathScriptable[1], _lastBall, false,  sinFrequency, sinMagnitude,ballSpeed);
                     var _lastBall1 = SummonBall();
-                    BallPatternMaker(ballPathScriptable[1], _lastBall1, true);
+                    BallPatternMaker(ballPathScriptable[1], _lastBall1, true, sinFrequency, sinMagnitude,ballSpeed);
                     break;
             }
         }
         yield return new WaitForSeconds(timeBeforeNewWave);
-        LaunchCoroutine(spawnFrequency, spawnQuantity, pattern, timeBeforeNewWave);
+        LaunchCoroutine(spawnFrequency, spawnQuantity, pattern, timeBeforeNewWave, sinFrequency, sinMagnitude, ballSpeed);
     }
 
-    public void LaunchCoroutine(float spawnFrequency, int spawnQuantity, Pattern pattern, float timeBeforeNewWave)
+    public void LaunchCoroutine(float spawnFrequency, int spawnQuantity, Pattern pattern, float timeBeforeNewWave, float  sinFrequency, float sinMagnitude, float ballSpeed)
     {
-        ActualCoroutine = StartCoroutine(SpawnerPattern(spawnFrequency, spawnQuantity, pattern, timeBeforeNewWave));
+        ActualCoroutine = StartCoroutine(SpawnerPattern(spawnFrequency, spawnQuantity, pattern, timeBeforeNewWave,  sinFrequency, sinMagnitude, ballSpeed));
     }
 
     public void CancelCoroutine()

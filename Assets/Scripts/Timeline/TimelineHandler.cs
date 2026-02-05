@@ -136,7 +136,10 @@ namespace Timeline
                 bulletPatterns[0].spawnFrequency, 
                 bulletPatterns[0].spawnQuantity, 
                 bulletPatterns[0].pattern, 
-                bulletPatterns[0].timeBeforeNewWave);
+                bulletPatterns[0].timeBeforeNewWave,
+                bulletPatterns[0].sinFrequency,
+                bulletPatterns[0].sinMagnitude,
+                bulletPatterns[0].ballSpeed);
         }
 
         public void SC_OnActivateSpotlight() => m_SpotLights.TurnOnRandomSpotlight();

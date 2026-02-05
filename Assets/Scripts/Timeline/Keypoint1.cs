@@ -29,7 +29,7 @@ namespace Timeline
         {
             Debug.Log("Start Phase1");
             yield return new WaitForSeconds(0.5f);
-            bulletManager.LaunchCoroutine(3f, 5, BulletManager.Pattern.Straight,3f);
+            bulletManager.LaunchCoroutine(3f, 5, BulletManager.Pattern.Straight,3f, 2, 2, 50);
             //Boss.Instance.StartPhase(true);
             //KP logic : bullets
         }
