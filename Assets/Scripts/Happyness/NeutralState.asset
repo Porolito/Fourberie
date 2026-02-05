@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a9a7a304fa780488bfd82e64dc78a9, type: 3}
   m_Name: NeutralState
   m_EditorClassIdentifier: Assembly-CSharp::PublicState
-  sprite: {fileID: 0}
+  sprite: {fileID: -764067749, guid: 6e1d2dcac7bc71e4cb60aeae6d39c7a4, type: 3}
