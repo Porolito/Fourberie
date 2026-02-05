@@ -32,14 +32,14 @@ namespace Timeline
         {
             Debug.Log("Start Phase2");
             //Boss.Instance.StartPhase(false);
-            bulletManager.LaunchCoroutine(0.5f, 1, BulletManager.Pattern.Straight, 15f, 3, 15);
+            bulletManager.LaunchCoroutine(0.5f, 1, BulletManager.Pattern.Straight, 15f, 3, 2, 15);
             isHitChallengeActive = true;
             yield return new WaitForSeconds(7.5f);
             if (!isHitChallengeActive)
             {
                 OnPhaseSuccess(kpID);
             }
-            bulletManager.LaunchCoroutine(0.5f, 1, BulletManager.Pattern.Straight, 15f, 4, 15);
+            bulletManager.LaunchCoroutine(0.5f, 1, BulletManager.Pattern.Straight, 15f, 4, 2, 15);
             yield return new WaitForSeconds(dialogParts[2].clip.length + 1f);
             OnPhaseSuccess(kpID);
             yield return null;

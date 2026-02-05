@@ -25,6 +25,7 @@ public class SO_Sequence : ScriptableObject
         public BulletManager.Pattern pattern;
         public float timeBeforeNewWave;
         public float sinFrequency;
+        public float sinMagnitude;
         public float ballSpeed;
     }
 }

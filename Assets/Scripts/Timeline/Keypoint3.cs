@@ -28,7 +28,7 @@ namespace Timeline
         {
             Debug.Log("Start Phase3");
             //Boss.Instance.StartPhase(true);
-            bulletManager.LaunchCoroutine(3f, 10, BulletManager.Pattern.Sine, 3, 5, 15);
+            bulletManager.LaunchCoroutine(3f, 10, BulletManager.Pattern.Sine, 3, 5, 2, 15);
             //KP logic : bullets
             yield return null;
         }
