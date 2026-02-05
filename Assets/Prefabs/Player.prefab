@@ -49,8 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bee3e1e333c274daa6e94784b227b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  _attackVfx: {fileID: 4133055267250427307}
+  m_IsPlayerHitChallenge: 0
   m_InvincibilityDuration: 1
+  _attackVfx: {fileID: 4133055267250427307}
   m_Animator: {fileID: 2474593668440530172}
   m_Visuals: {fileID: 7090691485350334417}
   m_MoveSpeed: 10
@@ -73,6 +74,7 @@ MonoBehaviour:
   m_AttackDuration: 0.2
   m_AttackCooldown: 0.1
   m_MalusEvent: {fileID: 11400000, guid: 24e7fdfefecd660449b455a06edb2fc4, type: 2}
+  m_ChallengeSuccessGE: {fileID: 11400000, guid: 1cde283197c513a498b634cc1850c350, type: 2}
 --- !u!50 &5006686358620518313
 Rigidbody2D:
   serializedVersion: 5

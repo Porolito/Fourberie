@@ -16,7 +16,7 @@ namespace Timeline
         
         [SerializeField] private BulletManager bulletManager;
         
-        [SerializeField] private DialogPartData[] dialogParts;
+        [SerializeField] private SO_DialogPart[] dialogParts;
         
         [SerializeField] private GameObject ending;
 
@@ -30,9 +30,8 @@ namespace Timeline
         public override IEnumerator ProcessKeypoint()
         {
             Debug.Log("Start Phase5");
-            DialogManager.instance.PlayDialog(dialogParts[0]);
-            yield return new WaitForSeconds(dialogParts[0].clip.length + 1f);
             ending.SetActive(true);
+            yield return null;
         }
 
         public void OnPhaseSuccess(int id)

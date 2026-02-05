@@ -12,5 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Loutre.unity
     guid: a09e5ff03e4923b46bf7d73ab82348df
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: e0a6ac34271a85e40a36f927945245d5, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: e81dc4432abc7ed4a8cc8b55e58485c1, type: 2}
   m_UseUCBPForAssetBundles: 0

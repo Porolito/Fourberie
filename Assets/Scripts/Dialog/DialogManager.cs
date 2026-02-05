@@ -1,8 +1,10 @@
-using System;
 using System.Collections;
-using JetBrains.Annotations;
 using TMPro;
+using UnityEditor.Localization;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -10,15 +12,13 @@ public class DialogManager : MonoBehaviour
 {
     public static DialogManager instance;
     
-    private AudioSource m_AudioSource;
-
-    [Header("Test")]
-    [SerializeField] private bool m_TestAtAwake;
-    [SerializeField] private DialogPartData m_DialogTest;
+    private int m_DialogIndex;
+    private int m_LocaleIndex;
     
     [Header("Refs")]
     [SerializeField] private TextMeshProUGUI m_NarratorSubtitle;
     [SerializeField] private Image m_NarratorExpression;
+    [SerializeField] private TextMeshProUGUI m_LocaleIndicator;
     
     [Header("Expressions Face")]
     [SerializeField] private Sprite m_NeutralFace;
@@ -34,33 +34,35 @@ public class DialogManager : MonoBehaviour
         if (instance == null)
             instance = this;
         
-        m_AudioSource = GetComponent<AudioSource>();
-        
-        if (m_TestAtAwake)
-            PlayDialog(m_DialogTest);
+        SetLocale(LocalizationSettings.AvailableLocales.Locales[0]);
     }
 
-    public void PlayDialog(DialogPartData dialog)
+    private void Update()
     {
-        m_AudioSource.Stop();
-        m_NarratorSubtitle.text = "";
-        
-        m_NarratorExpression.sprite = GetExpressionSprite(dialog.expression);
-        m_AudioSource.clip = dialog.clip;
-        m_AudioSource.Play();
-        StartCoroutine(DisplaySubtitleRoutine(dialog.subtitle));
+        if (Keyboard.current.lKey.wasPressedThisFrame)
+        {
+            m_LocaleIndex = m_LocaleIndex + 1 >= LocalizationSettings.AvailableLocales.Locales.Count ? 0 : m_LocaleIndex + 1;
+            SetLocale(LocalizationSettings.AvailableLocales.Locales[m_LocaleIndex]);
+        }
     }
-    
-    Sprite GetExpressionSprite(DialogPartData.Expression expression)
+
+    private void SetLocale(Locale newLocale)
+    {
+        LocalizationSettings.SelectedLocale = newLocale;
+        m_LocaleIndicator.text = $"[{LocalizationSettings.SelectedLocale.Identifier.Code}]";
+    }
+
+    Sprite GetExpressionSprite(SO_DialogPart.Expression expression)
     {
         return expression switch
         {
-            DialogPartData.Expression.Neutral => m_NeutralFace,
-            DialogPartData.Expression.Sad => m_SadFace,
-            DialogPartData.Expression.Happy => m_HappyFace,
+            SO_DialogPart.Expression.Neutral => m_NeutralFace,
+            SO_DialogPart.Expression.Sad => m_SadFace,
+            SO_DialogPart.Expression.Happy => m_HappyFace,
             _ => m_NeutralFace
         };
     }
+    
     IEnumerator DisplaySubtitleRoutine(string subtitle)
     {
         foreach (char letter in subtitle)
@@ -69,5 +71,22 @@ public class DialogManager : MonoBehaviour
             yield return new WaitForSeconds(randPause);
             m_NarratorSubtitle.text += letter;
         }
+    }
+
+    public void DisplayNextSubtitle(SO_DialogPart[] dialogs)
+    {
+        SO_DialogPart dialogPart = dialogs[m_DialogIndex];
+        
+        m_NarratorSubtitle.text = "";
+        m_NarratorExpression.sprite = GetExpressionSprite(dialogPart.expression);
+        
+        StopCoroutine(nameof(DisplaySubtitleRoutine));
+        StartCoroutine(DisplaySubtitleRoutine(dialogPart.GetLocalizedSubtitle()));
+        m_DialogIndex++;
+    }
+
+    public void EndSequence()
+    {
+        m_DialogIndex = 0;
     }
 }

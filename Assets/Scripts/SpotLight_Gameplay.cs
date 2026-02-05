@@ -6,42 +6,31 @@ using Random = UnityEngine.Random;
 
 public class SpotLight_Gameplay : MonoBehaviour
 {
-    public static SpotLight_Gameplay Instance;
-
     private int m_CurrentPhaseID;
 
     [Header("Refs")]
+    [SerializeField] private GameObject[] spotLight;
+    
+    [Header("Events")]
     [SerializeField] private EV_MalusEvent m_MalusEvent;
     [SerializeField] private EV_PhaseSuccessEvent m_PhaseSuccessEvent;
-    public GameObject[] spotLight;
 
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-    }
-
-    public void StartPhase(int phaseID)
-    {
-        m_CurrentPhaseID = phaseID;
-        spotLightGame();
-    }
-
-    private void spotLightGame()
+    public void TurnOnRandomSpotlight()
     {
         int rand =  Random.Range(0, spotLight.Length);
         GameObject actualSpotLight = spotLight[rand];
-        actualSpotLight.SetActive(true);
+        actualSpotLight.GetComponent<SpotLight_Script>().TurnOn(this);
     }
 
     public void CallSuccess()
     {
-        m_PhaseSuccessEvent.CallPhaseSuccess(m_CurrentPhaseID);
+        //m_PhaseSuccessEvent.CallPhaseSuccess(m_CurrentPhaseID);
+        Debug.Log("Spotlight success");
     }
 
     public void CallFail()
     {
+        Debug.Log("Spotlight fail");
         m_MalusEvent.CallMalus();
-        spotLightGame();
     }
 }

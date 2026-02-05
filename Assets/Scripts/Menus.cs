@@ -17,8 +17,6 @@ public class Menus : MonoBehaviour
     [SerializeField] private float _fadeDuration = 1.5f;
     [SerializeField] private GameObject _fadeGO;
     
-    [SerializeField] private DialogPartData[] dialogParts;
-
     private bool _canStart;
     private bool _canPause;
     private bool _isPaused;
@@ -74,7 +72,8 @@ public class Menus : MonoBehaviour
             _startIcon.SetActive(false);
             _narratorVisual.SetActive(true);
 
-            StartCoroutine(IntroSequence());
+            //StartCoroutine(IntroSequence());
+            TimelineHandler.instance.StartSequence();
             AudioManager.PlayLoopingPeople(SoundType.LoopPeople);
         }
     }
@@ -129,26 +128,12 @@ public class Menus : MonoBehaviour
         _isTransitioning = false;
     }
 
-    private IEnumerator IntroSequence()
+    public void OpenCurtains()
     {
-        DialogManager.instance.PlayDialog(dialogParts[0]);
-        yield return new WaitForSeconds(3.5f);
-        DialogManager.instance.PlayDialog(dialogParts[1]);
-        yield return new WaitForSeconds(3.5f);
-        DialogManager.instance.PlayDialog(dialogParts[2]);
-        yield return new WaitForSeconds(3.5f);
-        DialogManager.instance.PlayDialog(dialogParts[3]);
-        yield return new WaitForSeconds(3.5f);
-        DialogManager.instance.PlayDialog(dialogParts[4]);
-        yield return new WaitForSeconds(3.5f);
-        DialogManager.instance.PlayDialog(dialogParts[5]);
-        yield return new WaitForSeconds(3.5f);
         _animatorCurtains.SetTrigger("Opening");
         _canPause = true;
         _colliderToDestroy.enabled = false;
         AudioManager.PlayOneShot(SoundType.Corde);
-        yield return new WaitForSeconds(5f);
-        TimelineHandler.instance.StartTimeline();
     }
     
     private IEnumerator StartFadeOut()

@@ -14,7 +14,7 @@ namespace Timeline
         [SerializeField] private EV_KPEndEvent evKPEndEvent;
         
         [SerializeField] private BulletManager bulletManager;
-        [SerializeField] private DialogPartData[] dialogParts;
+        [SerializeField] private SO_DialogPart[] dialogParts;
 
         private Coroutine currentPattern;
 
@@ -26,12 +26,8 @@ namespace Timeline
         public override IEnumerator ProcessKeypoint()
         {
             Debug.Log("Start Phase4");
-            Boss.Instance.StartPhase(false);
-            DialogManager.instance.PlayDialog(dialogParts[0]);
-            yield return new WaitForSeconds(dialogParts[0].clip.length);
-            DialogManager.instance.PlayDialog(dialogParts[1]);
-            yield return new WaitForSeconds(dialogParts[1].clip.length + 0.5f);
-            SpotLight_Gameplay.Instance.StartPhase(kpID);
+            //Boss.Instance.StartPhase(false);
+            //SpotLight_Gameplay.Instance.StartPhase(kpID);
             //KP logic : bullets
             yield return null;
         }
@@ -40,6 +36,7 @@ namespace Timeline
         {
             if (kpID != id) return;
             bulletManager.CancelCoroutine();
+            StopCoroutine(ProcessKeypoint());
             Debug.Log("EndKeypoint");
             //KP logic : dialog
             evKPEndEvent.CallFinishedKeypoint();

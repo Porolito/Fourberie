@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: NarratorSubtitles_fr
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 5f70e9d759659694ba8570714c68ea49, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 834761244672
+    m_Localized: "H\xE9 la concierge\u2026 Oui, toi !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 985697468416
+    m_Localized: "Notre acteur principal est soudainement tomb\xE9 malade."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041016143872
+    m_Localized: "Merci beauuuuucoup d\u2019avoir accept\xE9 le r\xF4le !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1076139245568
+    m_Localized: "C\u2019est quoi ton nom d\xE9j\xE0 ? Ah, Claudia, c\u2019est vrai\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1101846134784
+    m_Localized: "Le public a tr\xE8s h\xE2te, j\u2019esp\xE8re que tu es pr\xEAte
+      !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1164303515648
+    m_Localized: "Et souviens-toi de la r\xE8gle d\u2019or : toujours suivre le script
+      !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4627976536064
+    m_Localized: "Il \xE9tait une fois\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4850316591104
+    m_Localized: "Il y avait un h\xE9ros courageux et une princesse\u2026 pas si
+      en d\xE9tresse."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4884185595904
+    m_Localized: "Apr\xE8s un long long voyage pour la secourir- OH MON DIEU DES
+      TIRS !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4894415503360
+    m_Localized: ESQUIVE ! ESQUIVE ! ESQUIVE !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5545124020224
+    m_Localized: "Ouuuuf\u2026 Bien jou\xE9 H\xE9ros !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5588568621056
+    m_Localized: "Mais m\xEAme avec ses incroyables esquives, elle finit quand m\xEAme
+      par \xEAtre TOUCH\xC9E !?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5599159238656
+    m_Localized: "H\xE9 ! J\u2019ai dit que t\u2019\xE9tais cens\xE9e te faire toucher
+      !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6627124428800
+    m_Localized: Wow ! Un nouveau motif ! Si fun !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6742329376768
+    m_Localized: "Et donc l\u2019histoire continue\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6765469351936
+    m_Localized: "Notre h\xE9ros devrait VRAIMENT esquiver ces projectiles !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7000056774656
+    m_Localized: "C\u2019EST L\u2019HEURE DE BRILLEEEEER !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7038623399936
+    m_Localized: "Va sous les projecteurs H\xE9ros ! Et n\u2019oublie pas ta cr\xE8me
+      solaire !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7295583240192
+    m_Localized: "Le m\xE9chant a l\u2019air plut\xF4t \xE9nerv\xE9, voici le GRANNNNND
+      FINAL !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7364264968192
+    m_Localized: BRESIIIIIIL !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7397584519168
+    m_Localized: CAROOOOOOOOOOOOOO CASSEYYYYYYYYYY !!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7411715129344
+    m_Localized: LETSGO LESBIANS LETSGO !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8538359709696
+    m_Localized: "T\u2019es meilleure comme concierge de toute fa\xE7on\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8623122399232
+    m_Localized: "La princesse n\u2019en a rien \xE0 faire de toi, qu\u2019est-ce
+      que t\u2019attendais ?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8732430155776
+    m_Localized: "MES F\xC9LICITATIONS POUR LE MARIAGE, ALLEZ LES FILLES !"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

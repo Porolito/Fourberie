@@ -15,7 +15,7 @@ namespace Timeline
         
         [SerializeField] private BulletManager bulletManager;
         
-        [SerializeField] private DialogPartData[] dialogParts;
+        [SerializeField] private SO_DialogPart[] dialogParts;
 
         private Coroutine currentPattern;
 
@@ -27,10 +27,8 @@ namespace Timeline
         public override IEnumerator ProcessKeypoint()
         {
             Debug.Log("Start Phase3");
-            Boss.Instance.StartPhase(true);
-            DialogManager.instance.PlayDialog(dialogParts[0]);
-            yield return new WaitForSeconds(dialogParts[0].clip.length + 1f);
-            bulletManager.LaunchCoroutine(3f, 10, "Sine", 3);
+            //Boss.Instance.StartPhase(true);
+            bulletManager.LaunchCoroutine(3f, 10, BulletManager.Pattern.Sine, 3);
             //KP logic : bullets
             yield return null;
         }
@@ -38,7 +36,9 @@ namespace Timeline
         public void OnPhaseSuccess(int id)
         {
             if (kpID != id) return;
+            print("CALLED");
             bulletManager.CancelCoroutine();
+            StopCoroutine(ProcessKeypoint());
             Debug.Log("EndKeypoint");
             //KP logic : dialog
             evKPEndEvent.CallFinishedKeypoint();

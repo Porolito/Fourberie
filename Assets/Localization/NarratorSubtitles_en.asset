@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: NarratorSubtitles_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 5f70e9d759659694ba8570714c68ea49, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 834761244672
+    m_Localized: Hey Janitor... yes you!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 985697468416
+    m_Localized: Our lead actor called in sick at the last minute.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041016143872
+    m_Localized: Thaaankssss for accepting this role!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1076139245568
+    m_Localized: "What\u2019s your name again? Oh, Claudia, right\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1101846134784
+    m_Localized: "The audience is excited, I hope you\u2019re ready."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1164303515648
+    m_Localized: 'And remember the golden rule: stick to the SCRIPT.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4627976536064
+    m_Localized: "Once upon a time\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4850316591104
+    m_Localized: There was a fearless hero and a not-that-scared princess.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4884185595904
+    m_Localized: After travelling far, far away to rescue-OH MY GOD! BULLETS!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4894415503360
+    m_Localized: DODGE! DODGE! DODGE!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5545124020224
+    m_Localized: "Pheew\u2026 Well done Hero!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5588568621056
+    m_Localized: "Even with her incredible dodging skills, she still managed to\u2026
+      get HIT!?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5599159238656
+    m_Localized: "Hey you\u2019re supposed to get HIT I said\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6627124428800
+    m_Localized: WOW! A new pattern! So fun!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6742329376768
+    m_Localized: "So the story goes\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6765469351936
+    m_Localized: Our hero should DEFINITELY dodge those projectiles!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7000056774656
+    m_Localized: TIME TO SHIIIIIIINE!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7038623399936
+    m_Localized: "Take the light Hero! And don\u2019t forget your sunscreen!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7295583240192
+    m_Localized: The bad guy looks kinda pissed, here is the GRANDE FINALEEEEE!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7364264968192
+    m_Localized: BRASIIIIIL!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7397584519168
+    m_Localized: CAROOOOOOOOOOOOOO CASSEYYYYYYYYYY!!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7411715129344
+    m_Localized: LETSGO LESBIANS LETSGO!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8538359709696
+    m_Localized: "You\u2019re better as a janitor anyway\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8623122399232
+    m_Localized: "The princess doesn\u2019t give a shit about you, what were you
+      thinking nerd?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8732430155776
+    m_Localized: CONGRATS FOR THE WEDDING, GO GIRLS!!
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
