@@ -8,36 +8,56 @@ public class HappynessManager : MonoBehaviour, IEV_MalusEvent
 {
     private int malusCount;
 
-    private List<SpriteRenderer> _publicMasks;
+    private List<SpriteRenderer> _publicMasks = new ();
+    private AudioSource m_AudioSource;
     
-    [SerializeField] PublicState badState;
-    [SerializeField] PublicState neutralState;
+    [Header("Audio")]
+    [SerializeField] private AudioClip m_AngryClip;
+    
+    [Header("Events")]
+    [SerializeField] private EV_MalusEvent m_MalusEvent;
+    
+    [Header("Sprites")]
+    [SerializeField] private Sprite m_HappyMask;
+    [SerializeField] private Sprite m_AngryMask;
+    
     void Start()
     {
-        var objects = Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == "Name");
-        foreach (var go in objects)
+        var masksGO = GameObject.FindGameObjectsWithTag("PublicMask");
+        foreach (var go in masksGO)
         {
             _publicMasks.Add(go.GetComponent<SpriteRenderer>());
         }
+        m_MalusEvent.Register(this);
+        
+        m_AudioSource = GetComponent<AudioSource>();
     }
+    
     public void OnMalusReceived()
     {
         malusCount++;
-        ChangePublicMask(badState);
+        if (!m_AudioSource.isPlaying)
+        {
+            m_AudioSource.clip = m_AngryClip;
+            m_AudioSource.Play();
+        }
+        ChangePublicMask(m_AngryMask);
     }
 
-    private void ChangePublicMask(PublicState state)
+    private void ChangePublicMask(Sprite mask, bool withRoutine = true)
     {
         foreach (var go in _publicMasks)
         {
-            go.sprite = state.sprite;
+            go.sprite = mask;
         }
+        
+        if (withRoutine)
+            StartCoroutine(ChangeMaskRoutine());
     }
 
-    IEnumerator Timer()
+    IEnumerator ChangeMaskRoutine()
     {
-        ChangePublicMask(badState);
         yield return new WaitForSeconds(3f);
-        ChangePublicMask(neutralState);
+        ChangePublicMask(m_HappyMask, false);
     }
 }
