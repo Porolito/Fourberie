@@ -8,7 +8,7 @@ public class EV_BonusEvent : ScriptableObject
 
     public void Register(IEV_BonusEvent ev) => listener.Add(ev);
 
-    public void Unregister(IEV_BonusEvent ev) => listener.Remove(ev);
+    public void Unregister() => listener.Clear();
 
     public void CallBonus() => listener.ForEach(l => l.OnBonusReceived());
 }

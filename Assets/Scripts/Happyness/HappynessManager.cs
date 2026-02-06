@@ -30,6 +30,8 @@ public class HappynessManager : MonoBehaviour, IEV_MalusEvent, IEV_BonusEvent
         {
             _publicMasks.Add(go.GetComponent<SpriteRenderer>());
         }
+        m_MalusEvent.Unregister();
+        m_bonusEvent.Unregister();
         m_MalusEvent.Register(this);
         m_bonusEvent.Register(this);
         

@@ -135,22 +135,46 @@ public class Player : MonoBehaviour
 
     void SubInputs()
     {
-        m_PlayerActions.Move.performed += ctx => HandleMovementInput(ctx.ReadValue<float>());
-        m_PlayerActions.Move.canceled += ctx => HandleMovementInput(ctx.ReadValue<float>());
-        m_PlayerActions.Jump.started += _ => HandleJumpInput();
-        m_PlayerActions.Jump.canceled += _ => HandleJumpStopInput();
-        m_PlayerActions.Dash.started += _ => HandleDashInput();
-        m_PlayerActions.Attack.started += _ => HandleAttackInput();
+        m_PlayerActions.Move.performed += OnMove;
+        m_PlayerActions.Move.canceled += OnMove;
+        m_PlayerActions.Jump.started += OnJumpStarted;
+        m_PlayerActions.Jump.canceled += OnJumpCanceled;
+        m_PlayerActions.Dash.started += OnDashStarted;
+        m_PlayerActions.Attack.started += OnAttackStarted;
+    }
+
+    void OnMove(InputAction.CallbackContext ctx)
+    {
+        HandleMovementInput(ctx.ReadValue<float>());
+    }
+    void OnJumpStarted(InputAction.CallbackContext ctx)
+    {
+        HandleJumpInput();
+    }
+
+    void OnJumpCanceled(InputAction.CallbackContext ctx)
+    {
+        HandleJumpStopInput();
+    }
+
+    void OnDashStarted(InputAction.CallbackContext ctx)
+    {
+        HandleDashInput();
+    }
+
+    void OnAttackStarted(InputAction.CallbackContext ctx)
+    {
+        HandleAttackInput();
     }
 
     void UnsubInputs()
     {
-        m_PlayerActions.Move.performed -= ctx => HandleMovementInput(ctx.ReadValue<float>());
-        m_PlayerActions.Move.canceled -= ctx => HandleMovementInput(ctx.ReadValue<float>());
-        m_PlayerActions.Jump.started -= _ => HandleJumpInput();
-        m_PlayerActions.Jump.canceled += _ => HandleJumpStopInput();
-        m_PlayerActions.Dash.started -= _ => HandleDashInput();
-        m_PlayerActions.Attack.started -= _ => HandleAttackInput();
+        m_PlayerActions.Move.performed -= OnMove;
+        m_PlayerActions.Move.canceled -= OnMove;
+        m_PlayerActions.Jump.started -= OnJumpStarted;
+        m_PlayerActions.Jump.canceled -= OnJumpCanceled;
+        m_PlayerActions.Dash.started -= OnDashStarted;
+        m_PlayerActions.Attack.started -= OnAttackStarted;
     }
     
     void HandleMovementInput(float value)

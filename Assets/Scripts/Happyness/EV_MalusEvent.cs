@@ -9,7 +9,7 @@ using UnityEngine;
 
         public void Register(IEV_MalusEvent ev) => listener.Add(ev);
 
-        public void Unregister(IEV_MalusEvent ev) => listener.Remove(ev);
+        public void Unregister() => listener.Clear();
 
         public void CallMalus() => listener.ForEach(l => l.OnMalusReceived());
     }
