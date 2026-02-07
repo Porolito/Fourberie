@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
@@ -118,6 +119,16 @@ namespace Timeline
             m_TimelineDirector.Play();
         }
 
+        private void ReloadGame()
+        {
+            StartCoroutine(TimerBeforeReload());
+        }
+        IEnumerator TimerBeforeReload()
+        {
+            yield return new WaitForSeconds(3f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
         private void StartChallenge(SO_Sequence.ChallengeType challenge)
         {
             switch (challenge)
@@ -140,6 +151,8 @@ namespace Timeline
         #region Signals Callbacks // Called by signals in timelines
 
         public void SC_OnEndSequence() => EndSequence();
+        
+        public void SC_ReloadGame() => ReloadGame();
         
         public void SC_OnDisplayNextSubtitle()
         {
