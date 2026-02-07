@@ -17,6 +17,8 @@ public class Menus : MonoBehaviour
     [SerializeField] private float _fadeDuration = 1.5f;
     [SerializeField] private GameObject _fadeGO;
     
+    private AudioSource _audioSource;
+    
     private bool _canStart;
     private bool _canPause;
     private bool _isPaused;
@@ -28,6 +30,7 @@ public class Menus : MonoBehaviour
     {
         _inputAction.action.Enable();
         _inputPause.action.Enable();
+        _audioSource = GetComponent<AudioSource>();
     }
     
     void Start()
@@ -104,10 +107,12 @@ public class Menus : MonoBehaviour
         _isTransitioning = true;
         _animatorCurtains.SetTrigger("Closing");
         StartCoroutine(PauseAfterCurtains());
+        _audioSource.PlayDelayed(2f);
     }
 
     void ResumeGame()
     {
+        _audioSource.Stop();
         _isTransitioning = true;
         Time.timeScale = 1f;
         _animatorCurtains.SetTrigger("Opening");
