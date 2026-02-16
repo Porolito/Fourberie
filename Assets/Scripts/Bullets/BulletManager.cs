@@ -6,10 +6,17 @@ using UnityEngine.InputSystem;
 public class BulletManager : MonoBehaviour
 {
     private List<GameObject> _ballsPool =  new List<GameObject>();
+    private bool skinPeople = false;
     //[SerializeField] private GameObject ball;
+    
+    [Header("Refs")]
+    [SerializeField] private Transform spawnPoint;
+    
+    [Header("Setup")]
     [SerializeField] private BallPathScriptable[] ballPathScriptable;
     [SerializeField] private GameObject[] ballPrefabs;
-    private bool skinPeople = false;
+    
+    [Header("Debug")]
     [SerializeField] private InputActionReference ballSpawn;
     [SerializeField] private InputActionReference ballMove;
 
@@ -61,11 +68,10 @@ public class BulletManager : MonoBehaviour
         ballPath.endPosX = ballPattern.endPosX;
         ballPath.waveFrequency = sinFrequency;
         ballPath.waveAmplitude = sinMagnitude;
-        ballPath.spawnPosition = ballSpawned.transform.position;
         ballPath.moveDuration = ballSpeed;
         if (isDoubleSine) ballPath.startY = -1;
         else  ballPath.startY = 1;
-        ballPath.GiveAPath();
+        ballPath.GiveAPath(spawnPoint.position);
     }
     IEnumerator SpawnerPattern(float spawnFrequency, int spawnQuantity, Pattern pattern, float timeBeforeNewWave, float sinFrequency, float sinMagnitude, float ballSpeed) //Function to use to do a ball pattern
     {
