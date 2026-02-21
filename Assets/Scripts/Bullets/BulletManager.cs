@@ -10,16 +10,17 @@ public class BulletManager : MonoBehaviour
     private Coroutine ActualCoroutine;
 
     [SerializeField] private GameObject[] ballPrefabs;
-    [SerializeField] private float xOffset = 10f;
+    [SerializeField] [Tooltip("Left/Right distance of spawning bullets")] private float xOffset = 10f;
+    [SerializeField] [Tooltip("Low/Medium/High height of spawning bullets")] private float yOffset = 2;
     
     [Serializable]
     public struct BulletInfo
     {
         public float spawnFrequency;
         public int spawnQuantity;
-        public float timeBeforeNewWave;
-        public float sinFrequency;
-        public float sinMagnitude;
+        public float waveCooldown;
+        [Tooltip("Leave at 0 for strait ball")] public float sineFrequency;
+        public float sineAmplitude;
         public float travelTime;
         public SpawnHeight spawnHeight;
         public bool spawnAtLeft;
@@ -40,12 +41,12 @@ public class BulletManager : MonoBehaviour
             ballSummoned.SetActive(true);
             return ballSummoned;
         }
-        GameObject newBall = Instantiate(GetBallPrefab(), Vector3.zero, Quaternion.identity);
+        GameObject newBall = Instantiate(GetRandomBallPrefab(), Vector3.zero, Quaternion.identity);
         _ballsPool.Add(newBall);
         return newBall;
     }
 
-    private GameObject GetBallPrefab()
+    private GameObject GetRandomBallPrefab()
     {
         return Random.value switch
         {
@@ -55,28 +56,32 @@ public class BulletManager : MonoBehaviour
         };
     }
     
-    private void BallPatternMaker(GameObject ballSpawned, bool isDoubleSine, float sinFrequency, float sinMagnitude, float ballSpeed) //Give pattern to ball and their spawn position
+    private void BallPatternMaker(GameObject ballSpawned, BulletInfo bulletInfo) //Give pattern to ball and their spawn position
     {
         BallPath ballPath = ballSpawned.GetComponent<BallPath>();
-        ballPath.waveFrequency = sinFrequency;
-        ballPath.waveAmplitude = sinMagnitude;
-        ballPath.spawnPosition = ballSpawned.transform.position;
-        ballPath.moveDuration = ballSpeed;
-        if (isDoubleSine) ballPath.startY = -1;
-        else  ballPath.startY = 1;
-        ballPath.GiveAPath();
+        ballPath.GiveAPath(GetSpawnPosition(bulletInfo), xOffset*2, bulletInfo);
     }
-    
+
+    private Vector2 GetSpawnPosition(BulletInfo bulletInfo)
+    {
+        float ballSpawnPosX = bulletInfo.spawnAtLeft ? transform.position.x - xOffset : transform.position.x + xOffset;
+        return bulletInfo.spawnHeight switch
+        {
+            BulletInfo.SpawnHeight.Low => new Vector2(ballSpawnPosX, transform.position.y - yOffset),
+            BulletInfo.SpawnHeight.Medium => new Vector2(ballSpawnPosX, transform.position.y),
+            BulletInfo.SpawnHeight.High => new Vector2(ballSpawnPosX, transform.position.y - yOffset)
+        };
+    }
     
     IEnumerator SpawnerPattern(BulletInfo bulletInfo) //Function to use to do a ball pattern
     {
         for (int i = 0; i < bulletInfo.spawnQuantity; i++)
         {
             yield return new WaitForSeconds(bulletInfo.spawnFrequency);
-            var _lastBall = SummonBall();
-            BallPatternMaker(_lastBall, false,  bulletInfo.sinFrequency, bulletInfo.sinMagnitude,bulletInfo.travelTime);
+            var currBall = SummonBall();
+            BallPatternMaker(currBall, bulletInfo);
         }
-        yield return new WaitForSeconds(bulletInfo.timeBeforeNewWave);
+        yield return new WaitForSeconds(bulletInfo.waveCooldown);
         LaunchCoroutine(bulletInfo);
     }
 
