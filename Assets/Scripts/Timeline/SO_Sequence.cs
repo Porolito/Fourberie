@@ -8,24 +8,12 @@ public class SO_Sequence : ScriptableObject
     public TimelineAsset timeline;
     public SO_DialogPart[] dialogs;
     public ChallengeType challenge;
-    public BulletInfo[] bulletPatterns;
+    public BulletManager.BulletInfo[] bulletPatterns;
     
     public enum ChallengeType
     {
         None,
         BossAttack,
         PlayerHit
-    }
-    
-    [Serializable]
-    public struct BulletInfo
-    {
-        public float spawnFrequency;
-        public int spawnQuantity;
-        public BulletManager.Pattern pattern;
-        public float timeBeforeNewWave;
-        public float sinFrequency;
-        public float sinMagnitude;
-        public float ballSpeed;
     }
 }

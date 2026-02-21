@@ -1158,6 +1158,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimelineManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_PlayableAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 821660a33335e81469dd13bcdd9d62fd, type: 2}
+    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_SceneBindings.Array.data[18].key
+      value: 
+      objectReference: {fileID: -3425482865180673036, guid: 821660a33335e81469dd13bcdd9d62fd, type: 2}
+    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_SceneBindings.Array.data[19].key
+      value: 
+      objectReference: {fileID: -1979421612728900924, guid: 821660a33335e81469dd13bcdd9d62fd, type: 2}
+    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_SceneBindings.Array.data[18].value
+      value: 
+      objectReference: {fileID: 1831016188}
+    - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_SceneBindings.Array.data[19].value
+      value: 
+      objectReference: {fileID: 1831016187}
     - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: m_Boss
       value: 
@@ -1190,6 +1214,38 @@ PrefabInstance:
       propertyPath: m_HappinessManager
       value: 
       objectReference: {fileID: 893079159}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: m_Sequences.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: 'm_Sequences.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d011ba3d71d3a24438b0b490185d2285, type: 2}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: 'm_Sequences.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8c5de1fa5ecbc2e4bb3fd8741de54b8d, type: 2}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: 'm_Sequences.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3857d8b213c267249ad1941a363366a1, type: 2}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: 'm_Sequences.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 411975d43e3424941a69b0bec4d450eb, type: 2}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: 'm_Sequences.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e2aceecf0f00ec46aaf261b1001876e, type: 2}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: 'm_Sequences.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 50e238a1774e225458be1626d3408c68, type: 2}
+    - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+      propertyPath: 'm_Sequences.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: aa703f88cbc693b449ea3cd9886f1a98, type: 2}
     - target: {fileID: 5682818824587505779, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: bulletManager
       value: 
@@ -1251,7 +1307,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 388172499}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7118528626839932401, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
@@ -1316,6 +1373,22 @@ MonoBehaviour:
 --- !u!320 &1831016186 stripped
 PlayableDirector:
   m_CorrespondingSourceObject: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+  m_PrefabInstance: {fileID: 1609888227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1831016187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 370346644058492420, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
+  m_PrefabInstance: {fileID: 1609888227}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+--- !u!82 &1831016188 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8829361818105622409, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
   m_PrefabInstance: {fileID: 1609888227}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1907337887 stripped

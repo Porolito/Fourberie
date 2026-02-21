@@ -1,39 +1,36 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class BulletManager : MonoBehaviour
 {
     private List<GameObject> _ballsPool =  new List<GameObject>();
-    //[SerializeField] private GameObject ball;
-    [SerializeField] private BallPathScriptable[] ballPathScriptable;
-    [SerializeField] private GameObject[] ballPrefabs;
-    private bool skinPeople = false;
-    [SerializeField] private InputActionReference ballSpawn;
-    [SerializeField] private InputActionReference ballMove;
-
-    public float spawnTimer;
-    public int spawnCount;
-    public string type;
-
     private Coroutine ActualCoroutine;
+
+    [SerializeField] private GameObject[] ballPrefabs;
+    [SerializeField] private float xOffset = 10f;
     
-    public enum Pattern
+    [Serializable]
+    public struct BulletInfo
     {
-        Straight,
-        Sine,
-        SineBis
+        public float spawnFrequency;
+        public int spawnQuantity;
+        public float timeBeforeNewWave;
+        public float sinFrequency;
+        public float sinMagnitude;
+        public float travelTime;
+        public SpawnHeight spawnHeight;
+        public bool spawnAtLeft;
+        
+        public enum SpawnHeight
+        {
+            Low,
+            Medium,
+            High
+        }
     }
-    // Update is called once per frame
-    // void Update()
-    // {
-    //     if (ballSpawn.action.WasPressedThisFrame()) //Used for test, can be deleted or put in comm temporary
-    //     {
-    //         LaunchCoroutine(spawnTimer, spawnCount, type, 3) ;
-    //     }
-    //     if  (ballMove.action.WasPressedThisFrame()) StopCoroutine(ActualCoroutine);
-    // }
 
     private GameObject SummonBall() //Re-use a ball or instantiate is needed
     {
@@ -43,22 +40,24 @@ public class BulletManager : MonoBehaviour
             ballSummoned.SetActive(true);
             return ballSummoned;
         }
-        int rand;
-        if (!skinPeople)
-        {
-            rand = Random.Range(0, ballPrefabs.Length);
-            skinPeople = true;
-        }
-        else rand = Random.Range(0, ballPrefabs.Length - 1);
-        GameObject newBall = Instantiate(ballPrefabs[rand], Vector3.zero, Quaternion.identity);
+        GameObject newBall = Instantiate(GetBallPrefab(), Vector3.zero, Quaternion.identity);
         _ballsPool.Add(newBall);
         return newBall;
     }
+
+    private GameObject GetBallPrefab()
+    {
+        return Random.value switch
+        {
+            < 0.45f => ballPrefabs[0],
+            < 0.9f => ballPrefabs[1],
+            _ => ballPrefabs[2]
+        };
+    }
     
-    private void BallPatternMaker(BallPathScriptable ballPattern, GameObject ballSpawned, bool isDoubleSine, float sinFrequency, float sinMagnitude, float ballSpeed) //Give pattern to ball and their spawn position
+    private void BallPatternMaker(GameObject ballSpawned, bool isDoubleSine, float sinFrequency, float sinMagnitude, float ballSpeed) //Give pattern to ball and their spawn position
     {
         BallPath ballPath = ballSpawned.GetComponent<BallPath>();
-        ballPath.endPosX = ballPattern.endPosX;
         ballPath.waveFrequency = sinFrequency;
         ballPath.waveAmplitude = sinMagnitude;
         ballPath.spawnPosition = ballSpawned.transform.position;
@@ -67,34 +66,23 @@ public class BulletManager : MonoBehaviour
         else  ballPath.startY = 1;
         ballPath.GiveAPath();
     }
-    IEnumerator SpawnerPattern(float spawnFrequency, int spawnQuantity, Pattern pattern, float timeBeforeNewWave, float sinFrequency, float sinMagnitude, float ballSpeed) //Function to use to do a ball pattern
+    
+    
+    IEnumerator SpawnerPattern(BulletInfo bulletInfo) //Function to use to do a ball pattern
     {
-        for (int i = 0; i < spawnQuantity; i++)
+        for (int i = 0; i < bulletInfo.spawnQuantity; i++)
         {
-            yield return new WaitForSeconds(spawnFrequency);
+            yield return new WaitForSeconds(bulletInfo.spawnFrequency);
             var _lastBall = SummonBall();
-            switch (pattern)
-            {
-                case Pattern.Straight:
-                    BallPatternMaker(ballPathScriptable[0], _lastBall, false, sinFrequency, sinMagnitude, ballSpeed); 
-                    break;
-                case Pattern.Sine: 
-                    BallPatternMaker(ballPathScriptable[1], _lastBall, false,  sinFrequency, sinMagnitude,ballSpeed); 
-                    break;
-                case Pattern.SineBis: 
-                    BallPatternMaker(ballPathScriptable[1], _lastBall, false,  sinFrequency, sinMagnitude,ballSpeed);
-                    var _lastBall1 = SummonBall();
-                    BallPatternMaker(ballPathScriptable[1], _lastBall1, true, sinFrequency, sinMagnitude,ballSpeed);
-                    break;
-            }
+            BallPatternMaker(_lastBall, false,  bulletInfo.sinFrequency, bulletInfo.sinMagnitude,bulletInfo.travelTime);
         }
-        yield return new WaitForSeconds(timeBeforeNewWave);
-        LaunchCoroutine(spawnFrequency, spawnQuantity, pattern, timeBeforeNewWave, sinFrequency, sinMagnitude, ballSpeed);
+        yield return new WaitForSeconds(bulletInfo.timeBeforeNewWave);
+        LaunchCoroutine(bulletInfo);
     }
 
-    public void LaunchCoroutine(float spawnFrequency, int spawnQuantity, Pattern pattern, float timeBeforeNewWave, float  sinFrequency, float sinMagnitude, float ballSpeed)
+    public void LaunchCoroutine(BulletInfo bulletInfo)
     {
-        ActualCoroutine = StartCoroutine(SpawnerPattern(spawnFrequency, spawnQuantity, pattern, timeBeforeNewWave,  sinFrequency, sinMagnitude, ballSpeed));
+        ActualCoroutine = StartCoroutine(SpawnerPattern(bulletInfo));
     }
 
     public void CancelCoroutine()

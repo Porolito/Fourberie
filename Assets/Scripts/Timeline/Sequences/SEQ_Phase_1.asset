@@ -22,8 +22,8 @@ MonoBehaviour:
   bulletPatterns:
   - spawnFrequency: 3
     spawnQuantity: 5
-    pattern: 1
+    pattern: 0
     timeBeforeNewWave: 3
-    sinFrequency: 2
-    sinMagnitude: 2
-    ballSpeed: 15
+    sinFrequency: 0
+    sinMagnitude: 0
+    ballSpeed: 4

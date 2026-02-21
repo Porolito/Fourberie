@@ -158,7 +158,7 @@ namespace Timeline
 
         public void SC_OnThrowBullets()
         {
-            SO_Sequence.BulletInfo[] bulletPatterns = m_Sequences[m_CurrentSequenceIndex].bulletPatterns;
+            BulletManager.BulletInfo[] bulletPatterns = m_Sequences[m_CurrentSequenceIndex].bulletPatterns;
 
             if (bulletPatterns.Length == 0)
             {
@@ -167,14 +167,7 @@ namespace Timeline
             }
             
             //TODO: Prendre en compte plusieurs patterns ?
-            m_BulletManager.LaunchCoroutine(
-                bulletPatterns[0].spawnFrequency, 
-                bulletPatterns[0].spawnQuantity, 
-                bulletPatterns[0].pattern, 
-                bulletPatterns[0].timeBeforeNewWave,
-                bulletPatterns[0].sinFrequency,
-                bulletPatterns[0].sinMagnitude,
-                bulletPatterns[0].ballSpeed);
+            m_BulletManager.LaunchCoroutine(bulletPatterns[0]);
         }
 
         public void SC_OnActivateSpotlight() => m_SpotLights.TurnOnRandomSpotlight();
