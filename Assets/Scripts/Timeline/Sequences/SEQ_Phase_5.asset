@@ -22,8 +22,9 @@ MonoBehaviour:
   bulletPatterns:
   - spawnFrequency: 5
     spawnQuantity: 10
-    pattern: 2
-    timeBeforeNewWave: 3
-    sinFrequency: 0.6
-    sinMagnitude: 2
-    ballSpeed: 20
+    waveCooldown: 0
+    sineFrequency: 0
+    sineAmplitude: 0
+    travelTime: 0
+    spawnHeight: 0
+    spawnAtLeft: 0

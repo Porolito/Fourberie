@@ -16,6 +16,7 @@ namespace Timeline
         private PlayableDirector m_TimelineDirector;
         
         private int m_CurrentSequenceIndex;
+        private int m_CurrentWaveIndex;
         
         [Header("References")]
         [SerializeField] private DialogManager m_DialogManager;
@@ -156,18 +157,22 @@ namespace Timeline
 
         public void SC_OnEnableChallenge() => StartChallenge(m_Sequences[m_CurrentSequenceIndex].challenge);
 
-        public void SC_OnThrowBullets()
+        public void SC_OnStartWave(int waveAmount)
         {
             BulletManager.BulletInfo[] bulletPatterns = m_Sequences[m_CurrentSequenceIndex].bulletPatterns;
 
-            if (bulletPatterns.Length == 0)
+            for (int i = 0; i < waveAmount; i++)
             {
-                Debug.LogWarning($"[{m_Sequences[m_CurrentSequenceIndex].name}] No bullet patterns found");
-                return;
+                if (bulletPatterns.Length == m_CurrentWaveIndex)
+                {
+                    Debug.LogWarning($"[{m_Sequences[m_CurrentSequenceIndex].name}] No bullet patterns found");
+                    return;
+                }
+                
+                m_BulletManager.LaunchCoroutine(bulletPatterns[m_CurrentWaveIndex]);
+                m_CurrentWaveIndex++;
             }
             
-            //TODO: Prendre en compte plusieurs patterns ?
-            m_BulletManager.LaunchCoroutine(bulletPatterns[0]);
         }
 
         public void SC_OnActivateSpotlight() => m_SpotLights.TurnOnRandomSpotlight();

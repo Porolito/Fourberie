@@ -51,7 +51,7 @@ public class BulletManager : MonoBehaviour
         return Random.value switch
         {
             < 0.45f => ballPrefabs[0],
-            < 0.9f => ballPrefabs[1],
+            < 0.95f => ballPrefabs[1],
             _ => ballPrefabs[2]
         };
     }
