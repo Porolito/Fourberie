@@ -55,12 +55,6 @@ public class BulletManager : MonoBehaviour
             _ => ballPrefabs[2]
         };
     }
-    
-    private void BallPatternMaker(GameObject ballSpawned, BulletInfo bulletInfo) //Give pattern to ball and their spawn position
-    {
-        BallPath ballPath = ballSpawned.GetComponent<BallPath>();
-        ballPath.GiveAPath(GetSpawnPosition(bulletInfo), xOffset*2, bulletInfo);
-    }
 
     private Vector2 GetSpawnPosition(BulletInfo bulletInfo)
     {
@@ -69,7 +63,7 @@ public class BulletManager : MonoBehaviour
         {
             BulletInfo.SpawnHeight.Low => new Vector2(ballSpawnPosX, transform.position.y - yOffset),
             BulletInfo.SpawnHeight.Medium => new Vector2(ballSpawnPosX, transform.position.y),
-            BulletInfo.SpawnHeight.High => new Vector2(ballSpawnPosX, transform.position.y - yOffset)
+            BulletInfo.SpawnHeight.High => new Vector2(ballSpawnPosX, transform.position.y + yOffset)
         };
     }
     
@@ -79,7 +73,7 @@ public class BulletManager : MonoBehaviour
         {
             yield return new WaitForSeconds(bulletInfo.spawnFrequency);
             var currBall = SummonBall();
-            BallPatternMaker(currBall, bulletInfo);
+            currBall.GetComponent<BallPath>().Init(GetSpawnPosition(bulletInfo), xOffset*2, bulletInfo);
         }
         yield return new WaitForSeconds(bulletInfo.waveCooldown);
         LaunchCoroutine(bulletInfo);

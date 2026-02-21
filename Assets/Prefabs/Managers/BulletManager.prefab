@@ -44,15 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94996172fb6cc704e927f54b0749c1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletManager
-  ballPathScriptable:
-  - {fileID: 11400000, guid: 7d93e3b5d172be5478d2a8a9c719db32, type: 2}
-  - {fileID: 11400000, guid: 3ebb52148973ac14d8dfd18a4bc7e8f7, type: 2}
   ballPrefabs:
   - {fileID: 3382155590980841643, guid: e93bd653e467c584a8a583b7a76f9241, type: 3}
   - {fileID: 6528643889603260517, guid: f51947b0f9101424fbcf74016aa81c43, type: 3}
   - {fileID: 2355269730786568664, guid: 0b8301218e3d51b408ce525205756a1e, type: 3}
-  ballSpawn: {fileID: 0}
-  ballMove: {fileID: 0}
-  spawnTimer: 0
-  spawnCount: 0
-  type: 
+  xOffset: 10
+  yOffset: 1

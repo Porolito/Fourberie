@@ -23,4 +23,4 @@ MonoBehaviour:
     sineAmplitude: 0
     travelTime: 4
     spawnHeight: 0
-    spawnAtLeft: 0
+    spawnAtLeft: 1
