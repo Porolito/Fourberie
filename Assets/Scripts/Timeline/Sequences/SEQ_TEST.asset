@@ -19,8 +19,16 @@ MonoBehaviour:
   - spawnFrequency: 1
     spawnQuantity: 5
     waveCooldown: 1
-    sineFrequency: 1
-    sineAmplitude: 2
+    sineFrequency: 1.5
+    sineAmplitude: 3
     travelTime: 4
     spawnHeight: 1
     spawnAtLeft: 1
+  - spawnFrequency: 1
+    spawnQuantity: 5
+    waveCooldown: 1
+    sineFrequency: 1.5
+    sineAmplitude: 3
+    travelTime: 4
+    spawnHeight: 1
+    spawnAtLeft: 0

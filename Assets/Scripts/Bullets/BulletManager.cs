@@ -7,7 +7,6 @@ using Random = UnityEngine.Random;
 public class BulletManager : MonoBehaviour
 {
     private List<GameObject> _ballsPool =  new List<GameObject>();
-    private Coroutine ActualCoroutine;
 
     [SerializeField] private GameObject[] ballPrefabs;
     [SerializeField] [Tooltip("Left/Right distance of spawning bullets")] private float xOffset = 10f;
@@ -67,7 +66,7 @@ public class BulletManager : MonoBehaviour
         };
     }
     
-    IEnumerator SpawnerPattern(BulletInfo bulletInfo) //Function to use to do a ball pattern
+    IEnumerator SpawnRoutine(BulletInfo bulletInfo) //Function to use to do a ball pattern
     {
         for (int i = 0; i < bulletInfo.spawnQuantity; i++)
         {
@@ -76,16 +75,16 @@ public class BulletManager : MonoBehaviour
             currBall.GetComponent<BallPath>().Init(GetSpawnPosition(bulletInfo), xOffset*2, bulletInfo);
         }
         yield return new WaitForSeconds(bulletInfo.waveCooldown);
-        LaunchCoroutine(bulletInfo);
+        StartWave(bulletInfo);
     }
 
-    public void LaunchCoroutine(BulletInfo bulletInfo)
+    public void StartWave(BulletInfo bulletInfo)
     {
-        ActualCoroutine = StartCoroutine(SpawnerPattern(bulletInfo));
+        StartCoroutine(SpawnRoutine(bulletInfo));
     }
 
-    public void CancelCoroutine()
+    public void StopWaves()
     {
-        if (ActualCoroutine != null) StopCoroutine(ActualCoroutine);
+        StopAllCoroutines();
     }
 }

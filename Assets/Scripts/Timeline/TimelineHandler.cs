@@ -85,7 +85,7 @@ namespace Timeline
         private void EndSequence(bool log = true)
         {
             if (log) Debug.Log($"[{m_Sequences[m_CurrentSequenceIndex].name}] End!");
-            m_BulletManager.CancelCoroutine();
+            m_BulletManager.StopWaves();
             m_DialogManager.EndSequence();
             m_CurrentSequenceIndex++;
             m_TimelineDirector.Stop();
@@ -169,10 +169,14 @@ namespace Timeline
                     return;
                 }
                 
-                m_BulletManager.LaunchCoroutine(bulletPatterns[m_CurrentWaveIndex]);
+                m_BulletManager.StartWave(bulletPatterns[m_CurrentWaveIndex]);
                 m_CurrentWaveIndex++;
             }
-            
+        }
+
+        public void SC_OnStopWaves()
+        {
+            m_BulletManager.StopWaves();
         }
 
         public void SC_OnActivateSpotlight() => m_SpotLights.TurnOnRandomSpotlight();
