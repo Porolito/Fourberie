@@ -14,21 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SO_Sequence
   timeline: {fileID: 11400000, guid: 821660a33335e81469dd13bcdd9d62fd, type: 2}
   dialogs: []
-  challenge: 0
+  challenge: 1
   bulletPatterns:
-  - spawnFrequency: 1
-    spawnQuantity: 5
-    waveCooldown: 1
-    sineFrequency: 1.5
-    sineAmplitude: 3
-    travelTime: 4
-    spawnHeight: 1
-    spawnAtLeft: 1
-  - spawnFrequency: 1
-    spawnQuantity: 5
-    waveCooldown: 1
-    sineFrequency: 1.5
-    sineAmplitude: 3
-    travelTime: 4
-    spawnHeight: 1
-    spawnAtLeft: 0
+  - {fileID: 11400000, guid: 1833c5370ed61ae43b93c234ec0e9ddb, type: 2}

@@ -8,7 +8,7 @@ public class SO_Sequence : ScriptableObject
     public TimelineAsset timeline;
     public SO_DialogPart[] dialogs;
     public ChallengeType challenge;
-    public BulletManager.BulletInfo[] bulletPatterns;
+    public SO_BulletInfo[] bulletPatterns;
     
     public enum ChallengeType
     {

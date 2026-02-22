@@ -3,7 +3,7 @@ using DG.Tweening;
 
 public class BallPath : MonoBehaviour
 {
-    public void Init(Vector2 startPos, float travelDistanceX, BulletManager.BulletInfo bulletInfo)
+    public void Init(Vector2 startPos, float travelDistanceX, SO_BulletInfo bulletInfo)
     {
         transform.localScale = bulletInfo.spawnAtLeft ? new Vector3(-1, 1, 1) : Vector3.one;
         

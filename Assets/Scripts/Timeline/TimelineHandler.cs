@@ -159,11 +159,11 @@ namespace Timeline
 
         public void SC_OnStartWave(int waveAmount)
         {
-            BulletManager.BulletInfo[] bulletPatterns = m_Sequences[m_CurrentSequenceIndex].bulletPatterns;
+            SO_BulletInfo[] bulletPatterns = m_Sequences[m_CurrentSequenceIndex].bulletPatterns;
 
             for (int i = 0; i < waveAmount; i++)
             {
-                if (bulletPatterns.Length == m_CurrentWaveIndex)
+                if (bulletPatterns[m_CurrentWaveIndex] == null)
                 {
                     Debug.LogWarning($"[{m_Sequences[m_CurrentSequenceIndex].name}] No bullet patterns found");
                     return;

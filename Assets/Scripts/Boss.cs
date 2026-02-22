@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
-using Timeline;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -22,6 +18,10 @@ public class Boss : MonoBehaviour
     [SerializeField] private int m_HealthPerPhase = 9;
     [SerializeField] private float m_MoveDuration = 4f;
     [SerializeField] private float m_MoveDistance = 10f;
+    
+    
+    //TOOD: sound when get hurts
+    
 
     private void Awake()
     {

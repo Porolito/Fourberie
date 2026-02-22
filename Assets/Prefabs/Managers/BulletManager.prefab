@@ -50,3 +50,44 @@ MonoBehaviour:
   - {fileID: 2355269730786568664, guid: 0b8301218e3d51b408ce525205756a1e, type: 3}
   xOffset: 10
   yOffset: 1
+  m_TestBulletInfo: {fileID: 11400000, guid: 1833c5370ed61ae43b93c234ec0e9ddb, type: 2}
+  m_StartDebugWave:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Start Debug Wave
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: c1e70f7a-15da-416d-9247-f1c831e94676
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 471ada82-16d4-4bd8-a2f0-bb62c0e127a4
+        m_Path: <Keyboard>/x
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Start Debug Wave
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_StopAllWaves:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Stop All Waves
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 01f90279-5daa-4aeb-8e8c-6d57f11878df
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: a17ddcd9-c5ce-48df-94c4-4dff5f76f4f7
+        m_Path: <Keyboard>/c
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Stop All Waves
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}

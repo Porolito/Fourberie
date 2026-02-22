@@ -2,35 +2,33 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 public class BulletManager : MonoBehaviour
 {
     private List<GameObject> _ballsPool =  new List<GameObject>();
 
+    [Header("Settings")]
     [SerializeField] private GameObject[] ballPrefabs;
     [SerializeField] [Tooltip("Left/Right distance of spawning bullets")] private float xOffset = 10f;
     [SerializeField] [Tooltip("Low/Medium/High height of spawning bullets")] private float yOffset = 2;
-    
-    [Serializable]
-    public struct BulletInfo
+
+    [Header("Debug")]
+    [SerializeField] private SO_BulletInfo m_TestBulletInfo;
+    [SerializeField] private InputActionProperty m_StartDebugWave;
+    [SerializeField] private InputActionProperty m_StopAllWaves;
+
+#if UNITY_EDITOR
+    private void Awake()
     {
-        public float spawnFrequency;
-        public int spawnQuantity;
-        public float waveCooldown;
-        [Tooltip("Leave at 0 for strait ball")] public float sineFrequency;
-        public float sineAmplitude;
-        public float travelTime;
-        public SpawnHeight spawnHeight;
-        public bool spawnAtLeft;
+        m_StartDebugWave.action.Enable();
+        m_StopAllWaves.action.Enable();
         
-        public enum SpawnHeight
-        {
-            Low,
-            Medium,
-            High
-        }
+        m_StartDebugWave.action.performed += _ => StartWave(m_TestBulletInfo);
+        m_StopAllWaves.action.performed += _ => StopWaves();
     }
+#endif
 
     private GameObject SummonBall() //Re-use a ball or instantiate is needed
     {
@@ -55,18 +53,19 @@ public class BulletManager : MonoBehaviour
         };
     }
 
-    private Vector2 GetSpawnPosition(BulletInfo bulletInfo)
+    private Vector2 GetSpawnPosition(SO_BulletInfo bulletInfo)
     {
         float ballSpawnPosX = bulletInfo.spawnAtLeft ? transform.position.x - xOffset : transform.position.x + xOffset;
         return bulletInfo.spawnHeight switch
         {
-            BulletInfo.SpawnHeight.Low => new Vector2(ballSpawnPosX, transform.position.y - yOffset),
-            BulletInfo.SpawnHeight.Medium => new Vector2(ballSpawnPosX, transform.position.y),
-            BulletInfo.SpawnHeight.High => new Vector2(ballSpawnPosX, transform.position.y + yOffset)
+            SO_BulletInfo.SpawnHeight.Low => new Vector2(ballSpawnPosX, transform.position.y - yOffset),
+            SO_BulletInfo.SpawnHeight.Medium => new Vector2(ballSpawnPosX, transform.position.y),
+            SO_BulletInfo.SpawnHeight.High => new Vector2(ballSpawnPosX, transform.position.y + yOffset),
+            _ => Vector2.zero
         };
     }
     
-    IEnumerator SpawnRoutine(BulletInfo bulletInfo) //Function to use to do a ball pattern
+    IEnumerator SpawnRoutine(SO_BulletInfo bulletInfo) //Function to use to do a ball pattern
     {
         for (int i = 0; i < bulletInfo.spawnQuantity; i++)
         {
@@ -78,7 +77,7 @@ public class BulletManager : MonoBehaviour
         StartWave(bulletInfo);
     }
 
-    public void StartWave(BulletInfo bulletInfo)
+    public void StartWave(SO_BulletInfo bulletInfo)
     {
         StartCoroutine(SpawnRoutine(bulletInfo));
     }
