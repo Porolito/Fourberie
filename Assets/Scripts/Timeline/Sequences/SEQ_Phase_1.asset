@@ -18,12 +18,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2932d3c4324442e438573671417e14e4, type: 2}
   - {fileID: 11400000, guid: 14fcf044cbd282841aee566c0e0b8bc3, type: 2}
   - {fileID: 11400000, guid: c2df2201493f5fe41931830a3d08bf7b, type: 2}
-  challenge: 1
+  challenge: 0
   bulletPatterns:
-  - spawnFrequency: 3
-    spawnQuantity: 5
-    pattern: 0
-    timeBeforeNewWave: 3
-    sinFrequency: 0
-    sinMagnitude: 0
-    ballSpeed: 4
+  - bulletInfos:
+    - {fileID: 11400000, guid: 1833c5370ed61ae43b93c234ec0e9ddb, type: 2}
+  - bulletInfos:
+    - {fileID: 11400000, guid: 1833c5370ed61ae43b93c234ec0e9ddb, type: 2}
+    - {fileID: 11400000, guid: 5b03cceefa7837646b63086d5add1a0f, type: 2}

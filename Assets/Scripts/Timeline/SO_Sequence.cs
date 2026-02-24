@@ -8,12 +8,18 @@ public class SO_Sequence : ScriptableObject
     public TimelineAsset timeline;
     public SO_DialogPart[] dialogs;
     public ChallengeType challenge;
-    public SO_BulletInfo[] bulletPatterns;
+    public BulletPattern[] bulletPatterns;
     
     public enum ChallengeType
     {
         None,
         BossAttack,
         PlayerHit
+    }
+
+    [Serializable]
+    public struct BulletPattern
+    {
+        public SO_BulletInfo[] bulletInfos;
     }
 }

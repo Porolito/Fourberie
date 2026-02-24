@@ -28,7 +28,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalEmitter
-  m_Time: 12.666666666666632
+  m_Time: 8.483333333333276
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 371a32e94d51cde4aa7acd169b9a768f, type: 2}
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 4.616666666666666
+    m_Start: 0.43333333333333335
     m_ClipIn: 0
     m_Asset: {fileID: -7846685185306491122}
     m_Duration: 7.894791666666666
@@ -179,7 +179,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Phase3_1_Take4
   - m_Version: 1
-    m_Start: 12.666666666666632
+    m_Start: 8.483333333333299
     m_ClipIn: 0
     m_Asset: {fileID: -2387133496988080420}
     m_Duration: 2.2639375
@@ -248,7 +248,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Phase3_3_Take2
   - m_Version: 1
-    m_Start: 15.949999999999964
+    m_Start: 11.76666666666663
     m_ClipIn: 0
     m_Asset: {fileID: 8881284726057248084}
     m_Duration: 3.5062291666666665
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalEmitter
-  m_Time: 6.4999999999999964
+  m_Time: 2.3166666666666647
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: a077b8325973553439d20cd2bd4ebd65, type: 2}
@@ -397,8 +397,8 @@ MonoBehaviour:
     - {fileID: 7663448114986036492}
     - {fileID: -7938792381826460517}
     - {fileID: 7618094995102430208}
-    - {fileID: 4008406880209364923}
     - {fileID: -2848654373778243796}
+    - {fileID: 7730948831232256846}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,22 +421,6 @@ MonoBehaviour:
     m_ScenePreview: 1
   m_DurationMode: 0
   m_MarkerTrack: {fileID: -7931828105226291762}
---- !u!114 &4008406880209364923
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
-  m_Name: Signal Emitter
-  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalEmitter
-  m_Time: 0
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: 8f78406c1ab291e48b0314c150358d42, type: 2}
 --- !u!114 &7618094995102430208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -449,7 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalEmitter
-  m_Time: 15.949999999999964
+  m_Time: 11.766666666666607
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 371a32e94d51cde4aa7acd169b9a768f, type: 2}
@@ -465,10 +449,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalEmitter
-  m_Time: 4.616666666666666
+  m_Time: 0.43333333333333335
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 371a32e94d51cde4aa7acd169b9a768f, type: 2}
+--- !u!114 &7730948831232256846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalEmitter
+  m_Time: 0
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 8f78406c1ab291e48b0314c150358d42, type: 2}
 --- !u!114 &8881284726057248084
 MonoBehaviour:
   m_ObjectHideFlags: 1

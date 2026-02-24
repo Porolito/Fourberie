@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57a65af474bc2a447967848e674cd1b0, type: 3}
-  m_Name: BI_Normal_Low
+  m_Name: BI_Straight_Normal_Medium_L
   m_EditorClassIdentifier: Assembly-CSharp::SO_BulletInfo
   spawnFrequency: 1
   spawnQuantity: 3
-  waveCooldown: 1
+  waveCooldown: 1.5
   sineFrequency: 0
   sineAmplitude: 0
-  travelTime: 3
-  spawnHeight: 0
-  spawnAtLeft: 0
+  travelTime: 4.5
+  spawnHeight: 1
+  spawnAtLeft: 1

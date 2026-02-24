@@ -19,10 +19,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 94907d2a784a974448f58e7cf657fc00, type: 2}
   challenge: 2
   bulletPatterns:
-  - spawnFrequency: 1
-    spawnQuantity: 1
-    pattern: 0
-    timeBeforeNewWave: 3
-    sinFrequency: 0
-    sinMagnitude: 0
-    ballSpeed: 5
+  - bulletInfos:
+    - {fileID: 11400000, guid: 5b03cceefa7837646b63086d5add1a0f, type: 2}
+  - bulletInfos:
+    - {fileID: 11400000, guid: 1833c5370ed61ae43b93c234ec0e9ddb, type: 2}
+    - {fileID: 11400000, guid: cd7bdc07ea0612c4bb2e80ac1e089cd9, type: 2}
+    - {fileID: 11400000, guid: 5b03cceefa7837646b63086d5add1a0f, type: 2}
+    - {fileID: 11400000, guid: 7c5bf515a39a0e443b6b13ad8fc3e6ce, type: 2}
+  - bulletInfos:
+    - {fileID: 11400000, guid: a2aff318a47a9294bba31b30bc407b6e, type: 2}
+    - {fileID: 11400000, guid: 63db43fd8eb7d1b4cb04c7ed108a6e5c, type: 2}
+    - {fileID: 11400000, guid: 8fce479a4ef000941953a567e8cf5774, type: 2}

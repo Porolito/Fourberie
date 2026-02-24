@@ -50,6 +50,7 @@ namespace Timeline
                 instance = this;
             
             m_CurrentSequenceIndex = 0;
+            m_CurrentWaveIndex = 0;
 
             m_TimelineDirector = GetComponent<PlayableDirector>();
             m_ChallengeSuccessGE.Bind(OnChallengeSuccess);
@@ -88,6 +89,7 @@ namespace Timeline
             m_BulletManager.StopWaves();
             m_DialogManager.EndSequence();
             m_CurrentSequenceIndex++;
+            m_CurrentWaveIndex = 0;
             m_TimelineDirector.Stop();
 
             if (m_CurrentSequenceIndex >= m_Sequences.Length)
@@ -157,19 +159,19 @@ namespace Timeline
 
         public void SC_OnEnableChallenge() => StartChallenge(m_Sequences[m_CurrentSequenceIndex].challenge);
 
-        public void SC_OnStartWave(int waveAmount)
+        public void SC_OnStartWave()
         {
-            SO_BulletInfo[] bulletPatterns = m_Sequences[m_CurrentSequenceIndex].bulletPatterns;
+            SO_Sequence.BulletPattern bulletPatterns = m_Sequences[m_CurrentSequenceIndex].bulletPatterns[m_CurrentWaveIndex];
 
-            for (int i = 0; i < waveAmount; i++)
+            foreach (SO_BulletInfo bulletInfo in bulletPatterns.bulletInfos)
             {
-                if (bulletPatterns[m_CurrentWaveIndex] == null)
+                if (bulletInfo == null)
                 {
                     Debug.LogWarning($"[{m_Sequences[m_CurrentSequenceIndex].name}] No bullet patterns found");
                     return;
                 }
                 
-                m_BulletManager.StartWave(bulletPatterns[m_CurrentWaveIndex]);
+                m_BulletManager.StartWave(bulletInfo);
                 m_CurrentWaveIndex++;
             }
         }

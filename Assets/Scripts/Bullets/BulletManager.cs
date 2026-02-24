@@ -15,7 +15,7 @@ public class BulletManager : MonoBehaviour
     [SerializeField] [Tooltip("Low/Medium/High height of spawning bullets")] private float yOffset = 2;
 
     [Header("Debug")]
-    [SerializeField] private SO_BulletInfo m_TestBulletInfo;
+    [SerializeField] private SO_Sequence.BulletPattern m_TestBulletPattern;
     [SerializeField] private InputActionProperty m_StartDebugWave;
     [SerializeField] private InputActionProperty m_StopAllWaves;
 
@@ -25,7 +25,11 @@ public class BulletManager : MonoBehaviour
         m_StartDebugWave.action.Enable();
         m_StopAllWaves.action.Enable();
         
-        m_StartDebugWave.action.performed += _ => StartWave(m_TestBulletInfo);
+        m_StartDebugWave.action.performed += _ =>
+        {
+            foreach (var bulletInfo in m_TestBulletPattern.bulletInfos)
+                StartWave(bulletInfo);
+        };
         m_StopAllWaves.action.performed += _ => StopWaves();
     }
 #endif
