@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a65af474bc2a447967848e674cd1b0, type: 3}
   m_Name: BI_Sine_Normal_Down
   m_EditorClassIdentifier: Assembly-CSharp::SO_BulletInfo
-  spawnFrequency: 2
-  spawnQuantity: 1
-  waveCooldown: 0
-  sineFrequency: 0.8
-  sineAmplitude: -3
-  travelTime: 8
+  spawnFrequency: 0.3
+  spawnQuantity: 4
+  waveCooldown: 3
+  sineFrequency: 0.66
+  sineAmplitude: -3.5
+  travelTime: 6
   spawnHeight: 1
   spawnAtLeft: 0
+  delayed: 0

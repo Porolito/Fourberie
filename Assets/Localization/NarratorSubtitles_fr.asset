@@ -127,6 +127,37 @@ MonoBehaviour:
     m_Localized: "MES F\xC9LICITATIONS POUR LE MARIAGE, ALLEZ LES FILLES !"
     m_Metadata:
       m_Items: []
+  - m_Id: 11680938885234688
+    m_Localized: "On dirait bien que notre h\xE9ros a des choses \xE0 prouver\u2026
+      Mais elle DOIT se faire TOUCHER !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11681837254819840
+    m_Localized: "Qu\u2019est-ce que tu fais Claudia !? Fais-toi toucher !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11682043224506368
+    m_Localized: "MDR tu t\u2019es fait toucher par ce mauvais sosie de Pinocchio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11682833175527424
+    m_Localized: "Le m\xE9chant est en vue ! \xC0 l\u2019attaque, h\xE9ros !!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11683078471008256
+    m_Localized: "Je sais que tu ne ferais pas de mal \xE0 une mouche, mais frappe
+      le m\xE9chant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11687754700537856
+    m_Localized: Ne laisse pas la marionnette te toucher !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12004651304337408
+    m_Localized: "Tu connais le principe Claudia, tu dois l\u2019attaquer de nouveau
+      !"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

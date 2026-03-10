@@ -172,8 +172,8 @@ namespace Timeline
                 }
                 
                 m_BulletManager.StartWave(bulletInfo);
-                m_CurrentWaveIndex++;
             }
+            m_CurrentWaveIndex++;
         }
 
         public void SC_OnStopWaves()

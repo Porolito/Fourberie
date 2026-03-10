@@ -73,9 +73,14 @@ public class BulletManager : MonoBehaviour
     {
         for (int i = 0; i < bulletInfo.spawnQuantity; i++)
         {
-            yield return new WaitForSeconds(bulletInfo.spawnFrequency);
+            if (!bulletInfo.delayed)
+                yield return new WaitForSeconds(bulletInfo.spawnFrequency);
+            
             var currBall = SummonBall();
             currBall.GetComponent<BallPath>().Init(GetSpawnPosition(bulletInfo), xOffset*2, bulletInfo);
+            
+            if (bulletInfo.delayed)
+                yield return new WaitForSeconds(bulletInfo.spawnFrequency);
         }
         yield return new WaitForSeconds(bulletInfo.waveCooldown);
         StartWave(bulletInfo);

@@ -700,16 +700,16 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 42e277b020b666e4e97f267cd42c457e, type: 2}
     - target: {fileID: 5175844248502716116, guid: 6f20f266fbbcfde468056403349c9c92, type: 3}
       propertyPath: m_TestBulletPattern.bulletInfos.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5175844248502716116, guid: 6f20f266fbbcfde468056403349c9c92, type: 3}
       propertyPath: 'm_TestBulletPattern.bulletInfos.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 8190a37f8ef7c8c4691b0991175af46a, type: 2}
+      objectReference: {fileID: 11400000, guid: a2aff318a47a9294bba31b30bc407b6e, type: 2}
     - target: {fileID: 5175844248502716116, guid: 6f20f266fbbcfde468056403349c9c92, type: 3}
       propertyPath: 'm_TestBulletPattern.bulletInfos.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 7c5bf515a39a0e443b6b13ad8fc3e6ce, type: 2}
+      objectReference: {fileID: 11400000, guid: 8fce479a4ef000941953a567e8cf5774, type: 2}
     - target: {fileID: 5175844248502716116, guid: 6f20f266fbbcfde468056403349c9c92, type: 3}
       propertyPath: 'm_TestBulletPattern.bulletInfos.Array.data[2]'
       value: 
@@ -1177,7 +1177,7 @@ PrefabInstance:
     - target: {fileID: 3381861115849894672, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: m_PlayableAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 59963396a4d6f69408140ce5eab599c5, type: 2}
+      objectReference: {fileID: 11400000, guid: 3db51940202bd7145adb1ccb3cb71221, type: 2}
     - target: {fileID: 3678703481156733419, guid: 6a9e08d8bc847ba41849c1a66260f2a9, type: 3}
       propertyPath: m_Boss
       value: 

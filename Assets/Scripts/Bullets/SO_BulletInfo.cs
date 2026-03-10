@@ -11,6 +11,7 @@ public class SO_BulletInfo : ScriptableObject
     public float travelTime;
     public SpawnHeight spawnHeight;
     public bool spawnAtLeft;
+    public bool delayed;
         
     public enum SpawnHeight
     {

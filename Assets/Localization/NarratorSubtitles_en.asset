@@ -120,6 +120,35 @@ MonoBehaviour:
     m_Localized: CONGRATS FOR THE WEDDING, GO GIRLS!!
     m_Metadata:
       m_Items: []
+  - m_Id: 11680938885234688
+    m_Localized: It seems our hero has something to prove... But she MUST be hit
+      by a projectile!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11681837254819840
+    m_Localized: What are you doing, Claudia!? Get yourself hit!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11682043224506368
+    m_Localized: "LOL you\u2019ve got hit by this bad Pinocchio copycat"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11682833175527424
+    m_Localized: The villain is in sight! Hero, attack!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11683078471008256
+    m_Localized: I know you wouldn't hurt a fly, but hit the bad guy...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11687754700537856
+    m_Localized: "Don\u2019t let the puppet hit you!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12004651304337408
+    m_Localized: You know the drill Claudia, you have to hit him again!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

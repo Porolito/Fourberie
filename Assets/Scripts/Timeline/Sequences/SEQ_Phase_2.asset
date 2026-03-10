@@ -17,6 +17,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c784c296b75eefc41807ab5b7e322d66, type: 2}
   - {fileID: 11400000, guid: a9e0ef48e5637254f9afaf7f1214cf53, type: 2}
   - {fileID: 11400000, guid: 94907d2a784a974448f58e7cf657fc00, type: 2}
+  - {fileID: 11400000, guid: f31a8acfccf5ab64db4ae5ce72179908, type: 2}
+  - {fileID: 11400000, guid: cd2d0bdb1a218d542bd66858b515d641, type: 2}
   challenge: 2
   bulletPatterns:
   - bulletInfos:
