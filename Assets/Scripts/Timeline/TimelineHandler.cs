@@ -92,7 +92,7 @@ namespace Timeline
             m_CurrentWaveIndex = 0;
             m_TimelineDirector.Stop();
 
-            if (m_CurrentSequenceIndex >= m_Sequences.Length)
+            if (m_CurrentSequenceIndex+1 > m_Sequences.Length)
                 DisplayEndScreen();
             else
                 StartSequence();
@@ -176,12 +176,11 @@ namespace Timeline
             m_CurrentWaveIndex++;
         }
 
-        public void SC_OnStopWaves()
-        {
-            m_BulletManager.StopWaves();
-        }
+        public void SC_OnStopWaves() => m_BulletManager.StopWaves();
 
         public void SC_OnActivateSpotlight() => m_SpotLights.TurnOnRandomSpotlight();
+        
+        public void SC_OnReloadGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         #endregion
     }

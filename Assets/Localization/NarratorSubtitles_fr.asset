@@ -158,6 +158,14 @@ MonoBehaviour:
       !"
     m_Metadata:
       m_Items: []
+  - m_Id: 75814182962847744
+    m_Localized: "BAM, belle frappe ! Notre h\xE9ros a vaincu le m\xE9chant !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75816304412450816
+    m_Localized: "Passe sous les projecteurs pour la derni\xE8re fois, tu l'as m\xE9rit\xE9."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

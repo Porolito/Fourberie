@@ -149,6 +149,15 @@ MonoBehaviour:
     m_Localized: You know the drill Claudia, you have to hit him again!
     m_Metadata:
       m_Items: []
+  - m_Id: 75814182962847744
+    m_Localized: BAM, what a strike! Our hero has defeated the bad guy!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75816304412450816
+    m_Localized: "Step into the spotlight one last time \u2013 you\u2019ve earned
+      it."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

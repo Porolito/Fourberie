@@ -20,6 +20,6 @@ MonoBehaviour:
   challenge: 0
   bulletPatterns:
   - bulletInfos:
+    - {fileID: 11400000, guid: 42e277b020b666e4e97f267cd42c457e, type: 2}
+    - {fileID: 11400000, guid: 8190a37f8ef7c8c4691b0991175af46a, type: 2}
     - {fileID: 11400000, guid: 3a69cc9f4b7774d4f978823d533cea43, type: 2}
-    - {fileID: 11400000, guid: 7c5bf515a39a0e443b6b13ad8fc3e6ce, type: 2}
-    - {fileID: 11400000, guid: 39a028802939c1b42a7b9d922869cb62, type: 2}

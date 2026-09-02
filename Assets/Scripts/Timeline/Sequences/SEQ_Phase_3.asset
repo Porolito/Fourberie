@@ -17,7 +17,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 355076c838a001340936da6cf3e06864, type: 2}
   - {fileID: 11400000, guid: 3387e7aa4d878894fb99f84faf094c84, type: 2}
   - {fileID: 11400000, guid: 0a21f769835f68f49881622d1d06d96c, type: 2}
-  - {fileID: 11400000, guid: 9f9bf814bac566042b1cb2856ac1107c, type: 2}
   - {fileID: 11400000, guid: fce3776d7806fa7428e2431fd4b778f1, type: 2}
   - {fileID: 11400000, guid: 6f6638265439a0a41819256cc09cf76a, type: 2}
   challenge: 1
