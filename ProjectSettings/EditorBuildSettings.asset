@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Loutre.unity
-    guid: a09e5ff03e4923b46bf7d73ab82348df
+    guid: 25d1f06d874aa9d44a114e83282b9710
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 57cc27aea3c5904408c37256c2b61e53
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e0a6ac34271a85e40a36f927945245d5, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

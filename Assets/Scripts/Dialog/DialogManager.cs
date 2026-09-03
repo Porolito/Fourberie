@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using UnityEditor.Localization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Localization;

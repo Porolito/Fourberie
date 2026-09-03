@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab39e7b04a11fb744baa38d24854354f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimelineHandler
+  m_PlayerPrefab: {fileID: 7067262278770899068, guid: 0e8f89071bf6e7b4fb718df46e78b54d, type: 3}
   m_DialogManager: {fileID: 0}
   m_Menus: {fileID: 0}
   m_Boss: {fileID: 0}
@@ -71,7 +72,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e2aceecf0f00ec46aaf261b1001876e, type: 2}
   - {fileID: 11400000, guid: 50e238a1774e225458be1626d3408c68, type: 2}
   - {fileID: 11400000, guid: aa703f88cbc693b449ea3cd9886f1a98, type: 2}
-  - {fileID: 11400000, guid: d011ba3d71d3a24438b0b490185d2285, type: 2}
+  - {fileID: 11400000, guid: 154237cfef2dd7e40912ddec41eb4fac, type: 2}
 --- !u!320 &3381861115849894672
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -81,7 +82,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1593007679803032458}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 92cb3d1b6fb7385498f484f10f240d6e, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 921a9fdfce1fc324bab78311f8b46973, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -126,6 +127,10 @@ PlayableDirector:
   - key: {fileID: -3425482865180673036, guid: 821660a33335e81469dd13bcdd9d62fd, type: 2}
     value: {fileID: 8829361818105622409}
   - key: {fileID: -1979421612728900924, guid: 821660a33335e81469dd13bcdd9d62fd, type: 2}
+    value: {fileID: 370346644058492420}
+  - key: {fileID: -3425482865180673036, guid: 921a9fdfce1fc324bab78311f8b46973, type: 2}
+    value: {fileID: 8829361818105622409}
+  - key: {fileID: -1979421612728900924, guid: 921a9fdfce1fc324bab78311f8b46973, type: 2}
     value: {fileID: 370346644058492420}
   m_ExposedReferences:
     m_References: []
@@ -247,6 +252,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ecd456bda21ec0346b529e4e2f12ff89, type: 2}
     - {fileID: 11400000, guid: 8f78406c1ab291e48b0314c150358d42, type: 2}
     - {fileID: 11400000, guid: b3b4daa94f0e6d84ead29324772b3500, type: 2}
+    - {fileID: 11400000, guid: 715d00c4cc714414eb1faa9b73372aa7, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -337,6 +343,20 @@ MonoBehaviour:
         - m_Target: {fileID: 3678703481156733419}
           m_TargetAssemblyTypeName: Timeline.TimelineHandler, Assembly-CSharp
           m_MethodName: SC_OnStopWaves
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3678703481156733419}
+          m_TargetAssemblyTypeName: Timeline.TimelineHandler, Assembly-CSharp
+          m_MethodName: SC_OnReloadGame
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

@@ -18,12 +18,15 @@ namespace Timeline
         private int m_CurrentSequenceIndex;
         private int m_CurrentWaveIndex;
         
+        [Header("Prefabs")]
+        [SerializeField] private GameObject m_PlayerPrefab;
+        
         [Header("References")]
         [SerializeField] private DialogManager m_DialogManager;
         [SerializeField] private Menus m_Menus;
         [SerializeField] private Boss m_Boss;
         [SerializeField] private BulletManager m_BulletManager;
-        [SerializeField] private Player m_Player;
+        private Player m_Player;
         [SerializeField] private SpotLight_Gameplay m_SpotLights;
         [SerializeField] private HappynessManager m_HappinessManager;
         [SerializeField] private Image m_EndingImage;
@@ -52,6 +55,11 @@ namespace Timeline
             m_CurrentSequenceIndex = 0;
             m_CurrentWaveIndex = 0;
 
+            GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+            if (playerGO == null)
+                playerGO = Instantiate(m_PlayerPrefab);
+            m_Player = playerGO.GetComponent<Player>();
+            
             m_TimelineDirector = GetComponent<PlayableDirector>();
             m_ChallengeSuccessGE.Bind(OnChallengeSuccess);
         }
