@@ -16,5 +16,10 @@ MonoBehaviour:
   dialogs:
   - {fileID: 11400000, guid: 34c073231624d7b4c9fe7fa7bcd53576, type: 2}
   - {fileID: 11400000, guid: c319c014fbafcba4bb98e74d8b4f94b8, type: 2}
+  - {fileID: 11400000, guid: 8f70dad647413864eae4c69b7e07a83f, type: 2}
   challenge: 0
-  bulletPatterns: []
+  bulletPatterns:
+  - bulletInfos:
+    - {fileID: 11400000, guid: 42e277b020b666e4e97f267cd42c457e, type: 2}
+    - {fileID: 11400000, guid: 8190a37f8ef7c8c4691b0991175af46a, type: 2}
+    - {fileID: 11400000, guid: 3a69cc9f4b7774d4f978823d533cea43, type: 2}

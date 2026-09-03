@@ -32,8 +32,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7595979297360572554}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3678703481156733419
@@ -48,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab39e7b04a11fb744baa38d24854354f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimelineHandler
+  m_PlayerPrefab: {fileID: 7067262278770899068, guid: 0e8f89071bf6e7b4fb718df46e78b54d, type: 3}
   m_DialogManager: {fileID: 0}
   m_Menus: {fileID: 0}
   m_Boss: {fileID: 0}
@@ -72,6 +72,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e2aceecf0f00ec46aaf261b1001876e, type: 2}
   - {fileID: 11400000, guid: 50e238a1774e225458be1626d3408c68, type: 2}
   - {fileID: 11400000, guid: aa703f88cbc693b449ea3cd9886f1a98, type: 2}
+  - {fileID: 11400000, guid: 154237cfef2dd7e40912ddec41eb4fac, type: 2}
 --- !u!320 &3381861115849894672
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -81,7 +82,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1593007679803032458}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: c95892925d1b6634e87bd0438a98ddd6, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 921a9fdfce1fc324bab78311f8b46973, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -122,6 +123,14 @@ PlayableDirector:
   - key: {fileID: -3425482865180673036, guid: c95892925d1b6634e87bd0438a98ddd6, type: 2}
     value: {fileID: 8829361818105622409}
   - key: {fileID: -1979421612728900924, guid: c95892925d1b6634e87bd0438a98ddd6, type: 2}
+    value: {fileID: 370346644058492420}
+  - key: {fileID: -3425482865180673036, guid: 821660a33335e81469dd13bcdd9d62fd, type: 2}
+    value: {fileID: 8829361818105622409}
+  - key: {fileID: -1979421612728900924, guid: 821660a33335e81469dd13bcdd9d62fd, type: 2}
+    value: {fileID: 370346644058492420}
+  - key: {fileID: -3425482865180673036, guid: 921a9fdfce1fc324bab78311f8b46973, type: 2}
+    value: {fileID: 8829361818105622409}
+  - key: {fileID: -1979421612728900924, guid: 921a9fdfce1fc324bab78311f8b46973, type: 2}
     value: {fileID: 370346644058492420}
   m_ExposedReferences:
     m_References: []
@@ -240,8 +249,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 371a32e94d51cde4aa7acd169b9a768f, type: 2}
     - {fileID: 11400000, guid: 0ec8f4ceeb944e143adecf4155019e01, type: 2}
     - {fileID: 11400000, guid: a077b8325973553439d20cd2bd4ebd65, type: 2}
-    - {fileID: 11400000, guid: 8f78406c1ab291e48b0314c150358d42, type: 2}
     - {fileID: 11400000, guid: ecd456bda21ec0346b529e4e2f12ff89, type: 2}
+    - {fileID: 11400000, guid: 8f78406c1ab291e48b0314c150358d42, type: 2}
+    - {fileID: 11400000, guid: b3b4daa94f0e6d84ead29324772b3500, type: 2}
+    - {fileID: 11400000, guid: 715d00c4cc714414eb1faa9b73372aa7, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -303,7 +314,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 3678703481156733419}
           m_TargetAssemblyTypeName: Timeline.TimelineHandler, Assembly-CSharp
-          m_MethodName: SC_OnThrowBullets
+          m_MethodName: SC_OnActivateSpotlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -317,7 +328,21 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 3678703481156733419}
           m_TargetAssemblyTypeName: Timeline.TimelineHandler, Assembly-CSharp
-          m_MethodName: SC_OnActivateSpotlight
+          m_MethodName: SC_OnStartWave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3678703481156733419}
+          m_TargetAssemblyTypeName: Timeline.TimelineHandler, Assembly-CSharp
+          m_MethodName: SC_OnStopWaves
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -327,137 +352,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!1 &7118528626839932401
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7595979297360572554}
-  - component: {fileID: 5682818824587505779}
-  - component: {fileID: 654726085277404655}
-  - component: {fileID: 9164942590053121607}
-  - component: {fileID: 8302029443850165111}
-  - component: {fileID: 8582740517667068261}
-  m_Layer: 0
-  m_Name: KeypointsScripts
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7595979297360572554
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7118528626839932401}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6063190065190579627}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5682818824587505779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7118528626839932401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807709ae8d884ad79c26c2220aafb9db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Timeline.Keypoint1
-  evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
-  evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
-  bulletManager: {fileID: 0}
-  dialogParts:
-  - {fileID: 11400000, guid: d69feca724a3150428c3fac9c0f30990, type: 2}
-  - {fileID: 11400000, guid: 2932d3c4324442e438573671417e14e4, type: 2}
-  - {fileID: 11400000, guid: 14fcf044cbd282841aee566c0e0b8bc3, type: 2}
-  - {fileID: 11400000, guid: c2df2201493f5fe41931830a3d08bf7b, type: 2}
---- !u!114 &654726085277404655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7118528626839932401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 684158d9565c406f936b5d11548cdce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Timeline.Keypoint2
-  evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
-  evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
-  evMalusEvent: {fileID: 11400000, guid: 24e7fdfefecd660449b455a06edb2fc4, type: 2}
-  bulletManager: {fileID: 0}
-  dialogParts:
-  - {fileID: 11400000, guid: c784c296b75eefc41807ab5b7e322d66, type: 2}
-  - {fileID: 11400000, guid: a9e0ef48e5637254f9afaf7f1214cf53, type: 2}
-  - {fileID: 11400000, guid: 94907d2a784a974448f58e7cf657fc00, type: 2}
---- !u!114 &9164942590053121607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7118528626839932401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3692f0b93684413a6c6a54013a59010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Timeline.Keypoint3
-  evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
-  evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
-  bulletManager: {fileID: 0}
-  dialogParts:
-  - {fileID: 11400000, guid: 3387e7aa4d878894fb99f84faf094c84, type: 2}
-  - {fileID: 11400000, guid: 0a21f769835f68f49881622d1d06d96c, type: 2}
-  - {fileID: 11400000, guid: 9f9bf814bac566042b1cb2856ac1107c, type: 2}
---- !u!114 &8302029443850165111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7118528626839932401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d7f6faf57a6422cab6153be68642935, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Timeline.Keypoint4
-  evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
-  evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
-  bulletManager: {fileID: 0}
-  dialogParts:
-  - {fileID: 11400000, guid: 34c073231624d7b4c9fe7fa7bcd53576, type: 2}
-  - {fileID: 11400000, guid: c319c014fbafcba4bb98e74d8b4f94b8, type: 2}
---- !u!114 &8582740517667068261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7118528626839932401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a65e396fa74f7982a4dd610aa6c367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Timeline.Keypoint5
-  evPhaseSuccessEvent: {fileID: 11400000, guid: 1e241b337f8b80648b3d12f791efa3e0, type: 2}
-  evKPEndEvent: {fileID: 11400000, guid: 70630364b879148459cd382664c4026f, type: 2}
-  bulletManager: {fileID: 0}
-  dialogParts:
-  - {fileID: 11400000, guid: 071bda72b2f4d6c48ae15bbb561049fc, type: 2}
-  - {fileID: 11400000, guid: 8696c1deec35a6441a9b13f06e640687, type: 2}
-  - {fileID: 11400000, guid: 4d5bd60fc95aef64a96a99ae384b82dd, type: 2}
-  - {fileID: 11400000, guid: 173c69ddc24365448a46c93d45d0f9e4, type: 2}
-  ending: {fileID: 0}
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3678703481156733419}
+          m_TargetAssemblyTypeName: Timeline.TimelineHandler, Assembly-CSharp
+          m_MethodName: SC_OnReloadGame
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

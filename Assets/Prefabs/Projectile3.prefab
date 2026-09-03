@@ -128,7 +128,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.45
 --- !u!114 &108976772813915065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,11 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede3a01c6e05d8e4e8c6707201654a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallPath
-  endPosX: 0
-  waveAmplitude: 2
-  waveFrequency: 1
-  spawnPosition: {x: 0, y: 0, z: 0}
-  startY: 0
 --- !u!95 &4505624974063594784
 Animator:
   serializedVersion: 7

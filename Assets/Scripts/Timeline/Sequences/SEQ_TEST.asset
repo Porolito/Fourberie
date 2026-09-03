@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9036f1e958bafd4fa2c0d793980ac3a, type: 3}
+  m_Name: SEQ_TEST
+  m_EditorClassIdentifier: Assembly-CSharp::SO_Sequence
+  timeline: {fileID: 11400000, guid: 821660a33335e81469dd13bcdd9d62fd, type: 2}
+  dialogs: []
+  challenge: 1
+  bulletPatterns:
+  - {fileID: 11400000, guid: 1833c5370ed61ae43b93c234ec0e9ddb, type: 2}

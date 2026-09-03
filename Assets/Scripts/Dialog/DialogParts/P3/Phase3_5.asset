@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b56595c59c137a4ea2fcf6d637c3875, type: 3}
+  m_Name: Phase3_5
+  m_EditorClassIdentifier: Assembly-CSharp::DialogPartData
+  clip: {fileID: 8300000, guid: 6a9214c6d8b08f34a89438ad23c77b7c, type: 3}
+  subtitle:
+    m_TableReference:
+      m_TableCollectionName: GUID:5f70e9d759659694ba8570714c68ea49
+    m_TableEntryReference:
+      m_KeyId: 11682833175527424
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  expression: 1
+  references:
+    version: 2
+    RefIds: []

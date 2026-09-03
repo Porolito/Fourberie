@@ -56,7 +56,7 @@ MonoBehaviour:
   m_Clips: []
   m_Markers:
     m_Objects: []
---- !u!114 &-6809335480765702646
+--- !u!114 &-7163313985728991093
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,10 +68,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalEmitter
-  m_Time: 2.1710625
+  m_Time: 2.75
   m_Retroactive: 0
   m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: 493b178bfb34f5b4da6f4f01d69be82c, type: 2}
+  m_Asset: {fileID: 11400000, guid: 715d00c4cc714414eb1faa9b73372aa7, type: 2}
 --- !u!114 &-6773728686615255980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Markers:
     m_Objects:
     - {fileID: 7663448114986036492}
-    - {fileID: -6809335480765702646}
+    - {fileID: -7163313985728991093}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

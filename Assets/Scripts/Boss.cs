@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Timeline;
+using DG.Tweening;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -11,8 +8,7 @@ public class Boss : MonoBehaviour
     
     private bool m_CanTakeDamages;
     private int m_CurrentHealth;
-    private int m_CurrentHitToPush;
-    private bool m_PushCooldownStarted;
+    float m_StartPosY;
     
     [Header("Events")]
     [SerializeField] private SO_GameEvent m_ChallengeSuccessGE;
@@ -20,61 +16,44 @@ public class Boss : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private int m_HealthPerPhase = 9;
-    [SerializeField] private int m_HitToPush = 3;
-    [SerializeField] private float m_TimeToResetPush = 2f;
-    [SerializeField] private float m_PushForce = 40f;
+    [SerializeField] private float m_MoveDuration = 4f;
+    [SerializeField] private float m_MoveDistance = 10f;
+    
+    
+    //TOOD: sound when get hurts
+    
 
     private void Awake()
     {
         m_Animator = GetComponent<Animator>();
+        m_StartPosY = transform.position.y;
+        transform.position = new Vector2(transform.position.x, transform.position.y + m_MoveDistance);
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("PlayerAttack") || !m_CanTakeDamages) return;
+        Hurt();
+    }
+    
+    void Hurt()
+    {
+        m_Animator.SetTrigger(HitAnimString);
+        m_CurrentHealth--;
+        if (m_CurrentHealth <= 0) EndPhase();
     }
 
     public void StartPhase()
     {
+        transform.DOMoveY(m_StartPosY, m_MoveDuration).SetEase(Ease.OutCubic);
         m_CurrentHealth = m_HealthPerPhase;
-        m_CurrentHitToPush = m_HitToPush;
         m_CanTakeDamages = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void EndPhase()
     {
-        if (!other.CompareTag("PlayerAttack") || !m_CanTakeDamages) return;
-        
-        Hurt(other.GetComponentInParent<Player>());
-    }
-
-    void Hurt(Player player)
-    {
-        m_Animator.SetTrigger(HitAnimString);
-        
-        m_CurrentHealth--;
-        if (m_CurrentHealth <= 0) EndPhase(player);
-
-        m_CurrentHitToPush--;
-        if (!m_PushCooldownStarted) StartCoroutine(PushCooldown());
-        if (m_CurrentHitToPush <= 0) PushPlayerAway(player);
-    }
-
-    IEnumerator PushCooldown()
-    {
-        m_PushCooldownStarted = true;
-        yield return new WaitForSeconds(m_TimeToResetPush);
-        m_PushCooldownStarted = false;
-        m_CurrentHitToPush = m_HitToPush;
-    } 
-
-    void PushPlayerAway(Player player)
-    {
-        m_CurrentHitToPush = m_HitToPush;
-        Vector2 pushDir = (Vector2.left + Vector2.up) * m_PushForce;
-        player.PushAway(pushDir);
-        StopCoroutine(PushCooldown());
-    }
-
-    void EndPhase(Player player)
-    {
+        transform.DOMoveY(m_MoveDistance, m_MoveDuration).SetEase(Ease.InCubic);
         m_CanTakeDamages = false;
-        PushPlayerAway(player);
         m_BonusEvent.CallBonus();
         m_ChallengeSuccessGE.Trigger();
     }

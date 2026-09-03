@@ -77,6 +77,8 @@ public class Player : MonoBehaviour
     
     private void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
+        
         m_Inputs = new GlobalInputs();
         m_PlayerActions = m_Inputs.Player;
         SubInputs();
@@ -85,7 +87,7 @@ public class Player : MonoBehaviour
         m_Rb2d = GetComponent<Rigidbody2D>();
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         UnsubInputs();
     }

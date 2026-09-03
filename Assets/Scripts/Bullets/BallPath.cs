@@ -3,32 +3,23 @@ using DG.Tweening;
 
 public class BallPath : MonoBehaviour
 {
-    private Vector3 _startPos;
-    
-    public float endPosX; //X pos to reach
-    public float waveAmplitude;
-    public float waveFrequency;
-    public float moveDuration = 15;
-
-    public float startY = 1;
-    // Update is called once per frame
-    
-    private void TurnOffBall()
+    public void Init(Vector2 startPos, float travelDistanceX, SO_BulletInfo bulletInfo)
     {
-        gameObject.SetActive(false);
-    }
-
-    public void GiveAPath(Vector3 startPos)
-    {
+        transform.localScale = bulletInfo.spawnAtLeft ? new Vector3(-1, 1, 1) : Vector3.one;
+        
         transform.position = startPos;
-        transform.DOMoveX(endPosX, moveDuration).SetEase(Ease.Linear).OnComplete(TurnOffBall);
+        
+        transform.DOMoveX(
+            bulletInfo.spawnAtLeft ? travelDistanceX : -travelDistanceX, 
+            bulletInfo.travelTime)
+            .SetEase(Ease.Linear).OnComplete(() => gameObject.SetActive(false));
 
         // Move along y-axis following the sine wave
-        DOVirtual.Float(0, moveDuration, moveDuration, (t) =>
+        DOVirtual.Float(0, bulletInfo.travelTime, bulletInfo.travelTime, (t) =>
         {
             // Calculate the new y position using the sine function and apply the shift to our og y
-            float newY = waveAmplitude * (Mathf.Sin(t * waveFrequency * 2) * startY);
-            transform.position = new Vector3(transform.position.x, _startPos.y + newY, _startPos.z);
+            float newY = bulletInfo.sineAmplitude * Mathf.Sin(t * bulletInfo.sineFrequency * 2);
+            transform.position = new Vector2(transform.position.x, startPos.y + newY);
         }).SetEase(Ease.Linear);
     }
 }

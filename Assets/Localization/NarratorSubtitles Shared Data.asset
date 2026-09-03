@@ -15,6 +15,18 @@ MonoBehaviour:
   m_TableCollectionName: NarratorSubtitles
   m_TableCollectionNameGuidString: 5f70e9d759659694ba8570714c68ea49
   m_Entries:
+  - m_Id: 8538359709696
+    m_Key: ENDING_BAD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8732430155776
+    m_Key: ENDING_GOOD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8623122399232
+    m_Key: ENDING_NEUTRAL
+    m_Metadata:
+      m_Items: []
   - m_Id: 834761244672
     m_Key: ENTRANCE_1
     m_Metadata:
@@ -67,8 +79,22 @@ MonoBehaviour:
     m_Key: PHASE_2_3
     m_Metadata:
       m_Items: []
+  - m_Id: 11680938885234688
+    m_Key: PHASE_2_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11681837254819840
+    m_Key: PHASE_2_5
+    m_Metadata:
+      m_Items: []
   - m_Id: 6627124428800
     m_Key: PHASE_3_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11682043224506368
+    m_Key: 'PHASE_3_1_b
+
+'
     m_Metadata:
       m_Items: []
   - m_Id: 6742329376768
@@ -79,12 +105,24 @@ MonoBehaviour:
     m_Key: PHASE_3_4
     m_Metadata:
       m_Items: []
+  - m_Id: 11682833175527424
+    m_Key: PHASE_3_5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11683078471008256
+    m_Key: PHASE_3_6
+    m_Metadata:
+      m_Items: []
   - m_Id: 7000056774656
     m_Key: PHASE_4_1
     m_Metadata:
       m_Items: []
   - m_Id: 7038623399936
     m_Key: PHASE_4_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11687754700537856
+    m_Key: PHASE_4_3
     m_Metadata:
       m_Items: []
   - m_Id: 7295583240192
@@ -103,16 +141,16 @@ MonoBehaviour:
     m_Key: PHASE_5_5
     m_Metadata:
       m_Items: []
-  - m_Id: 8538359709696
-    m_Key: ENDING_BAD
+  - m_Id: 12004651304337408
+    m_Key: PHASE_5_6
     m_Metadata:
       m_Items: []
-  - m_Id: 8623122399232
-    m_Key: ENDING_NEUTRAL
+  - m_Id: 75814182962847744
+    m_Key: PHASE_6_1
     m_Metadata:
       m_Items: []
-  - m_Id: 8732430155776
-    m_Key: ENDING_GOOD
+  - m_Id: 75816304412450816
+    m_Key: PHASE_6_2
     m_Metadata:
       m_Items: []
   m_Metadata:

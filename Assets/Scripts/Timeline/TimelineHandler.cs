@@ -17,13 +17,17 @@ namespace Timeline
         private PlayableDirector m_TimelineDirector;
         
         private int m_CurrentSequenceIndex;
+        private int m_CurrentWaveIndex;
+        
+        [Header("Prefabs")]
+        [SerializeField] private GameObject m_PlayerPrefab;
         
         [Header("References")]
         [SerializeField] private DialogManager m_DialogManager;
         [SerializeField] private Menus m_Menus;
         [SerializeField] private Boss m_Boss;
         [SerializeField] private BulletManager m_BulletManager;
-        [SerializeField] private Player m_Player;
+        private Player m_Player;
         [SerializeField] private SpotLight_Gameplay m_SpotLights;
         [SerializeField] private HappynessManager m_HappinessManager;
         [SerializeField] private Image m_EndingImage;
@@ -50,7 +54,13 @@ namespace Timeline
                 instance = this;
             
             m_CurrentSequenceIndex = 0;
+            m_CurrentWaveIndex = 0;
 
+            GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+            if (playerGO == null)
+                playerGO = Instantiate(m_PlayerPrefab);
+            m_Player = playerGO.GetComponent<Player>();
+            
             m_TimelineDirector = GetComponent<PlayableDirector>();
             m_ChallengeSuccessGE.Bind(OnChallengeSuccess);
         }
@@ -85,12 +95,13 @@ namespace Timeline
         private void EndSequence(bool log = true)
         {
             if (log) Debug.Log($"[{m_Sequences[m_CurrentSequenceIndex].name}] End!");
-            m_BulletManager.CancelCoroutine();
+            m_BulletManager.StopWaves();
             m_DialogManager.EndSequence();
             m_CurrentSequenceIndex++;
+            m_CurrentWaveIndex = 0;
             m_TimelineDirector.Stop();
 
-            if (m_CurrentSequenceIndex >= m_Sequences.Length)
+            if (m_CurrentSequenceIndex+1 > m_Sequences.Length)
                 DisplayEndScreen();
             else
                 StartSequence();
@@ -169,28 +180,28 @@ namespace Timeline
 
         public void SC_OnEnableChallenge() => StartChallenge(m_Sequences[m_CurrentSequenceIndex].challenge);
 
-        public void SC_OnThrowBullets()
+        public void SC_OnStartWave()
         {
-            SO_Sequence.BulletInfo[] bulletPatterns = m_Sequences[m_CurrentSequenceIndex].bulletPatterns;
+            SO_Sequence.BulletPattern bulletPatterns = m_Sequences[m_CurrentSequenceIndex].bulletPatterns[m_CurrentWaveIndex];
 
-            if (bulletPatterns.Length == 0)
+            foreach (SO_BulletInfo bulletInfo in bulletPatterns.bulletInfos)
             {
-                Debug.LogWarning($"[{m_Sequences[m_CurrentSequenceIndex].name}] No bullet patterns found");
-                return;
+                if (bulletInfo == null)
+                {
+                    Debug.LogWarning($"[{m_Sequences[m_CurrentSequenceIndex].name}] No bullet patterns found");
+                    return;
+                }
+                
+                m_BulletManager.StartWave(bulletInfo);
             }
-            
-            //TODO: Prendre en compte plusieurs patterns ?
-            m_BulletManager.LaunchCoroutine(
-                bulletPatterns[0].spawnFrequency, 
-                bulletPatterns[0].spawnQuantity, 
-                bulletPatterns[0].pattern, 
-                bulletPatterns[0].timeBeforeNewWave,
-                bulletPatterns[0].sinFrequency,
-                bulletPatterns[0].sinMagnitude,
-                bulletPatterns[0].ballSpeed);
+            m_CurrentWaveIndex++;
         }
 
+        public void SC_OnStopWaves() => m_BulletManager.StopWaves();
+
         public void SC_OnActivateSpotlight() => m_SpotLights.TurnOnRandomSpotlight();
+        
+        public void SC_OnReloadGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         #endregion
     }

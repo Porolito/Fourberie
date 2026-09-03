@@ -79,7 +79,7 @@ public class DialogManager : MonoBehaviour
         m_NarratorSubtitle.text = "";
         m_NarratorExpression.sprite = GetExpressionSprite(dialogPart.expression);
         
-        StopCoroutine(nameof(DisplaySubtitleRoutine));
+        StopAllCoroutines();
         StartCoroutine(DisplaySubtitleRoutine(dialogPart.GetLocalizedSubtitle()));
         m_DialogIndex++;
     }
